@@ -16,6 +16,9 @@ struct ContentView: View {
             if contentVM.showSplash {
                 SplashView()
             }
+            else if contentVM.showOnboarding {
+                LandingView()
+            }
             else {
                 Text("Home")
             }

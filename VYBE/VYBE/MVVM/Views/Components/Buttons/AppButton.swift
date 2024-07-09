@@ -21,7 +21,7 @@ struct AppButton: View {
                     .foregroundStyle(Color.buttonBlue)
                 
                 Text(title)
-                    .foregroundStyle(.offsetWhite)
+                    .foregroundStyle(.offWhite)
                     .font(.roboto(type: .bold, size: 14))
             }
         }

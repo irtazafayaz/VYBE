@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct LandingView: View {
-    
-    @StateObject private var onboardingVM = OnboardingViewModel()
+        
+    @StateObject private var router = OnboardingRouter()
     
     @State private var selectedLanguage = "English"
     
@@ -23,7 +23,7 @@ struct LandingView: View {
     
     var body: some View {
         
-        NavigationStack(path: $onboardingVM.onboardingPath) {
+        NavigationStack(path: $router.path) {
             
             VStack {
                 
@@ -53,13 +53,27 @@ struct LandingView: View {
                 Spacer()
                 
                 AppButton(title: "Next") {
-                    
+                    router.push(path: .signIn)
                 }
                 .frame(height: 52)
                 .padding(.bottom, 27)
             }
             .padding(.horizontal, 27)
+            .navigationDestination(for: OnboardingPath.self) { onboardingPath in
+                
+                switch onboardingPath {
+                case .signIn:
+                    SignInView()
+                    
+                case .signUp:
+                    Text("Sign up")
+                    
+                case .forgotPassword:
+                    Text("Forgot Password")
+                }
+            }
         }
+        .environmentObject(router)
     }
     
     @ViewBuilder
