@@ -11,6 +11,15 @@
 		AB31855E2C3C8E4B0020B9DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB31855D2C3C8E4B0020B9DC /* ContentView.swift */; };
 		AB3185602C3C8E4D0020B9DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB31855F2C3C8E4D0020B9DC /* Assets.xcassets */; };
 		AB3185632C3C8E4D0020B9DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB3185622C3C8E4D0020B9DC /* Preview Assets.xcassets */; };
+		AB3185702C3CA2E50020B9DC /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB31856F2C3CA2E50020B9DC /* ContentViewModel.swift */; };
+		AB3185762C3CA3170020B9DC /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3185752C3CA3170020B9DC /* BaseViewModel.swift */; };
+		AB3185792C3CA3DD0020B9DC /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3185782C3CA3DD0020B9DC /* SplashView.swift */; };
+		AB3185812C3CA4BF0020B9DC /* Extension+Numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3185802C3CA4BF0020B9DC /* Extension+Numbers.swift */; };
+		AB3185842C3CA6850020B9DC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AB3185832C3CA6850020B9DC /* FirebaseAuth */; };
+		AB3185862C3CA6850020B9DC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = AB3185852C3CA6850020B9DC /* FirebaseFirestore */; };
+		AB3185882C3CA6850020B9DC /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = AB3185872C3CA6850020B9DC /* FirebaseFirestoreCombine-Community */; };
+		AB31858A2C3CA6850020B9DC /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AB3185892C3CA6850020B9DC /* FirebaseFirestoreSwift */; };
+		AB31858C2C3CA6850020B9DC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = AB31858B2C3CA6850020B9DC /* FirebaseStorage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +28,10 @@
 		AB31855D2C3C8E4B0020B9DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AB31855F2C3C8E4D0020B9DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB3185622C3C8E4D0020B9DC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AB31856F2C3CA2E50020B9DC /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		AB3185752C3CA3170020B9DC /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		AB3185782C3CA3DD0020B9DC /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		AB3185802C3CA4BF0020B9DC /* Extension+Numbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Numbers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +39,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB3185882C3CA6850020B9DC /* FirebaseFirestoreCombine-Community in Frameworks */,
+				AB3185842C3CA6850020B9DC /* FirebaseAuth in Frameworks */,
+				AB3185862C3CA6850020B9DC /* FirebaseFirestore in Frameworks */,
+				AB31858C2C3CA6850020B9DC /* FirebaseStorage in Frameworks */,
+				AB31858A2C3CA6850020B9DC /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,8 +69,9 @@
 		AB31855A2C3C8E4B0020B9DC /* VYBE */ = {
 			isa = PBXGroup;
 			children = (
-				AB31855B2C3C8E4B0020B9DC /* VYBEApp.swift */,
-				AB31855D2C3C8E4B0020B9DC /* ContentView.swift */,
+				AB31857B2C3CA4500020B9DC /* Helpers */,
+				AB3185712C3CA2EE0020B9DC /* MVVM */,
+				AB31856E2C3CA2D40020B9DC /* RootView */,
 				AB31855F2C3C8E4D0020B9DC /* Assets.xcassets */,
 				AB3185612C3C8E4D0020B9DC /* Preview Content */,
 			);
@@ -65,6 +84,65 @@
 				AB3185622C3C8E4D0020B9DC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AB31856E2C3CA2D40020B9DC /* RootView */ = {
+			isa = PBXGroup;
+			children = (
+				AB31855B2C3C8E4B0020B9DC /* VYBEApp.swift */,
+				AB31855D2C3C8E4B0020B9DC /* ContentView.swift */,
+				AB31856F2C3CA2E50020B9DC /* ContentViewModel.swift */,
+				AB3185752C3CA3170020B9DC /* BaseViewModel.swift */,
+				AB3185782C3CA3DD0020B9DC /* SplashView.swift */,
+			);
+			path = RootView;
+			sourceTree = "<group>";
+		};
+		AB3185712C3CA2EE0020B9DC /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				AB3185722C3CA2F60020B9DC /* Model */,
+				AB3185732C3CA2FB0020B9DC /* Views */,
+			);
+			path = MVVM;
+			sourceTree = "<group>";
+		};
+		AB3185722C3CA2F60020B9DC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AB3185732C3CA2FB0020B9DC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AB3185772C3CA3710020B9DC /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		AB31857A2C3CA44B0020B9DC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AB3185802C3CA4BF0020B9DC /* Extension+Numbers.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AB31857B2C3CA4500020B9DC /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AB31857A2C3CA44B0020B9DC /* Extensions */,
+				AB3185772C3CA3710020B9DC /* Managers */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +161,13 @@
 			dependencies = (
 			);
 			name = VYBE;
+			packageProductDependencies = (
+				AB3185832C3CA6850020B9DC /* FirebaseAuth */,
+				AB3185852C3CA6850020B9DC /* FirebaseFirestore */,
+				AB3185872C3CA6850020B9DC /* FirebaseFirestoreCombine-Community */,
+				AB3185892C3CA6850020B9DC /* FirebaseFirestoreSwift */,
+				AB31858B2C3CA6850020B9DC /* FirebaseStorage */,
+			);
 			productName = VYBE;
 			productReference = AB3185582C3C8E4B0020B9DC /* VYBE.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +196,9 @@
 				Base,
 			);
 			mainGroup = AB31854F2C3C8E4B0020B9DC;
+			packageReferences = (
+				AB3185822C3CA6850020B9DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = AB3185592C3C8E4B0020B9DC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +225,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB3185812C3CA4BF0020B9DC /* Extension+Numbers.swift in Sources */,
 				AB31855E2C3C8E4B0020B9DC /* ContentView.swift in Sources */,
+				AB3185762C3CA3170020B9DC /* BaseViewModel.swift in Sources */,
+				AB3185792C3CA3DD0020B9DC /* SplashView.swift in Sources */,
 				AB31855C2C3C8E4B0020B9DC /* VYBEApp.swift in Sources */,
+				AB3185702C3CA2E50020B9DC /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +289,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -254,7 +346,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -280,6 +372,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -287,9 +380,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = vybe.VYBE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -309,6 +405,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -316,9 +413,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = vybe.VYBE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -344,6 +444,45 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AB3185822C3CA6850020B9DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.29.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AB3185832C3CA6850020B9DC /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AB3185822C3CA6850020B9DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		AB3185852C3CA6850020B9DC /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AB3185822C3CA6850020B9DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		AB3185872C3CA6850020B9DC /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AB3185822C3CA6850020B9DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		AB3185892C3CA6850020B9DC /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AB3185822C3CA6850020B9DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		AB31858B2C3CA6850020B9DC /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AB3185822C3CA6850020B9DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AB3185502C3C8E4B0020B9DC /* Project object */;
 }
