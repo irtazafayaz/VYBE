@@ -20,7 +20,9 @@ struct ContentView: View {
                 LandingView()
             }
             else {
-                Text("Home")
+                Button("Logout") {
+                    AuthManager.shared.signOut()
+                }
             }
         }
     }

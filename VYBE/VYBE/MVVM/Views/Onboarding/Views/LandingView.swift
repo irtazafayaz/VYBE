@@ -66,7 +66,7 @@ struct LandingView: View {
                     SignInView()
                     
                 case .signUp:
-                    Text("Sign up")
+                    SignUpView()
                     
                 case .forgotPassword:
                     Text("Forgot Password")

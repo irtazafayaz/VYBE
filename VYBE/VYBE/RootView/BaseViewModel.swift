@@ -9,34 +9,33 @@ import Foundation
 
 class BaseViewModel: NSObject, ObservableObject {
     
-    @Published var showAlert = false
+    @Published var isPresentAlert = false
     
-    @Published var errorMsg = ""
+    @Published var alertTitle = ""
     
     @Published var isLoading = false
-    
 
-    func showError(error: Error) {
+    func showAlert(error: Error) {
         DispatchQueue.main.async {
-            self.showAlert = true
-            self.errorMsg = error.localizedDescription
+            self.isPresentAlert = true
+            self.alertTitle = error.localizedDescription
         }
         debugPrint(error)
     }
     
-    func showError(error: String) {
+    func showAlert(error: String) {
         DispatchQueue.main.async {
             self.isLoading = false
-            self.showAlert = true
-            self.errorMsg = error
+            self.isPresentAlert = true
+            self.alertTitle = error
         }
         debugPrint(error)
     }
     
-    func hideError() {
+    func hideAlert() {
         DispatchQueue.main.async {
-            self.showAlert = false
-            self.errorMsg = ""
+            self.isPresentAlert = false
+            self.alertTitle = ""
         }
     }
 }

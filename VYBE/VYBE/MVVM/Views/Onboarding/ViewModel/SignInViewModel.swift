@@ -1,5 +1,5 @@
 //
-//  OnboardingViewModel.swift
+//  SignInViewModel.swift
 //  VYBE
 //
 //  Created by Hamza Hashmi on 10/07/2024.
@@ -8,11 +8,11 @@
 import Foundation
 import Combine
 
-class LoginViewModel: ObservableObject {
+class SignInViewModel: BaseViewModel {
     
-    @Published var email = String()
+    @Published var email = UserDefaults.standard.email ?? String()
     
-    @Published var password = String()
+    @Published var password = UserDefaults.standard.password ?? String()
     
     @Published var emailError: String? = nil
     
@@ -20,7 +20,8 @@ class LoginViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
-    init() {
+    override init() {
+        super.init()
         self.$email
             .drop(while: { email in
                 return email.isEmpty
@@ -56,5 +57,44 @@ class LoginViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellables)
+    }
+    
+    func signIn(rememberMe: Bool) {
+        
+        guard emailError == nil, passwordError == nil else {
+            return
+        }
+        
+        self.isLoading = true
+        
+        Task { @MainActor in
+            do {
+                try await AuthManager.shared.signIn(email: email, password: password)
+                
+                UserDefaults.standard.email = rememberMe ? email : nil
+                UserDefaults.standard.password = rememberMe ? password : nil
+            }
+            catch {
+                self.showAlert(error: error)
+            }
+            self.isLoading = false
+        }
+    }
+    
+    func signInAnonymous() {
+        self.isLoading = true
+        
+        Task { @MainActor in
+            do {
+                try await AuthManager.shared.signInAnonymous()
+            }
+            catch AuthError.emptyFields {
+                self.showAlert(error: "Fields can not be empty")
+            }
+            catch {
+                self.showAlert(error: error)
+            }
+            self.isLoading = false
+        }
     }
 }

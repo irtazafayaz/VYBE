@@ -35,7 +35,7 @@
 		AB4868212C3DCCDB00F6DB97 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB4868132C3DCCDA00F6DB97 /* Roboto-Bold.ttf */; };
 		AB4868262C3DCCDB00F6DB97 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB4868182C3DCCDA00F6DB97 /* Roboto-Medium.ttf */; };
 		AB4868282C3DCCDB00F6DB97 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB48681A2C3DCCDA00F6DB97 /* Roboto-Regular.ttf */; };
-		AB48682D2C3DD45C00F6DB97 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB48682C2C3DD45C00F6DB97 /* OnboardingViewModel.swift */; };
+		AB48682D2C3DD45C00F6DB97 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB48682C2C3DD45C00F6DB97 /* SignInViewModel.swift */; };
 		AB4868302C3DD4A000F6DB97 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB48682F2C3DD4A000F6DB97 /* Paths.swift */; };
 		AB4868322C3DD5F100F6DB97 /* Routers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4868312C3DD5F100F6DB97 /* Routers.swift */; };
 		AB4868362C3DD91D00F6DB97 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4868352C3DD91D00F6DB97 /* SignInView.swift */; };
@@ -43,6 +43,10 @@
 		AB48683E2C3DDCD000F6DB97 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB48683D2C3DDCD000F6DB97 /* AuthManager.swift */; };
 		AB4868402C3DDEC500F6DB97 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB48683F2C3DDEC500F6DB97 /* Extension+String.swift */; };
 		AB4868432C3DE17C00F6DB97 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4868422C3DE17C00F6DB97 /* SignUpView.swift */; };
+		AB57A7252C407C3400A17C4E /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57A7242C407C3400A17C4E /* UserManager.swift */; };
+		AB57A7272C407C7200A17C4E /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57A7262C407C7200A17C4E /* UserProfile.swift */; };
+		AB57A7292C40881100A17C4E /* Extension+UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57A7282C40881100A17C4E /* Extension+UserDefaults.swift */; };
+		ABABA3942C3F243A0041EF06 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABABA3932C3F243A0041EF06 /* SignUpViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,7 +75,7 @@
 		AB4868182C3DCCDA00F6DB97 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		AB48681A2C3DCCDA00F6DB97 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		AB48682B2C3DCD8B00F6DB97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		AB48682C2C3DD45C00F6DB97 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		AB48682C2C3DD45C00F6DB97 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		AB48682F2C3DD4A000F6DB97 /* Paths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
 		AB4868312C3DD5F100F6DB97 /* Routers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routers.swift; sourceTree = "<group>"; };
 		AB4868352C3DD91D00F6DB97 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -79,6 +83,10 @@
 		AB48683D2C3DDCD000F6DB97 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		AB48683F2C3DDEC500F6DB97 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		AB4868422C3DE17C00F6DB97 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		AB57A7242C407C3400A17C4E /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		AB57A7262C407C7200A17C4E /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		AB57A7282C40881100A17C4E /* Extension+UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UserDefaults.swift"; sourceTree = "<group>"; };
+		ABABA3932C3F243A0041EF06 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +167,7 @@
 		AB3185722C3CA2F60020B9DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AB57A7262C407C7200A17C4E /* UserProfile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -176,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				AB48683D2C3DDCD000F6DB97 /* AuthManager.swift */,
+				AB57A7242C407C3400A17C4E /* UserManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -187,6 +197,7 @@
 				AB48680B2C3DC5E000F6DB97 /* Extension+Font.swift */,
 				AB3185802C3CA4BF0020B9DC /* Extension+Numbers.swift */,
 				AB48683F2C3DDEC500F6DB97 /* Extension+String.swift */,
+				AB57A7282C40881100A17C4E /* Extension+UserDefaults.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -283,7 +294,8 @@
 		AB4868342C3DD87000F6DB97 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				AB48682C2C3DD45C00F6DB97 /* OnboardingViewModel.swift */,
+				AB48682C2C3DD45C00F6DB97 /* SignInViewModel.swift */,
+				ABABA3932C3F243A0041EF06 /* SignUpViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -395,19 +407,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB57A7292C40881100A17C4E /* Extension+UserDefaults.swift in Sources */,
 				AB3185812C3CA4BF0020B9DC /* Extension+Numbers.swift in Sources */,
 				AB31855E2C3C8E4B0020B9DC /* ContentView.swift in Sources */,
+				AB57A7272C407C7200A17C4E /* UserProfile.swift in Sources */,
 				AB4867E52C3DB0DC00F6DB97 /* LandingView.swift in Sources */,
 				AB4868402C3DDEC500F6DB97 /* Extension+String.swift in Sources */,
 				AB3185762C3CA3170020B9DC /* BaseViewModel.swift in Sources */,
+				ABABA3942C3F243A0041EF06 /* SignUpViewModel.swift in Sources */,
 				AB3185792C3CA3DD0020B9DC /* SplashView.swift in Sources */,
 				AB31855C2C3C8E4B0020B9DC /* VYBEApp.swift in Sources */,
 				AB4868302C3DD4A000F6DB97 /* Paths.swift in Sources */,
 				AB48680C2C3DC5E000F6DB97 /* Extension+Font.swift in Sources */,
 				AB4868362C3DD91D00F6DB97 /* SignInView.swift in Sources */,
 				AB48683E2C3DDCD000F6DB97 /* AuthManager.swift in Sources */,
+				AB57A7252C407C3400A17C4E /* UserManager.swift in Sources */,
 				AB3185702C3CA2E50020B9DC /* ContentViewModel.swift in Sources */,
-				AB48682D2C3DD45C00F6DB97 /* OnboardingViewModel.swift in Sources */,
+				AB48682D2C3DD45C00F6DB97 /* SignInViewModel.swift in Sources */,
 				AB4867E92C3DC31A00F6DB97 /* Extension+Color.swift in Sources */,
 				AB48680F2C3DCC4300F6DB97 /* AppButton.swift in Sources */,
 				AB48683A2C3DD93E00F6DB97 /* ValidatorTextFieldView.swift in Sources */,

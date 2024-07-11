@@ -12,7 +12,7 @@ struct ValidatorTextFieldView: View {
     @Binding var textField: String
     var title: String
     var errorMessage: String?
-    var keyboardType: UIKeyboardType
+    var keyboardType: UIKeyboardType = .default
     var isSecureText: Bool = false
     var height: CGFloat = 40
 
