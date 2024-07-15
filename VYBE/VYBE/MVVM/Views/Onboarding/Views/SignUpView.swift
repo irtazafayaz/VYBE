@@ -127,18 +127,9 @@ struct SignUpView: View {
                 ProgressView("Signin Up...")
                     .shadow(radius: 5)
             }
-            
         }
         .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button(action: {
-                    self.dismiss()
-                }, label: {
-                    Image(.back)
-                })
-            }
-        }
+        .addBackButton(with: dismiss)
         .alert(viewModel.alertTitle, isPresented: $viewModel.isPresentAlert) {
             
         }

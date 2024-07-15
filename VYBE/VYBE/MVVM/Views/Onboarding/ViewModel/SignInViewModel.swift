@@ -97,4 +97,18 @@ class SignInViewModel: BaseViewModel {
             self.isLoading = false
         }
     }
+    
+    func forgotPassword() {
+        self.isLoading = true
+        
+        Task { @MainActor in
+            do {
+                try await AuthManager.shared.forgotPassword(email: email)
+            }
+            catch {
+                self.showAlert(error: error)
+            }
+            self.isLoading = false
+        }
+    }
 }

@@ -46,6 +46,8 @@
 		AB57A7252C407C3400A17C4E /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57A7242C407C3400A17C4E /* UserManager.swift */; };
 		AB57A7272C407C7200A17C4E /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57A7262C407C7200A17C4E /* UserProfile.swift */; };
 		AB57A7292C40881100A17C4E /* Extension+UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57A7282C40881100A17C4E /* Extension+UserDefaults.swift */; };
+		AB57A72B2C40911A00A17C4E /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57A72A2C40911A00A17C4E /* ForgotPasswordView.swift */; };
+		AB7E087A2C43F5FC00943D24 /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7E08792C43F5FC00943D24 /* Extension+View.swift */; };
 		ABABA3942C3F243A0041EF06 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABABA3932C3F243A0041EF06 /* SignUpViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +88,8 @@
 		AB57A7242C407C3400A17C4E /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		AB57A7262C407C7200A17C4E /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		AB57A7282C40881100A17C4E /* Extension+UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UserDefaults.swift"; sourceTree = "<group>"; };
+		AB57A72A2C40911A00A17C4E /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		AB7E08792C43F5FC00943D24 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
 		ABABA3932C3F243A0041EF06 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -197,6 +201,7 @@
 				AB48680B2C3DC5E000F6DB97 /* Extension+Font.swift */,
 				AB3185802C3CA4BF0020B9DC /* Extension+Numbers.swift */,
 				AB48683F2C3DDEC500F6DB97 /* Extension+String.swift */,
+				AB7E08792C43F5FC00943D24 /* Extension+View.swift */,
 				AB57A7282C40881100A17C4E /* Extension+UserDefaults.swift */,
 			);
 			path = Extensions;
@@ -287,6 +292,7 @@
 				AB4867E42C3DB0DC00F6DB97 /* LandingView.swift */,
 				AB4868352C3DD91D00F6DB97 /* SignInView.swift */,
 				AB4868422C3DE17C00F6DB97 /* SignUpView.swift */,
+				AB57A72A2C40911A00A17C4E /* ForgotPasswordView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -414,6 +420,7 @@
 				AB4867E52C3DB0DC00F6DB97 /* LandingView.swift in Sources */,
 				AB4868402C3DDEC500F6DB97 /* Extension+String.swift in Sources */,
 				AB3185762C3CA3170020B9DC /* BaseViewModel.swift in Sources */,
+				AB7E087A2C43F5FC00943D24 /* Extension+View.swift in Sources */,
 				ABABA3942C3F243A0041EF06 /* SignUpViewModel.swift in Sources */,
 				AB3185792C3CA3DD0020B9DC /* SplashView.swift in Sources */,
 				AB31855C2C3C8E4B0020B9DC /* VYBEApp.swift in Sources */,
@@ -423,6 +430,7 @@
 				AB48683E2C3DDCD000F6DB97 /* AuthManager.swift in Sources */,
 				AB57A7252C407C3400A17C4E /* UserManager.swift in Sources */,
 				AB3185702C3CA2E50020B9DC /* ContentViewModel.swift in Sources */,
+				AB57A72B2C40911A00A17C4E /* ForgotPasswordView.swift in Sources */,
 				AB48682D2C3DD45C00F6DB97 /* SignInViewModel.swift in Sources */,
 				AB4867E92C3DC31A00F6DB97 /* Extension+Color.swift in Sources */,
 				AB48680F2C3DCC4300F6DB97 /* AppButton.swift in Sources */,

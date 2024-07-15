@@ -10,10 +10,12 @@ import SwiftUI
 
 struct SplashView: View {
     
+    private let width: CGFloat = .width - 90
+    
     var body: some View {
         Image(.logoText)
             .resizable()
-            .frame(width: .width, height: .width)
+            .frame(width: width, height: width)
             .aspectRatio(contentMode: .fit)
             .padding()
     }
