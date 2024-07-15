@@ -49,6 +49,7 @@
 		AB57A72B2C40911A00A17C4E /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57A72A2C40911A00A17C4E /* ForgotPasswordView.swift */; };
 		AB7E087A2C43F5FC00943D24 /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7E08792C43F5FC00943D24 /* Extension+View.swift */; };
 		ABABA3942C3F243A0041EF06 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABABA3932C3F243A0041EF06 /* SignUpViewModel.swift */; };
+		ABD940E12C45E0F200824C07 /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD940E02C45E0F200824C07 /* TabbarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		AB57A72A2C40911A00A17C4E /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		AB7E08792C43F5FC00943D24 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
 		ABABA3932C3F243A0041EF06 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		ABD940E02C45E0F200824C07 /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 			children = (
 				AB48680D2C3DCC3500F6DB97 /* Components */,
 				AB4867E32C3D9D9200F6DB97 /* Onboarding */,
+				ABD940DF2C45E0E600824C07 /* Tabbar */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -322,6 +325,54 @@
 			path = TextFields;
 			sourceTree = "<group>";
 		};
+		ABD940DF2C45E0E600824C07 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				ABD940E02C45E0F200824C07 /* TabbarView.swift */,
+				ABD940E22C45E4B000824C07 /* Home */,
+				ABD940E32C45E4B600824C07 /* Category */,
+				ABD940E42C45E4C000824C07 /* Add */,
+				ABD940E52C45E4CB00824C07 /* Favorites */,
+				ABD940E62C45E4DA00824C07 /* Profile */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		ABD940E22C45E4B000824C07 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		ABD940E32C45E4B600824C07 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		ABD940E42C45E4C000824C07 /* Add */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
+		ABD940E52C45E4CB00824C07 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		ABD940E62C45E4DA00824C07 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -421,6 +472,7 @@
 				AB4868402C3DDEC500F6DB97 /* Extension+String.swift in Sources */,
 				AB3185762C3CA3170020B9DC /* BaseViewModel.swift in Sources */,
 				AB7E087A2C43F5FC00943D24 /* Extension+View.swift in Sources */,
+				ABD940E12C45E0F200824C07 /* TabbarView.swift in Sources */,
 				ABABA3942C3F243A0041EF06 /* SignUpViewModel.swift in Sources */,
 				AB3185792C3CA3DD0020B9DC /* SplashView.swift in Sources */,
 				AB31855C2C3C8E4B0020B9DC /* VYBEApp.swift in Sources */,
