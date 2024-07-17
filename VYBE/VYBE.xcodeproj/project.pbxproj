@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18671E8B2C4836C40099A624 /* DottedRoundedRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18671E8A2C4836C40099A624 /* DottedRoundedRectangle.swift */; };
+		18671E8D2C48499F0099A624 /* PostSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18671E8C2C48499F0099A624 /* PostSuccessView.swift */; };
+		18E964B12C48328C00A1DF3E /* AddPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E964B02C48328C00A1DF3E /* AddPostView.swift */; };
+		18E964B32C48329D00A1DF3E /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E964B22C48329D00A1DF3E /* AddViewModel.swift */; };
 		AB31855C2C3C8E4B0020B9DC /* VYBEApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB31855B2C3C8E4B0020B9DC /* VYBEApp.swift */; };
 		AB31855E2C3C8E4B0020B9DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB31855D2C3C8E4B0020B9DC /* ContentView.swift */; };
 		AB3185602C3C8E4D0020B9DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB31855F2C3C8E4D0020B9DC /* Assets.xcassets */; };
@@ -73,6 +77,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18671E8A2C4836C40099A624 /* DottedRoundedRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DottedRoundedRectangle.swift; sourceTree = "<group>"; };
+		18671E8C2C48499F0099A624 /* PostSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSuccessView.swift; sourceTree = "<group>"; };
+		18E964B02C48328C00A1DF3E /* AddPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostView.swift; sourceTree = "<group>"; };
+		18E964B22C48329D00A1DF3E /* AddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
 		AB3185582C3C8E4B0020B9DC /* VYBE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VYBE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB31855B2C3C8E4B0020B9DC /* VYBEApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VYBEApp.swift; sourceTree = "<group>"; };
 		AB31855D2C3C8E4B0020B9DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -151,6 +159,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18671E892C4836B00099A624 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				18671E8A2C4836C40099A624 /* DottedRoundedRectangle.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		18E964AF2C48327E00A1DF3E /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				18E964B02C48328C00A1DF3E /* AddPostView.swift */,
+				18671E8C2C48499F0099A624 /* PostSuccessView.swift */,
+				18E964B22C48329D00A1DF3E /* AddViewModel.swift */,
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
 		AB31854F2C3C8E4B0020B9DC = {
 			isa = PBXGroup;
 			children = (
@@ -309,6 +335,7 @@
 		AB48680D2C3DCC3500F6DB97 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				18671E892C4836B00099A624 /* Helper */,
 				ABC172D72C47EAE2001948C6 /* Views */,
 				ABC172D62C47EAD3001948C6 /* Shapes */,
 				AB8225BB2C46905400927B69 /* Texts */,
@@ -407,8 +434,8 @@
 			children = (
 				ABD940E02C45E0F200824C07 /* TabbarView.swift */,
 				ABD940E22C45E4B000824C07 /* Home */,
+				18E964AF2C48327E00A1DF3E /* Add */,
 				ABD940E32C45E4B600824C07 /* Category */,
-				ABD940E42C45E4C000824C07 /* Add */,
 				ABD940E52C45E4CB00824C07 /* Favorites */,
 				ABD940E62C45E4DA00824C07 /* Profile */,
 			);
@@ -432,13 +459,6 @@
 				ABC172DC2C47FA92001948C6 /* CategorySelectedView.swift */,
 			);
 			path = Category;
-			sourceTree = "<group>";
-		};
-		ABD940E42C45E4C000824C07 /* Add */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Add;
 			sourceTree = "<group>";
 		};
 		ABD940E52C45E4CB00824C07 /* Favorites */ = {
@@ -550,6 +570,7 @@
 			files = (
 				ABC1737F2C4818ED001948C6 /* FavoritesView.swift in Sources */,
 				AB57A7292C40881100A17C4E /* Extension+UserDefaults.swift in Sources */,
+				18E964B12C48328C00A1DF3E /* AddPostView.swift in Sources */,
 				ABD05BB72C4716DE0091BD53 /* Filter.swift in Sources */,
 				AB3185812C3CA4BF0020B9DC /* Extension+Numbers.swift in Sources */,
 				AB8225BF2C46AB2300927B69 /* CircleUserView.swift in Sources */,
@@ -563,6 +584,7 @@
 				AB4868402C3DDEC500F6DB97 /* Extension+String.swift in Sources */,
 				AB3185762C3CA3170020B9DC /* BaseViewModel.swift in Sources */,
 				ABD05BB92C471E3D0091BD53 /* PostView.swift in Sources */,
+				18671E8B2C4836C40099A624 /* DottedRoundedRectangle.swift in Sources */,
 				AB7E087A2C43F5FC00943D24 /* Extension+View.swift in Sources */,
 				ABD05BBB2C471E700091BD53 /* Post.swift in Sources */,
 				ABD940E12C45E0F200824C07 /* TabbarView.swift in Sources */,
@@ -571,6 +593,7 @@
 				ABD05BB52C46FF3F0091BD53 /* HomeViewModel.swift in Sources */,
 				ABC173812C486FFE001948C6 /* PostViewFull.swift in Sources */,
 				AB31855C2C3C8E4B0020B9DC /* VYBEApp.swift in Sources */,
+				18E964B32C48329D00A1DF3E /* AddViewModel.swift in Sources */,
 				AB4868302C3DD4A000F6DB97 /* Paths.swift in Sources */,
 				ABC172DB2C47ECDE001948C6 /* Constants.swift in Sources */,
 				AB48680C2C3DC5E000F6DB97 /* Extension+Font.swift in Sources */,
@@ -590,6 +613,7 @@
 				AB48680F2C3DCC4300F6DB97 /* AppButton.swift in Sources */,
 				AB48683A2C3DD93E00F6DB97 /* ValidatorTextFieldView.swift in Sources */,
 				ABD05BBF2C4732730091BD53 /* PostManager.swift in Sources */,
+				18671E8D2C48499F0099A624 /* PostSuccessView.swift in Sources */,
 				ABC172D32C47C811001948C6 /* Line.swift in Sources */,
 				AB4868432C3DE17C00F6DB97 /* SignUpView.swift in Sources */,
 				AB4868322C3DD5F100F6DB97 /* Routers.swift in Sources */,

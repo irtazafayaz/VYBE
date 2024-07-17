@@ -36,6 +36,22 @@ extension Font {
     }
 }
 
+extension UIFont {
+    
+    class func roboto(type: FontType, size: CGFloat) -> UIFont {
+        switch type {
+        case .bold:
+            return UIFont(name: "Roboto-Bold", size: size)!
+        case .medium:
+            return UIFont(name: "Roboto-Medium", size: size)!
+        case .regular:
+            return UIFont(name: "Roboto-Regular", size: size)!
+        case .semiBold:
+            return UIFont(name: "Roboto-Black", size: size)!
+        }
+    }
+}
+
 enum FontType {
     case regular
     case medium
