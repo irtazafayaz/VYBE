@@ -9,6 +9,19 @@ import Foundation
 
 struct NavItem: Identifiable {
     let id = UUID().uuidString
-    let image: ImageResource
+    let title: String?
+    let image: ImageResource?
     let action: () -> Void
+    
+    init(title: String, action: @escaping () -> Void) {
+        self.title = title
+        self.image = nil
+        self.action = action
+    }
+    
+    init(image: ImageResource, action: @escaping () -> Void) {
+        self.title = nil
+        self.image = image
+        self.action = action
+    }
 }

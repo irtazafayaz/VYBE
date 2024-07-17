@@ -54,6 +54,10 @@
 		AB8225BF2C46AB2300927B69 /* CircleUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8225BE2C46AB2300927B69 /* CircleUserView.swift */; };
 		ABABA3942C3F243A0041EF06 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABABA3932C3F243A0041EF06 /* SignUpViewModel.swift */; };
 		ABC172D32C47C811001948C6 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC172D22C47C811001948C6 /* Line.swift */; };
+		ABC172D52C47CFA3001948C6 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC172D42C47CFA3001948C6 /* CategoryView.swift */; };
+		ABC172D92C47EAFA001948C6 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC172D82C47EAFA001948C6 /* CategoryCell.swift */; };
+		ABC172DB2C47ECDE001948C6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC172DA2C47ECDE001948C6 /* Constants.swift */; };
+		ABC172DD2C47FA92001948C6 /* CategorySelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC172DC2C47FA92001948C6 /* CategorySelectedView.swift */; };
 		ABD05BB52C46FF3F0091BD53 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD05BB42C46FF3F0091BD53 /* HomeViewModel.swift */; };
 		ABD05BB72C4716DE0091BD53 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD05BB62C4716DE0091BD53 /* Filter.swift */; };
 		ABD05BB92C471E3D0091BD53 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD05BB82C471E3D0091BD53 /* PostView.swift */; };
@@ -108,6 +112,10 @@
 		AB8225BE2C46AB2300927B69 /* CircleUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleUserView.swift; sourceTree = "<group>"; };
 		ABABA3932C3F243A0041EF06 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		ABC172D22C47C811001948C6 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		ABC172D42C47CFA3001948C6 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		ABC172D82C47EAFA001948C6 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		ABC172DA2C47ECDE001948C6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		ABC172DC2C47FA92001948C6 /* CategorySelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectedView.swift; sourceTree = "<group>"; };
 		ABD05BB42C46FF3F0091BD53 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		ABD05BB62C4716DE0091BD53 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		ABD05BB82C471E3D0091BD53 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
@@ -243,6 +251,7 @@
 				AB48682E2C3DD49800F6DB97 /* Enums */,
 				AB31857A2C3CA44B0020B9DC /* Extensions */,
 				AB3185772C3CA3710020B9DC /* Managers */,
+				ABC172DA2C47ECDE001948C6 /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -289,12 +298,11 @@
 		AB48680D2C3DCC3500F6DB97 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				ABC172D72C47EAE2001948C6 /* Views */,
+				ABC172D62C47EAD3001948C6 /* Shapes */,
 				AB8225BB2C46905400927B69 /* Texts */,
 				AB4868372C3DD93000F6DB97 /* Buttons */,
 				AB4868382C3DD93500F6DB97 /* TextFields */,
-				AB8225BE2C46AB2300927B69 /* CircleUserView.swift */,
-				ABD05BB82C471E3D0091BD53 /* PostView.swift */,
-				ABC172D22C47C811001948C6 /* Line.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -364,6 +372,24 @@
 			path = Texts;
 			sourceTree = "<group>";
 		};
+		ABC172D62C47EAD3001948C6 /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				ABC172D22C47C811001948C6 /* Line.swift */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
+		ABC172D72C47EAE2001948C6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AB8225BE2C46AB2300927B69 /* CircleUserView.swift */,
+				ABD05BB82C471E3D0091BD53 /* PostView.swift */,
+				ABC172D82C47EAFA001948C6 /* CategoryCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		ABD940DF2C45E0E600824C07 /* Tabbar */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,6 +415,8 @@
 		ABD940E32C45E4B600824C07 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				ABC172D42C47CFA3001948C6 /* CategoryView.swift */,
+				ABC172DC2C47FA92001948C6 /* CategorySelectedView.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -512,6 +540,7 @@
 				AB31855E2C3C8E4B0020B9DC /* ContentView.swift in Sources */,
 				ABD05BBD2C4721FB0091BD53 /* Extension+Date.swift in Sources */,
 				AB57A7272C407C7200A17C4E /* UserProfile.swift in Sources */,
+				ABC172DD2C47FA92001948C6 /* CategorySelectedView.swift in Sources */,
 				AB4867E52C3DB0DC00F6DB97 /* LandingView.swift in Sources */,
 				AB8225BD2C46906100927B69 /* TextViews.swift in Sources */,
 				AB4868402C3DDEC500F6DB97 /* Extension+String.swift in Sources */,
@@ -525,15 +554,18 @@
 				ABD05BB52C46FF3F0091BD53 /* HomeViewModel.swift in Sources */,
 				AB31855C2C3C8E4B0020B9DC /* VYBEApp.swift in Sources */,
 				AB4868302C3DD4A000F6DB97 /* Paths.swift in Sources */,
+				ABC172DB2C47ECDE001948C6 /* Constants.swift in Sources */,
 				AB48680C2C3DC5E000F6DB97 /* Extension+Font.swift in Sources */,
 				AB4868362C3DD91D00F6DB97 /* SignInView.swift in Sources */,
 				AB8225B82C467BB300927B69 /* HomeView.swift in Sources */,
 				AB8225BA2C4684DC00927B69 /* NavItem.swift in Sources */,
+				ABC172D92C47EAFA001948C6 /* CategoryCell.swift in Sources */,
 				AB48683E2C3DDCD000F6DB97 /* AuthManager.swift in Sources */,
 				AB57A7252C407C3400A17C4E /* UserManager.swift in Sources */,
 				AB3185702C3CA2E50020B9DC /* ContentViewModel.swift in Sources */,
 				AB57A72B2C40911A00A17C4E /* ForgotPasswordView.swift in Sources */,
 				AB48682D2C3DD45C00F6DB97 /* SignInViewModel.swift in Sources */,
+				ABC172D52C47CFA3001948C6 /* CategoryView.swift in Sources */,
 				AB4867E92C3DC31A00F6DB97 /* Extension+Color.swift in Sources */,
 				AB48680F2C3DCC4300F6DB97 /* AppButton.swift in Sources */,
 				AB48683A2C3DD93E00F6DB97 /* ValidatorTextFieldView.swift in Sources */,

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TabbarView: View {
     
-    @State private var index = 0
+    @State private var index = 1
     
     private let items: [ImageResource] = [.home, .category, .circlePlus, .heart, .profile]
     
@@ -23,8 +23,9 @@ struct TabbarView: View {
                     .tag(0)
                     .toolbar(.hidden, for: .tabBar)
                 
-                Text("Category")
+                CategoryView()
                     .tag(1)
+                    .toolbar(.hidden, for: .tabBar)
                 
                 Text("Add")
                     .tag(2)

@@ -11,8 +11,6 @@ struct HomeView: View {
     
     @StateObject private var homeVM = HomeViewModel()
     
-    let sampleImages: [ImageResource] = [.samplePost, .sampleProduct, .samplePostImage2, .sampleVertical]
-    
     var body: some View {
         
         NavigationStack {
@@ -77,7 +75,7 @@ struct HomeView: View {
                                 circleSize: 60,
                                 showFollowButton: false,
                                 showPlusButton: index == 0,
-                                sampleImage: sampleImages.randomElement()!
+                                sampleImage: Constants.sampleImages.randomElement()!
                             )
                         }
                     }
@@ -111,7 +109,7 @@ struct HomeView: View {
                                 circleSize: 60,
                                 showFollowButton: true,
                                 showPlusButton: false,
-                                sampleImage: sampleImages.randomElement()!
+                                sampleImage: Constants.sampleImages.randomElement()!
                             )
                         }
                     }

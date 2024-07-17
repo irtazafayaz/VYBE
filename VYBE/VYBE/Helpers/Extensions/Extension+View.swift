@@ -41,7 +41,14 @@ extension View {
                 HStack {
                     ForEach(0..<items.count, id: \.self) { index in
                         Button(action: items[index].action, label: {
-                            Image(items[index].image)
+                            if let image = items[index].image {
+                                Image(image)
+                            }
+                            if let text = items[index].title {
+                                Text(text)
+                                    .font(.roboto(type: .bold, size: 15))
+                                    .foregroundStyle(.buttonBlue)
+                            }
                         })
                     }
                 }
@@ -56,7 +63,13 @@ extension View {
                 HStack {
                     ForEach(0..<items.count, id: \.self) { index in
                         Button(action: items[index].action, label: {
-                            Image(items[index].image)
+                            if let image = items[index].image {
+                                Image(image)
+                            }
+                            if let text = items[index].title {
+                                Text(text)
+                                    .font(.roboto(type: .bold, size: 15))
+                            }
                         })
                     }
                 }
