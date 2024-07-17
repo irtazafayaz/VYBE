@@ -29,17 +29,12 @@ struct HomeView: View {
                         PopularUsers()
                             .padding(.top, 10)
                         
-                        HStack(spacing: 11) {
-                            ForEach(FilterType.allCases, id: \.rawValue) { filter in
-                                FilterButton(filter: filter)
-                            }
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding([.horizontal, .top], 20)
+                        FilterButtons()
+                            .padding([.horizontal, .top], 20)
                         
-                        VStack(spacing: 13) {
+                        VStack(spacing: 0) {
                             ForEach(homeVM.posts) { post in
-                                PostView(post: post)
+                                PostView(post: post, showSeeMore: true)
                             }
                         }
                         .padding(.vertical, 22)
@@ -117,26 +112,28 @@ struct HomeView: View {
     }
     
     @ViewBuilder
-    func FilterButton(filter: FilterType) -> some View {
-        Text(filter.rawValue)
-            .font(.roboto(type: .medium, size: 11))
-            .foregroundStyle(homeVM.selectedFilter == filter ? .white : .textLight)
-            .padding(.horizontal, 20)
-            .padding(.vertical, 10)
-            .background {
-                if homeVM.selectedFilter == filter {
-                    RoundedRectangle(cornerRadius: 4)
-                        .foregroundStyle(.buttonBlue)
-                }
-                else {
-                    RoundedRectangle(cornerRadius: 4)
-                        .stroke()
-                        .foregroundStyle(.buttonBlue)
-                }
+    func FilterButtons() -> some View {
+        HStack(spacing: 11) {
+            ForEach(FilterType.allCases, id: \.rawValue) { filter in
+                Text(filter.rawValue)
+                    .font(.roboto(type: .medium, size: 11))
+                    .foregroundStyle(homeVM.selectedFilter == filter ? .white : .textLight)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 10)
+                    .background {
+                        if homeVM.selectedFilter == filter {
+                            RoundedRectangle(cornerRadius: 4)
+                                .foregroundStyle(.buttonBlue)
+                        }
+                        else {
+                            RoundedRectangle(cornerRadius: 4)
+                                .stroke()
+                                .foregroundStyle(.buttonBlue)
+                        }
+                    }
+                
             }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
-}
-
-#Preview {
-    HomeView()
 }
