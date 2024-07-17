@@ -30,7 +30,6 @@ struct Post: Identifiable {
         .samplePostImage2,
         .sampleProduct,
         .sampleVertical,
-        .sampleCoverPhoto,
         .samplePost
     ]
 }

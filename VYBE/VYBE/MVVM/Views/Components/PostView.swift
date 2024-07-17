@@ -67,6 +67,7 @@ struct PostView: View {
                 Text(post.postedTime.getTimeAgo())
             }
             
+            Image(.blueCheckmark)
             Image(systemName: "checkmark.circle.fill")
                 .resizable()
                 .frame(width: 12, height: 12)

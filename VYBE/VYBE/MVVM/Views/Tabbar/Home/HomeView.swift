@@ -11,7 +11,7 @@ struct HomeView: View {
     
     @StateObject private var homeVM = HomeViewModel()
     
-    let sampleImages: [ImageResource] = [.samplePost, .sampleProduct, .samplePostImage2, .sampleCoverPhoto]
+    let sampleImages: [ImageResource] = [.samplePost, .sampleProduct, .samplePostImage2, .sampleVertical]
     
     var body: some View {
         
@@ -70,8 +70,16 @@ struct HomeView: View {
             
             ScrollView(.horizontal) {
                 HStack {
-                    ForEach(homeVM.users) { user in
-                        CircleUserView(user: user, circleSize: 60, showFollowButton: false, sampleImage: sampleImages.randomElement()!)
+                    ForEach(0 ..< homeVM.users.count, id: \.self) { index in
+                        if let user = homeVM.users[safe: index] {
+                            CircleUserView(
+                                user: user,
+                                circleSize: 60,
+                                showFollowButton: false,
+                                showPlusButton: index == 0,
+                                sampleImage: sampleImages.randomElement()!
+                            )
+                        }
                     }
                 }
                 .padding(.horizontal, 20)
@@ -96,13 +104,16 @@ struct HomeView: View {
             
             ScrollView(.horizontal) {
                 HStack {
-                    ForEach(homeVM.users) { user in
-                        CircleUserView(
-                            user: user,
-                            circleSize: 60,
-                            showFollowButton: true,
-                            sampleImage: sampleImages.randomElement()!
-                        )
+                    ForEach(0 ..< homeVM.users.count, id: \.self) { index in
+                        if let user = homeVM.users[safe: index] {
+                            CircleUserView(
+                                user: user,
+                                circleSize: 60,
+                                showFollowButton: true,
+                                showPlusButton: false,
+                                sampleImage: sampleImages.randomElement()!
+                            )
+                        }
                     }
                 }
                 .padding(.horizontal, 15)

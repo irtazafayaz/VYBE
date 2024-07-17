@@ -16,16 +16,26 @@ struct CircleUserView: View {
     
     let showFollowButton: Bool
     
+    let showPlusButton: Bool
+    
     let sampleImage: ImageResource
     
     var body: some View {
         VStack {
-            ZStack {
+            ZStack(alignment: .bottomTrailing) {
                 Image(sampleImage)
                     .resizable()
                     .frame(width: circleSize, height: circleSize)
                     .aspectRatio(contentMode: .fill)
                     .clipShape(.circle)
+                
+                if showPlusButton {
+                    Image(.plusBubble)
+                        .resizable()
+                        .frame(width: 18, height: 18)
+                        .offset(x: 0, y: 0)
+                    
+                }
             }
             
             Text(user.fullName)
