@@ -14,8 +14,10 @@ class UserManager {
     
     let usersRef = Firestore.firestore().collection("users")
     
+    @Published var users: [UserProfile] = []
+    
     private init() {
-        
+        self.fetchUsers()
     }
     
     func createUser(userProfile: UserProfile) async throws {
@@ -34,5 +36,9 @@ class UserManager {
                 continuation.resume(throwing: error)
             }
         }
+    }
+    
+    func fetchUsers() {
+        self.users = Array(repeating: .init(fullName: "Arthur Morgan"), count: 10)
     }
 }

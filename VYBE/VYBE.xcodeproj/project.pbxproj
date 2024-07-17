@@ -48,7 +48,17 @@
 		AB57A7292C40881100A17C4E /* Extension+UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57A7282C40881100A17C4E /* Extension+UserDefaults.swift */; };
 		AB57A72B2C40911A00A17C4E /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57A72A2C40911A00A17C4E /* ForgotPasswordView.swift */; };
 		AB7E087A2C43F5FC00943D24 /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7E08792C43F5FC00943D24 /* Extension+View.swift */; };
+		AB8225B82C467BB300927B69 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8225B72C467BB300927B69 /* HomeView.swift */; };
+		AB8225BA2C4684DC00927B69 /* NavItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8225B92C4684DC00927B69 /* NavItem.swift */; };
+		AB8225BD2C46906100927B69 /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8225BC2C46906100927B69 /* TextViews.swift */; };
+		AB8225BF2C46AB2300927B69 /* CircleUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8225BE2C46AB2300927B69 /* CircleUserView.swift */; };
 		ABABA3942C3F243A0041EF06 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABABA3932C3F243A0041EF06 /* SignUpViewModel.swift */; };
+		ABD05BB52C46FF3F0091BD53 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD05BB42C46FF3F0091BD53 /* HomeViewModel.swift */; };
+		ABD05BB72C4716DE0091BD53 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD05BB62C4716DE0091BD53 /* Filter.swift */; };
+		ABD05BB92C471E3D0091BD53 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD05BB82C471E3D0091BD53 /* PostView.swift */; };
+		ABD05BBB2C471E700091BD53 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD05BBA2C471E700091BD53 /* Post.swift */; };
+		ABD05BBD2C4721FB0091BD53 /* Extension+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD05BBC2C4721FB0091BD53 /* Extension+Date.swift */; };
+		ABD05BBF2C4732730091BD53 /* PostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD05BBE2C4732730091BD53 /* PostManager.swift */; };
 		ABD940E12C45E0F200824C07 /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD940E02C45E0F200824C07 /* TabbarView.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,7 +101,17 @@
 		AB57A7282C40881100A17C4E /* Extension+UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UserDefaults.swift"; sourceTree = "<group>"; };
 		AB57A72A2C40911A00A17C4E /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		AB7E08792C43F5FC00943D24 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
+		AB8225B72C467BB300927B69 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AB8225B92C4684DC00927B69 /* NavItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavItem.swift; sourceTree = "<group>"; };
+		AB8225BC2C46906100927B69 /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
+		AB8225BE2C46AB2300927B69 /* CircleUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleUserView.swift; sourceTree = "<group>"; };
 		ABABA3932C3F243A0041EF06 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		ABD05BB42C46FF3F0091BD53 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		ABD05BB62C4716DE0091BD53 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		ABD05BB82C471E3D0091BD53 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		ABD05BBA2C471E700091BD53 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		ABD05BBC2C4721FB0091BD53 /* Extension+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Date.swift"; sourceTree = "<group>"; };
+		ABD05BBE2C4732730091BD53 /* PostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostManager.swift; sourceTree = "<group>"; };
 		ABD940E02C45E0F200824C07 /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,6 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				AB57A7262C407C7200A17C4E /* UserProfile.swift */,
+				ABD05BBA2C471E700091BD53 /* Post.swift */,
+				AB8225B92C4684DC00927B69 /* NavItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -193,6 +215,7 @@
 			children = (
 				AB48683D2C3DDCD000F6DB97 /* AuthManager.swift */,
 				AB57A7242C407C3400A17C4E /* UserManager.swift */,
+				ABD05BBE2C4732730091BD53 /* PostManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -201,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				AB4867E82C3DC31A00F6DB97 /* Extension+Color.swift */,
+				ABD05BBC2C4721FB0091BD53 /* Extension+Date.swift */,
 				AB48680B2C3DC5E000F6DB97 /* Extension+Font.swift */,
 				AB3185802C3CA4BF0020B9DC /* Extension+Numbers.swift */,
 				AB48683F2C3DDEC500F6DB97 /* Extension+String.swift */,
@@ -263,8 +287,11 @@
 		AB48680D2C3DCC3500F6DB97 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				AB8225BB2C46905400927B69 /* Texts */,
 				AB4868372C3DD93000F6DB97 /* Buttons */,
 				AB4868382C3DD93500F6DB97 /* TextFields */,
+				AB8225BE2C46AB2300927B69 /* CircleUserView.swift */,
+				ABD05BB82C471E3D0091BD53 /* PostView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -285,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				AB48682F2C3DD4A000F6DB97 /* Paths.swift */,
+				ABD05BB62C4716DE0091BD53 /* Filter.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -325,6 +353,14 @@
 			path = TextFields;
 			sourceTree = "<group>";
 		};
+		AB8225BB2C46905400927B69 /* Texts */ = {
+			isa = PBXGroup;
+			children = (
+				AB8225BC2C46906100927B69 /* TextViews.swift */,
+			);
+			path = Texts;
+			sourceTree = "<group>";
+		};
 		ABD940DF2C45E0E600824C07 /* Tabbar */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +377,8 @@
 		ABD940E22C45E4B000824C07 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				AB8225B72C467BB300927B69 /* HomeView.swift */,
+				ABD05BB42C46FF3F0091BD53 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -465,20 +503,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB57A7292C40881100A17C4E /* Extension+UserDefaults.swift in Sources */,
+				ABD05BB72C4716DE0091BD53 /* Filter.swift in Sources */,
 				AB3185812C3CA4BF0020B9DC /* Extension+Numbers.swift in Sources */,
+				AB8225BF2C46AB2300927B69 /* CircleUserView.swift in Sources */,
 				AB31855E2C3C8E4B0020B9DC /* ContentView.swift in Sources */,
+				ABD05BBD2C4721FB0091BD53 /* Extension+Date.swift in Sources */,
 				AB57A7272C407C7200A17C4E /* UserProfile.swift in Sources */,
 				AB4867E52C3DB0DC00F6DB97 /* LandingView.swift in Sources */,
+				AB8225BD2C46906100927B69 /* TextViews.swift in Sources */,
 				AB4868402C3DDEC500F6DB97 /* Extension+String.swift in Sources */,
 				AB3185762C3CA3170020B9DC /* BaseViewModel.swift in Sources */,
+				ABD05BB92C471E3D0091BD53 /* PostView.swift in Sources */,
 				AB7E087A2C43F5FC00943D24 /* Extension+View.swift in Sources */,
+				ABD05BBB2C471E700091BD53 /* Post.swift in Sources */,
 				ABD940E12C45E0F200824C07 /* TabbarView.swift in Sources */,
 				ABABA3942C3F243A0041EF06 /* SignUpViewModel.swift in Sources */,
 				AB3185792C3CA3DD0020B9DC /* SplashView.swift in Sources */,
+				ABD05BB52C46FF3F0091BD53 /* HomeViewModel.swift in Sources */,
 				AB31855C2C3C8E4B0020B9DC /* VYBEApp.swift in Sources */,
 				AB4868302C3DD4A000F6DB97 /* Paths.swift in Sources */,
 				AB48680C2C3DC5E000F6DB97 /* Extension+Font.swift in Sources */,
 				AB4868362C3DD91D00F6DB97 /* SignInView.swift in Sources */,
+				AB8225B82C467BB300927B69 /* HomeView.swift in Sources */,
+				AB8225BA2C4684DC00927B69 /* NavItem.swift in Sources */,
 				AB48683E2C3DDCD000F6DB97 /* AuthManager.swift in Sources */,
 				AB57A7252C407C3400A17C4E /* UserManager.swift in Sources */,
 				AB3185702C3CA2E50020B9DC /* ContentViewModel.swift in Sources */,
@@ -487,6 +534,7 @@
 				AB4867E92C3DC31A00F6DB97 /* Extension+Color.swift in Sources */,
 				AB48680F2C3DCC4300F6DB97 /* AppButton.swift in Sources */,
 				AB48683A2C3DD93E00F6DB97 /* ValidatorTextFieldView.swift in Sources */,
+				ABD05BBF2C4732730091BD53 /* PostManager.swift in Sources */,
 				AB4868432C3DE17C00F6DB97 /* SignUpView.swift in Sources */,
 				AB4868322C3DD5F100F6DB97 /* Routers.swift in Sources */,
 			);

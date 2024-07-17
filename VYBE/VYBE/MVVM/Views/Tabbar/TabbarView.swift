@@ -19,8 +19,9 @@ struct TabbarView: View {
     var body: some View {
         VStack(spacing: 0) {
             TabView(selection: $index) {
-                Text("Home")
+                HomeView()
                     .tag(0)
+                    .toolbar(.hidden, for: .tabBar)
                 
                 Text("Category")
                     .tag(1)
@@ -35,14 +36,12 @@ struct TabbarView: View {
                     .tag(4)
             }
             .frame(maxHeight: .infinity)
-//            VStack {
-                HStack {
-                    ForEach(0 ..< items.count, id: \.self) { index in
-                        TabbarItem(image: items[index], tabIndex: index)
-                    }
+            
+            HStack {
+                ForEach(0 ..< items.count, id: \.self) { index in
+                    TabbarItem(image: items[index], tabIndex: index)
                 }
-//                TabIndicator()
-//            }
+            }
         }
     }
     
