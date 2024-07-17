@@ -34,6 +34,22 @@ extension View {
     }
     
     @ViewBuilder
+    func ChevronBackButtonAction(action: @escaping (() -> ()), title: String? = nil) -> some View {
+        
+        Button(action: action, label: {
+            
+            HStack {
+                
+                Image(.chevron)
+                
+                if let title {
+                    BlueRobotoText(title: title, fontWeight: .bold, fontSize: 15)
+                }
+            }
+        })
+    }
+    
+    @ViewBuilder
     func addBackButton(with dismiss: DismissAction) -> some View {
         self
             .navigationBarBackButtonHidden(true)

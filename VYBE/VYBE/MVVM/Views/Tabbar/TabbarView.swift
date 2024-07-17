@@ -27,9 +27,9 @@ struct TabbarView: View {
                     .tag(1)
                     .toolbar(.hidden, for: .tabBar)
                 
-                Text("Add")
+                AddPostView(selectedTab: $index)
                     .tag(2)
-                
+                    .toolbar(.hidden, for: .tabBar)
                 Text("Favorites")
                     .tag(3)
                 
