@@ -12,7 +12,9 @@ struct CategoryView: View {
     
     @Environment(\.dismiss) private var dismiss
     
-    //( width - padding - spacing) / 3
+    @StateObject private var categoryVM = CategoryViewModel()
+    
+    // ( width - padding - spacing) / 3
     private let otherCellWidth: CGFloat = (.width - 40 - 17) / 2
     
     var body: some View {
@@ -40,19 +42,18 @@ struct CategoryView: View {
                 }
                 
             }
-            .addLeftNavItems(items: [
-                NavItem(image: .chevron, action: {
-                    
-                }),
-                NavItem(title: "Back to Home", action: {
-                    
-                })
-            ])
-            .addRightNavItems(items: [
-                NavItem(image: .search, action: {
-                    
-                })
-            ])
+            .toolbar(content: {
+                
+                ToolbarItem(placement: .topBarLeading) {
+                    ChevronBackButton(dismiss: dismiss, title: "Back to Home")
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: {}, label: {
+                        Image(.search)
+                    })
+                }
+            })
         }
     }
     
@@ -85,13 +86,17 @@ struct CategoryView: View {
     func OtherCategoriesView() -> some View {
         LazyVGrid(columns: Array(repeating: GridItem(), count: 2),
                   content: {
-            ForEach(0 ..< Constants.sampleImages.count, id: \.self) { index in
-                OtherCategoryCell(
-                    image: Constants.sampleImages[index],
-                    imgWidth: otherCellWidth,
-                    imgHeight: otherCellWidth * 1.01,
-                    title: "Category"
-                )
+            ForEach(categoryVM.categories) { category in
+                NavigationLink {
+                    SelectedCategoryView(category: category)
+                } label: {
+                    OtherCategoryCell(
+                        image: category.image,
+                        imgWidth: otherCellWidth,
+                        imgHeight: otherCellWidth * 1.01,
+                        title: category.name
+                    )
+                }
             }
         })
         .padding(.horizontal, 20)

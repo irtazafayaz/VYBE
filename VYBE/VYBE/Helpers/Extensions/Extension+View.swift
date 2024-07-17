@@ -11,6 +11,29 @@ import SwiftUI
 extension View {
     
     @ViewBuilder
+    func ArrowBackButton(dismiss: DismissAction) -> some View {
+        Button(action: dismiss.callAsFunction, label: {
+            Image(.back)
+        })
+    }
+    
+    @ViewBuilder
+    func ChevronBackButton(dismiss: DismissAction, title: String? = nil) -> some View {
+        
+        Button(action: dismiss.callAsFunction, label: {
+            
+            HStack {
+                
+                Image(.chevron)
+                
+                if let title {
+                    BlueRobotoText(title: title, fontWeight: .bold, fontSize: 15)
+                }
+            }
+        })
+    }
+    
+    @ViewBuilder
     func addBackButton(with dismiss: DismissAction) -> some View {
         self
             .navigationBarBackButtonHidden(true)

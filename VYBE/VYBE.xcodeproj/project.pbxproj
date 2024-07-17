@@ -58,6 +58,8 @@
 		ABC172D92C47EAFA001948C6 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC172D82C47EAFA001948C6 /* CategoryCell.swift */; };
 		ABC172DB2C47ECDE001948C6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC172DA2C47ECDE001948C6 /* Constants.swift */; };
 		ABC172DD2C47FA92001948C6 /* CategorySelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC172DC2C47FA92001948C6 /* CategorySelectedView.swift */; };
+		ABC172DF2C47FAD8001948C6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC172DE2C47FAD8001948C6 /* Category.swift */; };
+		ABC172E12C47FB5E001948C6 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC172E02C47FB5E001948C6 /* CategoryViewModel.swift */; };
 		ABD05BB52C46FF3F0091BD53 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD05BB42C46FF3F0091BD53 /* HomeViewModel.swift */; };
 		ABD05BB72C4716DE0091BD53 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD05BB62C4716DE0091BD53 /* Filter.swift */; };
 		ABD05BB92C471E3D0091BD53 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD05BB82C471E3D0091BD53 /* PostView.swift */; };
@@ -116,6 +118,8 @@
 		ABC172D82C47EAFA001948C6 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		ABC172DA2C47ECDE001948C6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ABC172DC2C47FA92001948C6 /* CategorySelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectedView.swift; sourceTree = "<group>"; };
+		ABC172DE2C47FAD8001948C6 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		ABC172E02C47FB5E001948C6 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		ABD05BB42C46FF3F0091BD53 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		ABD05BB62C4716DE0091BD53 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		ABD05BB82C471E3D0091BD53 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
@@ -205,6 +209,7 @@
 			children = (
 				AB57A7262C407C7200A17C4E /* UserProfile.swift */,
 				ABD05BBA2C471E700091BD53 /* Post.swift */,
+				ABC172DE2C47FAD8001948C6 /* Category.swift */,
 				AB8225B92C4684DC00927B69 /* NavItem.swift */,
 			);
 			path = Model;
@@ -416,6 +421,7 @@
 			isa = PBXGroup;
 			children = (
 				ABC172D42C47CFA3001948C6 /* CategoryView.swift */,
+				ABC172E02C47FB5E001948C6 /* CategoryViewModel.swift */,
 				ABC172DC2C47FA92001948C6 /* CategorySelectedView.swift */,
 			);
 			path = Category;
@@ -542,6 +548,7 @@
 				AB57A7272C407C7200A17C4E /* UserProfile.swift in Sources */,
 				ABC172DD2C47FA92001948C6 /* CategorySelectedView.swift in Sources */,
 				AB4867E52C3DB0DC00F6DB97 /* LandingView.swift in Sources */,
+				ABC172DF2C47FAD8001948C6 /* Category.swift in Sources */,
 				AB8225BD2C46906100927B69 /* TextViews.swift in Sources */,
 				AB4868402C3DDEC500F6DB97 /* Extension+String.swift in Sources */,
 				AB3185762C3CA3170020B9DC /* BaseViewModel.swift in Sources */,
@@ -560,6 +567,7 @@
 				AB8225B82C467BB300927B69 /* HomeView.swift in Sources */,
 				AB8225BA2C4684DC00927B69 /* NavItem.swift in Sources */,
 				ABC172D92C47EAFA001948C6 /* CategoryCell.swift in Sources */,
+				ABC172E12C47FB5E001948C6 /* CategoryViewModel.swift in Sources */,
 				AB48683E2C3DDCD000F6DB97 /* AuthManager.swift in Sources */,
 				AB57A7252C407C3400A17C4E /* UserManager.swift in Sources */,
 				AB3185702C3CA2E50020B9DC /* ContentViewModel.swift in Sources */,
