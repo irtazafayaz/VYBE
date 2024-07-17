@@ -18,6 +18,9 @@ class PostManager {
     }
     
     func fetchPosts() {
-        posts = Array(repeating: Post(user: UserProfile(fullName: "Mande Portman"), description: "Unleash your inner chill with our Limber Up Tapered Leg Joggers. Featuring a relaxed fit and cool More..."), count: 5)
+        for user in UserManager.shared.users {
+            let post = Post(user: user, description: "Unleash your inner chill with our Limber Up Tapered Leg Joggers. Featuring a relaxed fit and cool More...")
+            self.posts.append(post)
+        }
     }
 }

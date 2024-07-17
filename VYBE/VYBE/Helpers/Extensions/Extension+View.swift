@@ -99,6 +99,10 @@ extension View {
             }
         }
     }
+    
+    func getColumnWidth(horizontalPadding: CGFloat, spacing: CGFloat, numberOfColumns: CGFloat) -> CGFloat {
+        return (CGFloat.width - horizontalPadding - spacing) / numberOfColumns
+    }
 }
 
 extension Collection {

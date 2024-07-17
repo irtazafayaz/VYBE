@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TabbarView: View {
     
-    @State private var index = 1
+    @State private var index = 3
     
     private let items: [ImageResource] = [.home, .category, .circlePlus, .heart, .profile]
     
@@ -30,7 +30,7 @@ struct TabbarView: View {
                 Text("Add")
                     .tag(2)
                 
-                Text("Favorites")
+                FavoritesView()
                     .tag(3)
                 
                 Text("Profile")

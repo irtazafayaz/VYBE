@@ -31,5 +31,5 @@ struct Post: Identifiable {
         .sampleProduct,
         .sampleVertical,
         .samplePost
-    ]
+    ].shuffled()
 }

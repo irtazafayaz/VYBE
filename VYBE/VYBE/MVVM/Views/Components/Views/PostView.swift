@@ -14,26 +14,26 @@ struct PostView: View {
     
     let showSeeMore: Bool
     
+    var showUserView: Bool = true
+    
     @State private var isSeeMorePressed = false
     
     private let columns = Array(repeating: GridItem(), count: 3)
     
     var numberOfSmallImages: Range<Int> {
         let fullRange = 1 ..< post.images.count
-        let halfRange = 1 ..< 3
+        let halfRange = 1 ..< 4
         return isSeeMorePressed ? fullRange : halfRange
-    }
-    
-    var smallImgWidth: CGFloat {
-        let width: CGFloat = (.width - 26 - 20) / 3 //( width - padding - spacing) / 3
-        return width
     }
     
     var body: some View {
         VStack(spacing: 0) {
-            UserRow()
-                .padding(.top, 10)
-                .padding(.horizontal, 15)
+            
+            if showUserView {
+                UserRow()
+                    .padding(.top, 10)
+                    .padding(.horizontal, 15)
+            }
             
             TextView()
                 .padding(.top, 13)
@@ -93,25 +93,21 @@ struct PostView: View {
             
             if let firstImage = post.images.first {
                 ImageView(firstImage, width: .width, height: .width * 0.61)
-//                Image(firstImage)
-//                    .resizable()
-//                    .frame(width: .width, height: .width * 0.61)
             }
             
             if post.images.count > 3 {
                 LazyVGrid(columns: columns) {
                     ForEach(numberOfSmallImages, id: \.self) { index in
                         if let image = post.images[safe: index] {
-                            ImageView(image, width: smallImgWidth, height: smallImgWidth * 1.1)
-//                            Image(image)
-//                                .resizable()
-//                                .frame(width: smallImgWidth, height: smallImgWidth * 1.1)
-//                                .aspectRatio(contentMode: .fill)
+                            
+                            let width = getColumnWidth(horizontalPadding: 15, spacing: 15, numberOfColumns: 3)
+                            
+                            ImageView(image, width: width, height: width * 1.1)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                         }
                     }
                 }
-                .padding(.horizontal, 13)
+                .padding(.horizontal, 15)
             }
         }
     }
@@ -142,6 +138,8 @@ struct PostView: View {
             Image(image)
                 .resizable()
                 .frame(width: width, height: height)
+                .aspectRatio(contentMode: .fill)
+                .clipShape(.rect)
             
             Image(.heartGrayCircle)
                 .padding([.top, .trailing], 18)

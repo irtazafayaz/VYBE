@@ -39,6 +39,24 @@ class UserManager {
     }
     
     func fetchUsers() {
-        self.users = Array(repeating: .init(fullName: "Arthur Morgan"), count: 10)
+        
+        let fullnames = [
+            "Arthur Morgan",
+            "Billie Eilish",
+            "Carl Johnson",
+            "Faheem Commando",
+            "Imran Khan",
+            "Johar Khan",
+            "Momina Mustehsan",
+            "Leon Kennedy",
+            "Lara Croft",
+            "Queen Elizabeth",
+            "Rehana Singer",
+        ]
+        
+        for fullname in fullnames {
+            let user = UserProfile(fullName: fullname)
+            self.users.append(user)
+        }
     }
 }
