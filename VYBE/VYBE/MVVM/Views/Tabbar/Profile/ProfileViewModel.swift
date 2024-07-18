@@ -31,6 +31,11 @@ class ProfileViewModel: BaseViewModel {
         }
         .store(in: &cancellables)
         
+        UserManager.shared.$users.receive(on: RunLoop.main).sink { [weak self] users in
+            self?.userProfile = users.randomElement()
+        }
+        .store(in: &cancellables)
+        
         UserManager.shared.$isLoading.receive(on: RunLoop.main).sink { [weak self] isLoading in
             self?.isLoading = isLoading
         }

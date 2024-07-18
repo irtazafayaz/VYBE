@@ -11,6 +11,8 @@ struct UserProfile: Identifiable, Codable {
     /// user id/ auth id
     var id: String
     var userName: String = ""
+    var address = ""
+    var bio: String = ""
     var fullName: String = ""
     var phone: String    = ""
     var email: String    = ""

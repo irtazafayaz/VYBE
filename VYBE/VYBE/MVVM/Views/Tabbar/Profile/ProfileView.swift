@@ -29,12 +29,20 @@ struct ProfileView: View {
                     )
                                         
                     HStack(spacing: 20) {
-                        EditButton(title: "Edit Profile", icon: .editProfile, action: {
+                        
+                        if let user = viewModel.userProfile {
+                            NavigationLink {
+                                EditProfileView(user: user)
+                            } label: {
+                                EditButton(title: "Edit Profile", icon: .editProfile)
+                            }
+                        }
+
+                        NavigationLink {
                             
-                        })
-                        EditButton(title: "Manage Collection", icon: .manageCollection, action: {
-                            
-                        })
+                        } label: {
+                            EditButton(title: "Manage Collection", icon: .manageCollection)
+                        }
                     }
                     .padding(.top, 20)
                     .padding(.horizontal, 12)
@@ -72,22 +80,20 @@ struct ProfileView: View {
     
     
     @ViewBuilder
-    func EditButton(title: String, icon: ImageResource, action: @escaping () -> Void) -> some View {
-        Button(action: action) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(lineWidth: 0.5)
-                    .foregroundStyle(.buttonBlue)
-                    .opacity(0.6)
+    func EditButton(title: String, icon: ImageResource) -> some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(lineWidth: 0.5)
+                .foregroundStyle(.buttonBlue)
+                .opacity(0.6)
+            
+            HStack(spacing: 12) {
+                Image(icon)
                 
-                HStack(spacing: 12) {
-                    Image(icon)
-                    
-                    BlueRobotoText(title: title, fontWeight: .bold, fontSize: 11)
-                }
+                BlueRobotoText(title: title, fontWeight: .bold, fontSize: 11)
             }
-            .frame(height: 45)
         }
+        .frame(height: 45)
     }
     
     @ViewBuilder
