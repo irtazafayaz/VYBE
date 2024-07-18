@@ -15,7 +15,6 @@ struct AddPostView:View {
     @Binding var selectedTab:Int
    
     @FocusState var isInputActive: Bool
-    @FocusState var isInputTagActive: Bool
     
     @State private var selectedItems = [PhotosPickerItem]()
     @State private var selectedImages = [Image]()
@@ -35,7 +34,19 @@ struct AddPostView:View {
                     }
                     .padding(.horizontal)
                 }
-                
+                .focused($isInputActive)
+                .toolbar {
+                    ToolbarItemGroup(placement: .keyboard) {
+                        Button("Cancel") {
+                            isInputActive = false
+                        }
+                        Spacer()
+                        Button("Done") {
+                            isInputActive = false
+                            vm.addTag()
+                        }
+                    }
+                }
             }
             .navigationBarBackButtonHidden(true)
             .toolbar {
@@ -97,10 +108,7 @@ struct AddPostView:View {
                 let desiredDash: CGFloat = 10
                 let perimeter = (geo.size.width - strokeWidth / 2 - insettedDiameter) * 2 + // horizontal straight edges
                 (geo.size.height - strokeWidth / 2 - insettedDiameter) * 2 + // vertical straight edges
-                (insettedDiameter * .pi) // the circular parts
-                // this finds the smallest adjustedDash such that
-                // - perimeter is an integer multiple of adjustedDash
-                // - adjustedDash > desiredDash
+                (insettedDiameter * .pi)
                 let floored = floor(perimeter / desiredDash)
                 let adjustedDash = (perimeter - desiredDash * floored) / floored + desiredDash
                 
@@ -201,15 +209,7 @@ struct AddPostView:View {
                         .font(.roboto(type: .regular, size: 13))
                         .padding()
                         .disabled(vm.desc.count >= 500)
-                        .focused($isInputActive)
-                        .toolbar {
-                            ToolbarItemGroup(placement: .keyboard) {
-                                Spacer()
-                                Button("Done") {
-                                    isInputActive = false
-                                }
-                            }
-                        }
+                        
                 }
                 .frame(height: 111)
                 
@@ -255,21 +255,7 @@ struct AddPostView:View {
                             
                             TextField("Latest", text: $vm.newTag)
                                 .font(.roboto(type: .regular, size: 12))
-                                .focused($isInputTagActive)
-                                .toolbar {
-                                    ToolbarItemGroup(placement: .keyboard) {
-                                        Button("Cancel") {
-                                            isInputTagActive = false
-                                            vm.newTag = ""
-                                        }
-                                        Spacer()
-                                        Button("Add") {
-                                            isInputTagActive = false
-                                            vm.tags.append(vm.newTag)
-                                            vm.newTag = ""
-                                        }
-                                    }
-                                }
+                                .focused($isInputActive)
                         }
                         .padding(.horizontal)
                     }

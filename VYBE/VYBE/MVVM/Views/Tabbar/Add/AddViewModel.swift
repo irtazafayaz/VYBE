@@ -22,5 +22,12 @@ class AddViewModel: ObservableObject {
       
     }
    
+    
+    func addTag() {
+        if !newTag.isEmpty {
+            tags.append(newTag)
+            newTag = ""
+        }
+    }
 }
 
