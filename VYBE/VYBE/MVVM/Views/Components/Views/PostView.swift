@@ -139,7 +139,7 @@ struct PostView: View {
                 .resizable()
                 .frame(width: width, height: height)
                 .aspectRatio(contentMode: .fill)
-                .clipShape(.rect)
+//                .clipShape(.rect)
             
             Image(.heartGrayCircle)
                 .padding([.top, .trailing], 18)

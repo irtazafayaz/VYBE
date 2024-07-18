@@ -8,7 +8,8 @@
 import Foundation
 
 struct UserProfile: Identifiable, Codable {
-    var id = UUID().uuidString
+    /// user id/ auth id
+    var id: String
     var userName: String = ""
     var fullName: String = ""
     var phone: String    = ""

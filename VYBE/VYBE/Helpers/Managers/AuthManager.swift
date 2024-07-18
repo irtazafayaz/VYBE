@@ -21,21 +21,31 @@ class AuthManager {
         case signedOut
     }
     
-    func signUp(userProfile: UserProfile, password: String, confirmPassword: String) async throws {
+    func signUp(userName: String, fullName: String, phone: String, email: String, dob: String, cityAndCountry: String, password: String, confirmPassword: String) async throws {
         
-        guard !userProfile.userName.isEmpty,
-              !userProfile.fullName.isEmpty,
-              !userProfile.phone.isEmpty,
-              !userProfile.email.isEmpty,
+        guard !userName.isEmpty,
+              !fullName.isEmpty,
+              !phone.isEmpty,
+              !email.isEmpty,
               !password.isEmpty,
               !confirmPassword.isEmpty,
-              !userProfile.dob.isEmpty,
-              !userProfile.cityAndCountry.isEmpty
+              !dob.isEmpty,
+              !cityAndCountry.isEmpty
         else {
             throw AuthError.emptyFields
         }
         
-        try await Auth.auth().createUser(withEmail: userProfile.email, password: password)
+        let authResult = try await Auth.auth().createUser(withEmail: email, password: password)
+        
+        let userProfile = UserProfile(
+            id: authResult.user.uid,
+            userName: userName,
+            fullName: fullName,
+            phone: phone,
+            email: email,
+            dob: dob,
+            cityAndCountry: cityAndCountry
+        )
         
         try await UserManager.shared.createUser(userProfile: userProfile)
     }

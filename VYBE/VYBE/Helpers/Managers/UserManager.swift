@@ -6,7 +6,8 @@
 //
 
 import Foundation
-import FirebaseFirestore
+import Firebase
+import FirebaseFirestoreSwift
 
 class UserManager {
     
@@ -16,14 +17,44 @@ class UserManager {
     
     @Published var users: [UserProfile] = []
     
+    @Published var userProfile: UserProfile? = nil
+    
+    @Published var isLoading = false
+    
     private init() {
         self.fetchUsers()
+        self.fetchProfile()
+    }
+    
+    func fetchProfile() {
+        
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        Task {
+            self.isLoading = true
+            do {
+                let user = try await self.usersRef.document(uid).getDocument(as: UserProfile.self)
+                
+                self.userProfile = user
+            }
+            catch {
+                print(#function, error)
+            }
+            self.isLoading = false
+        }
     }
     
     func createUser(userProfile: UserProfile) async throws {
+        
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
         return try await withUnsafeThrowingContinuation { continuation in
             do {
-                try self.usersRef.document(userProfile.id).setData(from: userProfile) { error in
+                try self.usersRef.document(uid).setData(from: userProfile) { error in
                     if let error {
                         continuation.resume(throwing: error)
                     }
@@ -55,7 +86,7 @@ class UserManager {
         ]
         
         for fullname in fullnames {
-            let user = UserProfile(fullName: fullname)
+            let user = UserProfile(id: UUID().uuidString, fullName: fullname)
             self.users.append(user)
         }
     }

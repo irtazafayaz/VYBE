@@ -12,8 +12,6 @@ class SignUpViewModel: BaseViewModel {
     
     // Fields:
     
-    @Published var userProfile = UserProfile()
-    
     @Published var userName = String()
     
     @Published var fullName = String()
@@ -144,19 +142,15 @@ class SignUpViewModel: BaseViewModel {
         
         self.isLoading = true
         
-        let user = UserProfile(
-            userName: userName,
-            fullName: fullName,
-            phone: phone,
-            email: email,
-            dob: dob,
-            cityAndCountry: cityAndCountry
-        )
-        
         Task { @MainActor in
             do {
                 try await AuthManager.shared.signUp(
-                    userProfile: user,
+                    userName: userName,
+                    fullName: fullName,
+                    phone: phone,
+                    email: email,
+                    dob: dob,
+                    cityAndCountry: cityAndCountry,
                     password: password,
                     confirmPassword: confirmPassword
                 )

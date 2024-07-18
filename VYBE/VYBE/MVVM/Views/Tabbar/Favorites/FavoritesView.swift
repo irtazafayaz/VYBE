@@ -50,7 +50,8 @@ struct FavoritesView: View {
                                     if let postImage = post.images.first {
                                         Image(postImage)
                                             .resizable()
-                                            .frame(height: width)
+                                            .frame(width: width, height: width)
+                                            .aspectRatio(contentMode: .fill)
                                             .clipShape(.rect(cornerRadius: 5))
                                     }
                                 }
@@ -62,7 +63,8 @@ struct FavoritesView: View {
                                 if let itemImage = item.images.randomElement() {
                                     Image(itemImage)
                                         .resizable()
-                                        .frame(height: width)
+                                        .frame(width: width, height: width)
+                                        .aspectRatio(contentMode: .fill)
                                         .clipShape(.rect(cornerRadius: 5))
                                 }
                             }

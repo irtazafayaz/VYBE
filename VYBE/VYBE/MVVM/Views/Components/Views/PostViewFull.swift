@@ -26,6 +26,7 @@ struct PostViewFull: View {
                 
                 SeeMorePosts()
                     .padding(.horizontal, 15)
+                    .padding(.bottom, 10)
                 
                 LazyVGrid(columns: Array(repeating: GridItem(), count: 2), content: {
                     ForEach(PostManager.shared.posts) { post in
@@ -36,7 +37,7 @@ struct PostViewFull: View {
                             Image(postImage)
                                 .resizable()
                                 .frame(width: width, height: width * 1.5)
-                                .aspectRatio(contentMode: .fit)
+                                .aspectRatio(contentMode: .fill)
                                 .clipShape(.rect(cornerRadius: 7))
                         }
                     }
