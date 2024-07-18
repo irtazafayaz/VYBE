@@ -77,6 +77,8 @@
 		ABD4F6BD2C497B3100C18EAD /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4F6BC2C497B3100C18EAD /* ProfileViewModel.swift */; };
 		ABD4F6C02C49999A00C18EAD /* CircleDashedBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4F6BF2C49999A00C18EAD /* CircleDashedBorder.swift */; };
 		ABD4F6C22C49AC2700C18EAD /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4F6C12C49AC2700C18EAD /* Collection.swift */; };
+		ABD4F6C52C49B97E00C18EAD /* OtherProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4F6C42C49B97E00C18EAD /* OtherProfileView.swift */; };
+		ABD4F6C82C49B9D900C18EAD /* ProfileTopHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4F6C72C49B9D900C18EAD /* ProfileTopHeader.swift */; };
 		ABD940E12C45E0F200824C07 /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD940E02C45E0F200824C07 /* TabbarView.swift */; };
 /* End PBXBuildFile section */
 
@@ -148,6 +150,8 @@
 		ABD4F6BC2C497B3100C18EAD /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		ABD4F6BF2C49999A00C18EAD /* CircleDashedBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleDashedBorder.swift; sourceTree = "<group>"; };
 		ABD4F6C12C49AC2700C18EAD /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		ABD4F6C42C49B97E00C18EAD /* OtherProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileView.swift; sourceTree = "<group>"; };
+		ABD4F6C72C49B9D900C18EAD /* ProfileTopHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTopHeader.swift; sourceTree = "<group>"; };
 		ABD940E02C45E0F200824C07 /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -447,6 +451,14 @@
 			path = Circle;
 			sourceTree = "<group>";
 		};
+		ABD4F6C62C49B9CA00C18EAD /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				ABD4F6C72C49B9D900C18EAD /* ProfileTopHeader.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		ABD940DF2C45E0E600824C07 /* Tabbar */ = {
 			isa = PBXGroup;
 			children = (
@@ -491,8 +503,10 @@
 		ABD940E62C45E4DA00824C07 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				ABD4F6C62C49B9CA00C18EAD /* Components */,
 				ABD4F6BA2C497ADD00C18EAD /* ProfileView.swift */,
 				ABD4F6BC2C497B3100C18EAD /* ProfileViewModel.swift */,
+				ABD4F6C42C49B97E00C18EAD /* OtherProfileView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -605,6 +619,8 @@
 				AB3185762C3CA3170020B9DC /* BaseViewModel.swift in Sources */,
 				ABD4F6C22C49AC2700C18EAD /* Collection.swift in Sources */,
 				ABD05BB92C471E3D0091BD53 /* PostView.swift in Sources */,
+				ABD4F6C52C49B97E00C18EAD /* OtherProfileView.swift in Sources */,
+				ABD4F6C82C49B9D900C18EAD /* ProfileTopHeader.swift in Sources */,
 				18671E8B2C4836C40099A624 /* DottedRoundedRectangle.swift in Sources */,
 				AB7E087A2C43F5FC00943D24 /* Extension+View.swift in Sources */,
 				ABD05BBB2C471E700091BD53 /* Post.swift in Sources */,

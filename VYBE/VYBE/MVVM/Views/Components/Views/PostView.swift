@@ -52,17 +52,25 @@ struct PostView: View {
     @ViewBuilder
     func UserRow() -> some View {
         HStack(alignment: .top, spacing: 6) {
-            Image(post.userImage)
-                .resizable()
-                .frame(width: 43, height: 43)
-                .aspectRatio(contentMode: .fill)
-                .clipShape(.circle)
-                .padding(.trailing, 6)
+            NavigationLink {
+                OtherProfileView(user: post.user)
+            } label: {
+                Image(post.userImage)
+                    .resizable()
+                    .frame(width: 43, height: 43)
+                    .aspectRatio(contentMode: .fill)
+                    .clipShape(.circle)
+                    .padding(.trailing, 6)
+            }
             
             VStack(alignment: .leading) {
-                Text(post.user.fullName)
-                    .font(.roboto(type: .medium, size: 14))
-                    .foregroundStyle(.buttonBlue)
+                NavigationLink {
+                    OtherProfileView(user: post.user)
+                } label: {
+                    Text(post.user.fullName)
+                        .font(.roboto(type: .medium, size: 14))
+                        .foregroundStyle(.buttonBlue)
+                }
                 
                 Text(post.postedTime.getTimeAgo())
             }

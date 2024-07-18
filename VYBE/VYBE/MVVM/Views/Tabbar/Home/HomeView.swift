@@ -70,13 +70,17 @@ struct HomeView: View {
                 HStack {
                     ForEach(0 ..< homeVM.users.count, id: \.self) { index in
                         if let user = homeVM.users[safe: index] {
-                            CircleUserView(
-                                user: user,
-                                circleSize: 60,
-                                showFollowButton: false,
-                                showPlusButton: index == 0,
-                                sampleImage: Constants.sampleImages.randomElement()!
-                            )
+                            NavigationLink {
+                                OtherProfileView(user: user)
+                            } label: {
+                                CircleUserView(
+                                    user: user,
+                                    circleSize: 60,
+                                    showFollowButton: false,
+                                    showPlusButton: index == 0,
+                                    sampleImage: Constants.sampleImages.randomElement()!
+                                )
+                            }
                         }
                     }
                 }
@@ -104,13 +108,17 @@ struct HomeView: View {
                 HStack {
                     ForEach(0 ..< homeVM.users.count, id: \.self) { index in
                         if let user = homeVM.users[safe: index] {
-                            CircleUserView(
-                                user: user,
-                                circleSize: 60,
-                                showFollowButton: true,
-                                showPlusButton: false,
-                                sampleImage: Constants.sampleImages.randomElement()!
-                            )
+                            NavigationLink {
+                                OtherProfileView(user: user)
+                            } label: {
+                                CircleUserView(
+                                    user: user,
+                                    circleSize: 60,
+                                    showFollowButton: true,
+                                    showPlusButton: false,
+                                    sampleImage: Constants.sampleImages.randomElement()!
+                                )
+                            }
                         }
                     }
                 }
