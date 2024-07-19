@@ -22,11 +22,13 @@ struct ProfileView: View {
                 VStack(spacing: 0) {
                     
                     // Cover + Profile
-                    ProfileTopHeader(
-                        userName: viewModel.userProfile?.fullName,
-                        followersCount: 253,
-                        favoritesCount: 255
-                    )
+                    if let user = viewModel.userProfile {
+                        ProfileTopHeader(
+                            user: user,
+                            followersCount: 253,
+                            favoritesCount: 255
+                        )
+                    }
                                         
                     HStack(spacing: 20) {
                         

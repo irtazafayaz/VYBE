@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ProfileTopHeader: View {
     
-    let userName: String?
+    let user: UserProfile
     
     let followersCount: Int
     
@@ -71,14 +71,18 @@ struct ProfileTopHeader: View {
     func FollowersFavorites() -> some View {
         HStack(spacing: 75) {
             ForEach(0...1, id: \.self) { index in
-                VStack {
-                    Text(index == 0 ? "\(followersCount)" : "\(favoritesCount)")
-                        .foregroundStyle(.textDark)
-                        .font(.roboto(type: .bold, size: 22))
-                    
-                    Text(index == 0 ? "Followers" : "Favorites")
-                        .font(.rubik(type: .medium, size: 14))
-                        .foregroundStyle(.buttonBlue)
+                NavigationLink {
+                    FollowersView(index: index, user: user)
+                } label: {
+                    VStack {
+                        Text(index == 0 ? "\(followersCount)" : "\(favoritesCount)")
+                            .foregroundStyle(.textDark)
+                            .font(.roboto(type: .bold, size: 22))
+                        
+                        Text(index == 0 ? "Followers" : "Favorites")
+                            .font(.rubik(type: .medium, size: 14))
+                            .foregroundStyle(.buttonBlue)
+                    }
                 }
             }
         }
@@ -86,11 +90,9 @@ struct ProfileTopHeader: View {
     
     @ViewBuilder
     func UserName() -> some View {
-        if let userName {
-            Text(userName)
-                .font(.rubik(type: .bold, size: 17))
-                .foregroundStyle(.textDark)
-        }
+        Text(user.fullName)
+            .font(.rubik(type: .bold, size: 17))
+            .foregroundStyle(.textDark)
     }
     
     @ViewBuilder

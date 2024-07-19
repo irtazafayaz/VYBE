@@ -19,7 +19,7 @@ struct OtherProfileView: View {
             VStack(spacing: 20) {
                 
                 ProfileTopHeader(
-                    userName: user.fullName,
+                    user: user,
                     followersCount: 253,
                     favoritesCount: 255
                 )
