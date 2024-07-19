@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		18671E8B2C4836C40099A624 /* DottedRoundedRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18671E8A2C4836C40099A624 /* DottedRoundedRectangle.swift */; };
 		18671E8D2C48499F0099A624 /* PostSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18671E8C2C48499F0099A624 /* PostSuccessView.swift */; };
+		18C326BE2C4AF5700014E948 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C326BD2C4AF5700014E948 /* NotificationModel.swift */; };
+		18C326C22C4AF58F0014E948 /* EditCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C326BF2C4AF58F0014E948 /* EditCollectionView.swift */; };
+		18C326C32C4AF58F0014E948 /* ManageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C326C02C4AF58F0014E948 /* ManageCollectionView.swift */; };
+		18C326C42C4AF58F0014E948 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C326C12C4AF58F0014E948 /* NotificationView.swift */; };
 		18E964B12C48328C00A1DF3E /* AddPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E964B02C48328C00A1DF3E /* AddPostView.swift */; };
 		18E964B32C48329D00A1DF3E /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E964B22C48329D00A1DF3E /* AddViewModel.swift */; };
 		AB31855C2C3C8E4B0020B9DC /* VYBEApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB31855B2C3C8E4B0020B9DC /* VYBEApp.swift */; };
@@ -89,6 +93,10 @@
 /* Begin PBXFileReference section */
 		18671E8A2C4836C40099A624 /* DottedRoundedRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DottedRoundedRectangle.swift; sourceTree = "<group>"; };
 		18671E8C2C48499F0099A624 /* PostSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSuccessView.swift; sourceTree = "<group>"; };
+		18C326BD2C4AF5700014E948 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
+		18C326BF2C4AF58F0014E948 /* EditCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCollectionView.swift; sourceTree = "<group>"; };
+		18C326C02C4AF58F0014E948 /* ManageCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageCollectionView.swift; sourceTree = "<group>"; };
+		18C326C12C4AF58F0014E948 /* NotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		18E964B02C48328C00A1DF3E /* AddPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostView.swift; sourceTree = "<group>"; };
 		18E964B22C48329D00A1DF3E /* AddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
 		AB3185582C3C8E4B0020B9DC /* VYBE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VYBE.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -264,6 +272,7 @@
 				ABC172DE2C47FAD8001948C6 /* Category.swift */,
 				AB8225B92C4684DC00927B69 /* NavItem.swift */,
 				ABD4F6C12C49AC2700C18EAD /* Collection.swift */,
+				18C326BD2C4AF5700014E948 /* NotificationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -496,6 +505,9 @@
 			children = (
 				AB8225B72C467BB300927B69 /* HomeView.swift */,
 				ABD05BB42C46FF3F0091BD53 /* HomeViewModel.swift */,
+				18C326C12C4AF58F0014E948 /* NotificationView.swift */,
+				18C326C02C4AF58F0014E948 /* ManageCollectionView.swift */,
+				18C326BF2C4AF58F0014E948 /* EditCollectionView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -640,6 +652,7 @@
 				AB3185762C3CA3170020B9DC /* BaseViewModel.swift in Sources */,
 				ABD4F6C22C49AC2700C18EAD /* Collection.swift in Sources */,
 				ABD05BB92C471E3D0091BD53 /* PostView.swift in Sources */,
+				18C326BE2C4AF5700014E948 /* NotificationModel.swift in Sources */,
 				ABD4F6C52C49B97E00C18EAD /* OtherProfileView.swift in Sources */,
 				ABD4F6C82C49B9D900C18EAD /* ProfileTopHeader.swift in Sources */,
 				ABB529392C4A4E7000748E87 /* FollowersView.swift in Sources */,
@@ -647,6 +660,7 @@
 				AB7E087A2C43F5FC00943D24 /* Extension+View.swift in Sources */,
 				ABD05BBB2C471E700091BD53 /* Post.swift in Sources */,
 				ABD940E12C45E0F200824C07 /* TabbarView.swift in Sources */,
+				18C326C22C4AF58F0014E948 /* EditCollectionView.swift in Sources */,
 				ABABA3942C3F243A0041EF06 /* SignUpViewModel.swift in Sources */,
 				AB3185792C3CA3DD0020B9DC /* SplashView.swift in Sources */,
 				ABD05BB52C46FF3F0091BD53 /* HomeViewModel.swift in Sources */,
@@ -664,6 +678,7 @@
 				ABC172D92C47EAFA001948C6 /* CategoryCell.swift in Sources */,
 				ABC173832C48702B001948C6 /* FavoritesViewModel.swift in Sources */,
 				ABC172E12C47FB5E001948C6 /* CategoryViewModel.swift in Sources */,
+				18C326C42C4AF58F0014E948 /* NotificationView.swift in Sources */,
 				AB48683E2C3DDCD000F6DB97 /* AuthManager.swift in Sources */,
 				AB57A7252C407C3400A17C4E /* UserManager.swift in Sources */,
 				ABD4F6CA2C49BD8000C18EAD /* EditProfileView.swift in Sources */,
@@ -671,6 +686,7 @@
 				AB57A72B2C40911A00A17C4E /* ForgotPasswordView.swift in Sources */,
 				AB48682D2C3DD45C00F6DB97 /* SignInViewModel.swift in Sources */,
 				ABC172D52C47CFA3001948C6 /* CategoryView.swift in Sources */,
+				18C326C32C4AF58F0014E948 /* ManageCollectionView.swift in Sources */,
 				AB4867E92C3DC31A00F6DB97 /* Extension+Color.swift in Sources */,
 				AB48680F2C3DCC4300F6DB97 /* AppButton.swift in Sources */,
 				AB48683A2C3DD93E00F6DB97 /* ValidatorTextFieldView.swift in Sources */,
@@ -814,7 +830,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"VYBE/Preview Content\"";
-				DEVELOPMENT_TEAM = WXG7HSGQZP;
+				DEVELOPMENT_TEAM = 4NF3ZH9SF7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VYBE/Info.plist;
@@ -848,7 +864,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"VYBE/Preview Content\"";
-				DEVELOPMENT_TEAM = WXG7HSGQZP;
+				DEVELOPMENT_TEAM = 4NF3ZH9SF7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VYBE/Info.plist;

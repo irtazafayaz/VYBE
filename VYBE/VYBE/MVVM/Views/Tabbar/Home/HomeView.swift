@@ -38,6 +38,14 @@ struct HomeView: View {
                         .padding(.vertical, 22)
                     }
                 }
+                .navigationDestination(isPresented: $homeVM.showNotification) {
+                    NotificationView()
+                        .environmentObject(homeVM)
+                }
+                .navigationDestination(isPresented: $homeVM.showManageCollection) {
+                    ManageCollectionView()
+                        .environmentObject(homeVM)
+                }
             }
             .addLeftNavItems(items: [
                 NavItem(image: .menu, action: {
@@ -46,10 +54,10 @@ struct HomeView: View {
             ])
             .addRightNavItems(items: [
                 NavItem(image: .search, action: {
-                    
+                    homeVM.showManageCollection.toggle()
                 }),
                 NavItem(image: .notification, action: {
-                    
+                    homeVM.showNotification.toggle()
                 })
             ])
         }
@@ -70,17 +78,13 @@ struct HomeView: View {
                 HStack {
                     ForEach(0 ..< homeVM.users.count, id: \.self) { index in
                         if let user = homeVM.users[safe: index] {
-                            NavigationLink {
-                                OtherProfileView(user: user)
-                            } label: {
-                                CircleUserView(
-                                    user: user,
-                                    circleSize: 60,
-                                    showFollowButton: false,
-                                    showPlusButton: index == 0,
-                                    sampleImage: Constants.sampleImages.randomElement()!
-                                )
-                            }
+                            CircleUserView(
+                                user: user,
+                                circleSize: 60,
+                                showFollowButton: false,
+                                showPlusButton: index == 0,
+                                sampleImage: Constants.sampleImages.randomElement()!
+                            )
                         }
                     }
                 }
@@ -108,17 +112,13 @@ struct HomeView: View {
                 HStack {
                     ForEach(0 ..< homeVM.users.count, id: \.self) { index in
                         if let user = homeVM.users[safe: index] {
-                            NavigationLink {
-                                OtherProfileView(user: user)
-                            } label: {
-                                CircleUserView(
-                                    user: user,
-                                    circleSize: 60,
-                                    showFollowButton: true,
-                                    showPlusButton: false,
-                                    sampleImage: Constants.sampleImages.randomElement()!
-                                )
-                            }
+                            CircleUserView(
+                                user: user,
+                                circleSize: 60,
+                                showFollowButton: true,
+                                showPlusButton: false,
+                                sampleImage: Constants.sampleImages.randomElement()!
+                            )
                         }
                     }
                 }
