@@ -41,7 +41,8 @@ struct ProfileView: View {
                         }
 
                         NavigationLink {
-                            
+                            ManageCollectionView()
+                                .environmentObject(viewModel)
                         } label: {
                             EditButton(title: "Manage Collection", icon: .manageCollection)
                         }

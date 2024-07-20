@@ -11,9 +11,9 @@ struct EditCollectionView:View {
     
     @Binding var showSheet:Bool
     
-    @EnvironmentObject var vm:HomeViewModel
+    @EnvironmentObject var vm:ProfileViewModel
     
-    var text:String
+    var text:ProfileCollection
     
     
     
@@ -65,7 +65,7 @@ struct EditCollectionView:View {
     var DeleteButton:some View {
         Button {
             showSheet.toggle()
-            vm.deleteCollection(text: text)
+            vm.deleteCollection(collection: text)
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 7)

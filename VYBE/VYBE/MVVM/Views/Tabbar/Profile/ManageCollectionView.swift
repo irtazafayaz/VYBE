@@ -11,7 +11,7 @@ struct ManageCollectionView:View {
     
     @Environment(\.dismiss) private var dismiss
     
-    @EnvironmentObject var vm:HomeViewModel
+    @EnvironmentObject var vm:ProfileViewModel
     
     @State var showEditSheet = false
     
@@ -34,7 +34,7 @@ struct ManageCollectionView:View {
                 ScrollView {
                     LazyVStack {
                        
-                        ForEach(vm.collections,id:\.self) {  c in
+                        ForEach(vm.collections,id:\.title) {  c in
                             CollectionRow(text: c)
                                 .padding(.vertical,4)
                         }
@@ -101,7 +101,7 @@ struct ManageCollectionView:View {
         
     }
     
-    func CollectionRow(text:String) -> some View {
+    func CollectionRow(text:ProfileCollection) -> some View {
         return ZStack {
             RoundedRectangle(cornerRadius: 7)
                 .fill(.textLightGray.opacity(0.1))
@@ -113,14 +113,14 @@ struct ManageCollectionView:View {
                     .scaledToFit()
                     .frame(width: 19,height: 19)
                 
-                Text(text)
+                Text(text.title)
                     .font(.roboto(type: .medium, size: 15))
                     .foregroundColor(.textDark)
                 
                 Spacer()
                 HStack {
                     Button {
-                        vm.deleteCollection(text: text)
+                        vm.deleteCollection(collection: text)
                     } label: {
                         Image("trash-icon")
                             .resizable()
@@ -152,5 +152,8 @@ struct ManageCollectionView:View {
             EditCollectionView(showSheet: $showEditSheet, text: text)
                 .presentationDetents([.height(223)])
         }
+        .alert(isPresented: $vm.isPresentAlert, content: {
+            Alert(title: Text(vm.alertTitle))
+        })
     }
 }

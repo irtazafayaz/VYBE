@@ -42,10 +42,6 @@ struct HomeView: View {
                     NotificationView()
                         .environmentObject(homeVM)
                 }
-                .navigationDestination(isPresented: $homeVM.showManageCollection) {
-                    ManageCollectionView()
-                        .environmentObject(homeVM)
-                }
             }
             .addLeftNavItems(items: [
                 NavItem(image: .menu, action: {

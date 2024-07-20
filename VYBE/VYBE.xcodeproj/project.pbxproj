@@ -506,8 +506,6 @@
 				AB8225B72C467BB300927B69 /* HomeView.swift */,
 				ABD05BB42C46FF3F0091BD53 /* HomeViewModel.swift */,
 				18C326C12C4AF58F0014E948 /* NotificationView.swift */,
-				18C326C02C4AF58F0014E948 /* ManageCollectionView.swift */,
-				18C326BF2C4AF58F0014E948 /* EditCollectionView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -539,6 +537,8 @@
 				ABD4F6BA2C497ADD00C18EAD /* ProfileView.swift */,
 				ABD4F6BC2C497B3100C18EAD /* ProfileViewModel.swift */,
 				ABD4F6C42C49B97E00C18EAD /* OtherProfileView.swift */,
+				18C326C02C4AF58F0014E948 /* ManageCollectionView.swift */,
+				18C326BF2C4AF58F0014E948 /* EditCollectionView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
