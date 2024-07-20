@@ -68,9 +68,9 @@ struct CategoryView: View {
     func PopularCategoriesView() -> some View {
         ScrollView(.horizontal) {
             HStack(spacing: 15) {
-                ForEach(0 ..< Constants.sampleImages.count, id: \.self) { index in
+                ForEach(0 ..< Constants.postImages.count, id: \.self) { index in
                     PopularCategoryCell(
-                        image: Constants.sampleImages[index],
+                        image: Constants.postImages[index],
                         imgWidth: 144,
                         imgHeight: 171,
                         title: "Lorem ipsum..."

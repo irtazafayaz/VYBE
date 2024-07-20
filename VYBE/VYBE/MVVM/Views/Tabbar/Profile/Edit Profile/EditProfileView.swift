@@ -67,7 +67,7 @@ struct EditProfileView: View {
             Circle()
                 .fill(.white)
             
-            Image(.samplePost)
+            Image(.samplePost1)
                 .resizable()
                 .clipShape(.circle)
                 .padding(2)

@@ -37,7 +37,8 @@ struct PostView: View {
             
             TextView()
                 .padding(.top, 13)
-                .padding(.horizontal, 15)
+                .padding(.leading, 15)
+                .padding(.trailing, 35)
             
             ImagesView()
                 .padding(.top, 6)
@@ -51,16 +52,17 @@ struct PostView: View {
     
     @ViewBuilder
     func UserRow() -> some View {
-        HStack(alignment: .top, spacing: 6) {
+        HStack(alignment: .center, spacing: 12) {
+            
             NavigationLink {
                 OtherProfileView(user: post.user)
             } label: {
                 Image(post.userImage)
                     .resizable()
-                    .frame(width: 43, height: 43)
                     .aspectRatio(contentMode: .fill)
+                    .frame(width: 43, height: 43)
+//                    .aspectRatio(contentMode: .fill)
                     .clipShape(.circle)
-                    .padding(.trailing, 6)
             }
             
             VStack(alignment: .leading, spacing: 0) {
@@ -68,7 +70,7 @@ struct PostView: View {
                 NavigationLink {
                     OtherProfileView(user: post.user)
                 } label: {
-                    HStack {
+                    HStack(spacing: 6) {
                         Text(post.user.fullName)
                             .font(.roboto(type: .medium, size: 14))
                             .foregroundStyle(.buttonBlue)
@@ -79,19 +81,38 @@ struct PostView: View {
                 
                 // posted ago
                 Text(post.postedTime.getTimeAgo())
+                    .font(.roboto(type: .regular, size: 10))
+                    .foregroundStyle(.buttonBlueLight)
             }
             
             Spacer()
+            
+            Button {
+                
+            } label: {
+                Image(systemName: "ellipsis")
+                    .rotationEffect(.degrees(90))
+                    .foregroundColor(.textDark)
+            }
+
         }
     }
     
     @ViewBuilder
     func TextView() -> some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 15) {
             Text(post.description)
                 .font(.roboto(type: .regular, size: 13))
                 .foregroundStyle(.textDark)
                 .multilineTextAlignment(.leading)
+            
+            Text("TAGS:")
+                .foregroundColor(Color.textDark)
+                .font(.roboto(type: .italic, size: 13))
+            +
+            Text(" #\(post.tags.joined(separator: " #"))")
+                .font(.roboto(type: .regular, size: 13))
+                .foregroundColor(Color(hexString: "#1CACE3"))
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
@@ -101,7 +122,7 @@ struct PostView: View {
         VStack(spacing: 13) {
             
             if let firstImage = post.images.first {
-                ImageView(firstImage, width: .width, height: .width * 0.61)
+                ImageView(firstImage, width: .width, height: .width * 0.61, showEditIcon: true)
             }
             
             if post.images.count > 3 {
@@ -138,23 +159,30 @@ struct PostView: View {
                 self.isSeeMorePressed.toggle()
             } label: {
                 Text("See More")
-                    .font(.roboto(type: .semiBold, size: 9))
+                    .font(.roboto(type: .bold, size: 9))
                     .foregroundStyle(.buttonBlue)
             }
         }
     }
     
     @ViewBuilder
-    func ImageView(_ image: ImageResource, width: CGFloat, height: CGFloat) -> some View {
+    func ImageView(_ image: ImageResource, width: CGFloat, height: CGFloat, showEditIcon: Bool = false) -> some View {
         ZStack(alignment: .topTrailing) {
             Image(image)
                 .resizable()
-                .frame(width: width, height: height)
                 .aspectRatio(contentMode: .fill)
+                .frame(width: width, height: height)
 //                .clipShape(.rect)
             
             Image(.heartGrayCircle)
                 .padding([.top, .trailing], 18)
+            
+            if showEditIcon {
+                Image(.editIcon)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                    .padding(.leading, 15)
+                    .padding(.top, 18)
+            }
         }
     }
 }

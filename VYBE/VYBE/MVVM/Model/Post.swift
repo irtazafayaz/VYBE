@@ -13,7 +13,7 @@ struct Post: Identifiable {
     
     let user: UserProfile
     
-    let userImage: ImageResource = .sampleProduct
+    let userImage: ImageResource = .sampleUser1
     
     let description: String
     
@@ -26,5 +26,5 @@ struct Post: Identifiable {
         "Coffee"
     ]
     
-    let images: [ImageResource] = Array(repeating: .samplePostImage2, count: 3) + Array(repeating: .samplePost, count: 3)
+    let images = Constants.postImages
 }

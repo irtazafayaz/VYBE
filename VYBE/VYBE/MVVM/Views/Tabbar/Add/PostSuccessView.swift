@@ -20,7 +20,7 @@ struct PostSuccessView:View {
                 Image("success-check")
                 Text("Post Submitted")
                     .foregroundStyle(.black)
-                    .font(.roboto(type: .semiBold, size: 40))
+                    .font(.roboto(type: .bold, size: 40))
                 Text("Aliquet ut cum integer sed lorem integer.")
                     .foregroundStyle(.textDark.opacity(0.6))
                     .font(.roboto(type: .medium, size: 15))
@@ -33,7 +33,7 @@ struct PostSuccessView:View {
                             .fill(.buttonBlue)
                         Text("Back to home")
                             .foregroundStyle(.white)
-                            .font(.roboto(type: .semiBold, size: 15))
+                            .font(.roboto(type: .bold, size: 15))
                     }
                     .frame(width: 163,height: 53)
                    

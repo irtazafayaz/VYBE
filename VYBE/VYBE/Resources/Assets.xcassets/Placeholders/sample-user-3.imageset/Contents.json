@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "b62d625b6f19212ae0dba121a6293e49.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -9,7 +10,6 @@
       "scale" : "2x"
     },
     {
-      "filename" : "Rectangle 27 (1).png",
       "idiom" : "universal",
       "scale" : "3x"
     }

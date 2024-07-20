@@ -41,10 +41,10 @@ struct CircleUserView: View {
             Text(user.fullName)
                 .font(.roboto(type: .regular, size: 11.25))
                 .foregroundStyle(.textDark)
-                .minimumScaleFactor(0.8)
+                .minimumScaleFactor(0.7)
                 .lineLimit(2)
                 .multilineTextAlignment(.center)
-                .frame(width: 65, height: 30, alignment: .top)
+                .frame(height: 30, alignment: .top)
             
             if showFollowButton {
                 ZStack {
@@ -59,5 +59,6 @@ struct CircleUserView: View {
                 .frame(width: 60, height: 25)
             }
         }
+        .frame(width: 60)
     }
 }

@@ -297,7 +297,7 @@ struct AddPostView:View {
                     .fill(.buttonBlue)
                 Text("Post It")
                     .foregroundStyle(.white)
-                    .font(.roboto(type: .semiBold, size: 15))
+                    .font(.roboto(type: .bold, size: 15))
             }
             .frame(width: 163,height: 53)
            

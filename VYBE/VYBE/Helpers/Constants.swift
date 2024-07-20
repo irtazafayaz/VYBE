@@ -9,10 +9,19 @@ import Foundation
 
 struct Constants {
     
-    static let sampleImages: [ImageResource] = [
-        .samplePost,
-        .sampleProduct,
-        .samplePostImage2,
-        .sampleVertical
+    static let userImages: [ImageResource] = [
+        .sampleUser1,
+        .sampleUser2,
+        .sampleUser3,
+        .sampleUser4,
+        .sampleUser5
+    ]
+    
+    static let postImages: [ImageResource] = [
+        .samplePost1,
+        .samplePost2,
+        .sampleBag1,
+        .sampleBag2,
+        .sampleBag3
     ]
 }

@@ -65,6 +65,7 @@
 		ABB529392C4A4E7000748E87 /* FollowersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB529382C4A4E7000748E87 /* FollowersView.swift */; };
 		ABB5293B2C4A51A300748E87 /* FollowersRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5293A2C4A51A300748E87 /* FollowersRow.swift */; };
 		ABB5293D2C4A51AF00748E87 /* FollowingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5293C2C4A51AF00748E87 /* FollowingRow.swift */; };
+		ABB608692C4C6D9600F22291 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABB608682C4C6D9200F22291 /* Roboto-Italic.ttf */; };
 		ABC172D32C47C811001948C6 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC172D22C47C811001948C6 /* Line.swift */; };
 		ABC172D52C47CFA3001948C6 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC172D42C47CFA3001948C6 /* CategoryView.swift */; };
 		ABC172D92C47EAFA001948C6 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC172D82C47EAFA001948C6 /* CategoryCell.swift */; };
@@ -147,6 +148,7 @@
 		ABB529382C4A4E7000748E87 /* FollowersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersView.swift; sourceTree = "<group>"; };
 		ABB5293A2C4A51A300748E87 /* FollowersRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersRow.swift; sourceTree = "<group>"; };
 		ABB5293C2C4A51AF00748E87 /* FollowingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingRow.swift; sourceTree = "<group>"; };
+		ABB608682C4C6D9200F22291 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
 		ABC172D22C47C811001948C6 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		ABC172D42C47CFA3001948C6 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		ABC172D82C47EAFA001948C6 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 				AB4868102C3DCCDA00F6DB97 /* LICENSE.txt */,
 				AB4868112C3DCCDA00F6DB97 /* Roboto-Black.ttf */,
 				AB4868132C3DCCDA00F6DB97 /* Roboto-Bold.ttf */,
+				ABB608682C4C6D9200F22291 /* Roboto-Italic.ttf */,
 				AB4868182C3DCCDA00F6DB97 /* Roboto-Medium.ttf */,
 				AB48681A2C3DCCDA00F6DB97 /* Roboto-Regular.ttf */,
 			);
@@ -625,6 +628,7 @@
 				AB4867FF2C3DC5B000F6DB97 /* Rubik-Bold.ttf in Resources */,
 				AB48681F2C3DCCDB00F6DB97 /* Roboto-Black.ttf in Resources */,
 				AB4868282C3DCCDB00F6DB97 /* Roboto-Regular.ttf in Resources */,
+				ABB608692C4C6D9600F22291 /* Roboto-Italic.ttf in Resources */,
 				AB4867E72C3DC2D200F6DB97 /* GoogleService-Info.plist in Resources */,
 				AB4868062C3DC5B000F6DB97 /* Rubik-Medium.ttf in Resources */,
 			);

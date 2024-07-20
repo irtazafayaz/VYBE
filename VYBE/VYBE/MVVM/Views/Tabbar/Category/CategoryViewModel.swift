@@ -24,10 +24,24 @@ class CategoryViewModel: BaseViewModel {
     }
     
     private func fetchCategories() {
+        let names = ["Corset", "Cardigan", "Gold", "Silver"]
         PostManager.shared.$posts.receive(on: RunLoop.main).sink { posts in
+            
             var categories: [Category] = []
-            for category in ["Corset", "Cardigan", "Gold", "Silver"] {
-                categories.append(Category(image: Constants.sampleImages.randomElement()!, name: category, posts: posts))
+            
+            for i in 0 ..< names.count {
+                
+                let index = i % names.count
+                
+                let category = names[i]
+                
+                categories.append(
+                    Category(
+                        image: Constants.postImages[index],
+                        name: category,
+                        posts: posts
+                    )
+                )
             }
             self.categories = categories
         }

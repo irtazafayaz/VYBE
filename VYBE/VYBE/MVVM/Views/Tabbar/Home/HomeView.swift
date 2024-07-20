@@ -22,23 +22,25 @@ struct HomeView: View {
                     VStack(spacing: 0) {
                         
                         TopBar()
-                            .padding(.horizontal, 20)
                         
                         UserYouFollowed()
-                            .padding(.top, 10)
                         
-                        PopularUsers()
-                            .padding(.top, 10)
+//                        PopularUsers()
+//                            .padding(.top, 10)
                         
                         FilterButtons()
-                            .padding([.horizontal, .top], 20)
+                            .padding(.top, 13)
+                            .padding(.horizontal, 20)
+                        
+                        Divider()
+                            .padding(.top, 13)
                         
                         VStack(spacing: 0) {
                             ForEach(homeVM.posts) { post in
                                 PostView(post: post, showSeeMore: true)
                             }
                         }
-                        .padding(.vertical, 22)
+                        .padding(.bottom, 22)
                     }
                 }
                 .navigationDestination(isPresented: $homeVM.showNotification) {
@@ -66,7 +68,7 @@ struct HomeView: View {
     @ViewBuilder
     func TopBar() -> some View {
         HStack {
-            Image(.menu)
+            Image(.search)
             
             Image(.logoText)
                 .resizable()
@@ -74,9 +76,11 @@ struct HomeView: View {
                 .scaledToFit()
                 .frame(maxWidth: .infinity, alignment: .center)
             
-            Image(.notification)
+            Image(.notificationDot)
         }
         .frame(height: 54)
+        .padding(.leading, 16)
+        .padding(.trailing, 14)
     }
     
     @ViewBuilder
@@ -88,28 +92,30 @@ struct HomeView: View {
                 Spacer()
                 BlueRobotoText(title: "See All", fontWeight: .medium, fontSize: 12)
             }
-            .padding(.horizontal, 20)
+            .padding(.horizontal, 15)
             
             ScrollView(.horizontal) {
-                HStack {
+                HStack(spacing: 20) {
                     ForEach(0 ..< homeVM.users.count, id: \.self) { index in
                         if let user = homeVM.users[safe: index] {
+                            let imgIndex = index % Constants.userImages.count
                             CircleUserView(
                                 user: user,
                                 circleSize: 60,
                                 showFollowButton: false,
                                 showPlusButton: false,
-                                sampleImage: Constants.sampleImages.randomElement()!
+                                sampleImage: Constants.userImages[imgIndex]
                             )
                         }
                     }
                 }
-                .padding(.horizontal, 20)
+                .padding(.horizontal, 15)
             }
             .scrollIndicators(.hidden)
         }
+        .padding(.top, 7)
     }
-    
+    /*
     @ViewBuilder
     func PopularUsers() -> some View {
         VStack(spacing: 7) {
@@ -143,7 +149,7 @@ struct HomeView: View {
             .scrollIndicators(.hidden)
         }
     }
-    
+    */
     @ViewBuilder
     func FilterButtons() -> some View {
         HStack(spacing: 11) {
@@ -151,8 +157,9 @@ struct HomeView: View {
                 Text(filter.rawValue)
                     .font(.roboto(type: .medium, size: 11))
                     .foregroundStyle(homeVM.selectedFilter == filter ? .white : .textLight)
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 10)
+                    .frame(height: 23)
+//                    .padding(.horizontal, 20)
+                    .frame(maxWidth: .infinity)
                     .background {
                         if homeVM.selectedFilter == filter {
                             RoundedRectangle(cornerRadius: 4)

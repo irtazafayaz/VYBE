@@ -10,6 +10,8 @@ import SwiftUI
 
 extension Font {
     static func rubik(type: FontType, size: CGFloat) -> Font {
+        return Font.custom("Rubik-\(type.rawValue)", size: size)
+        /*
         switch type {
         case .bold:
             return Font.custom("Rubik-Bold", size: size)
@@ -20,9 +22,12 @@ extension Font {
         case .semiBold:
             return Font.custom("Rubik-SemiBold", size: size)
         }
+         */
     }
     
     static func roboto(type: FontType, size: CGFloat) -> Font {
+        return Font.custom("Roboto-\(type.rawValue)", size: size)
+        /*
         switch type {
         case .bold:
             return Font.custom("Roboto-Bold", size: size)
@@ -33,12 +38,15 @@ extension Font {
         case .semiBold:
             return Font.custom("Roboto-Black", size: size)
         }
+        */
     }
 }
 
 extension UIFont {
     
     class func roboto(type: FontType, size: CGFloat) -> UIFont {
+        return UIFont(name: "Roboto-\(type.rawValue)", size: size)!
+        /*
         switch type {
         case .bold:
             return UIFont(name: "Roboto-Bold", size: size)!
@@ -49,12 +57,13 @@ extension UIFont {
         case .semiBold:
             return UIFont(name: "Roboto-Black", size: size)!
         }
+         */
     }
 }
 
-enum FontType {
-    case regular
-    case medium
-    case semiBold
-    case bold
+enum FontType: String {
+    case regular = "Regular"
+    case medium = "Medium"
+    case bold = "Bold"
+    case italic = "Italic"
 }

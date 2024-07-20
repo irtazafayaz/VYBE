@@ -13,9 +13,9 @@ class ProfileViewModel: BaseViewModel {
     @Published var userProfile: UserProfile? = nil
     
     @Published var collections: [ProfileCollection] = [
-        ProfileCollection(img: .samplePost, title: "Modern Clothes"),
-        ProfileCollection(img: .samplePostImage2, title: "Diorama"),
-        ProfileCollection(img: .sampleProduct, title: "Road Trips")
+        ProfileCollection(img: .samplePost1, title: "Modern Clothes"),
+        ProfileCollection(img: .samplePost2, title: "Diorama"),
+        ProfileCollection(img: .sampleBag1, title: "Road Trips")
     ]
     
     @Published var isPresentLogout = false
@@ -57,7 +57,7 @@ extension ProfileViewModel {
         if let alreadyExist = self.collections.first(where: {$0.title == collectionTitle}) {
            showAlert(error: "Collection with same name already exist")
         } else {
-            collections.insert(ProfileCollection(img: .samplePost, title: collectionTitle), at: 0)
+            collections.insert(ProfileCollection(img: .samplePost1, title: collectionTitle), at: 0)
             collectionTitle = ""
         }
     }

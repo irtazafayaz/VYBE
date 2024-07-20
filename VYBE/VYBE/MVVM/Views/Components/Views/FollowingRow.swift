@@ -16,7 +16,7 @@ struct FollowingRow: View {
     
     var body: some View {
         HStack(spacing: 0) {
-            Image(Constants.sampleImages.randomElement()!)
+            Image(Constants.userImages.randomElement()!)
                 .resizable()
                 .frame(width: rowHeight, height: rowHeight)
                 .aspectRatio(contentMode: .fill)
