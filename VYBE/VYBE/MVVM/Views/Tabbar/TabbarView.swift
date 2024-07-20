@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TabbarView: View {
     
-    @State private var index = 4
+    @State private var index = 0
     
     private let items: [ImageResource] = [.home, .category, .circlePlus, .heart, .profile]
     

@@ -21,6 +21,9 @@ struct HomeView: View {
                     
                     VStack(spacing: 0) {
                         
+                        TopBar()
+                            .padding(.horizontal, 20)
+                        
                         UserYouFollowed()
                             .padding(.top, 10)
                         
@@ -43,20 +46,37 @@ struct HomeView: View {
                         .environmentObject(homeVM)
                 }
             }
-            .addLeftNavItems(items: [
-                NavItem(image: .menu, action: {
-                    
-                })
-            ])
-            .addRightNavItems(items: [
-                NavItem(image: .search, action: {
-                    homeVM.showManageCollection.toggle()
-                }),
-                NavItem(image: .notification, action: {
-                    homeVM.showNotification.toggle()
-                })
-            ])
+            .toolbar(.hidden, for: .navigationBar)
+//            .addLeftNavItems(items: [
+//                NavItem(image: .menu, action: {
+//                    
+//                })
+//            ])
+//            .addRightNavItems(items: [
+//                NavItem(image: .search, action: {
+//                    homeVM.showManageCollection.toggle()
+//                }),
+//                NavItem(image: .notification, action: {
+//                    homeVM.showNotification.toggle()
+//                })
+//            ])
         }
+    }
+    
+    @ViewBuilder
+    func TopBar() -> some View {
+        HStack {
+            Image(.menu)
+            
+            Image(.logoText)
+                .resizable()
+                .frame(width: 63)
+                .scaledToFit()
+                .frame(maxWidth: .infinity, alignment: .center)
+            
+            Image(.notification)
+        }
+        .frame(height: 54)
     }
     
     @ViewBuilder
@@ -78,7 +98,7 @@ struct HomeView: View {
                                 user: user,
                                 circleSize: 60,
                                 showFollowButton: false,
-                                showPlusButton: index == 0,
+                                showPlusButton: false,
                                 sampleImage: Constants.sampleImages.randomElement()!
                             )
                         }

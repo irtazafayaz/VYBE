@@ -13,15 +13,15 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-//            if contentVM.showSplash {
-//                SplashView()
-//            }
-//            else if contentVM.showOnboarding {
-//                LandingView()
-//            }
-//            else {
+            if contentVM.showSplash {
+                SplashView()
+            }
+            else if contentVM.showOnboarding {
+                LandingView()
+            }
+            else {
                 TabbarView()
-//            }
+            }
         }
     }
 }
