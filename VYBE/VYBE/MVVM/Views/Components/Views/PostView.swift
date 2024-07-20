@@ -22,7 +22,7 @@ struct PostView: View {
     
     var numberOfSmallImages: Range<Int> {
         let fullRange = 1 ..< post.images.count
-        let halfRange = 1 ..< 4
+        let halfRange = 1 ..< 3
         return isSeeMorePressed ? fullRange : halfRange
     }
     
@@ -63,22 +63,23 @@ struct PostView: View {
                     .padding(.trailing, 6)
             }
             
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 0) {
+                // full name and blue circle
                 NavigationLink {
                     OtherProfileView(user: post.user)
                 } label: {
-                    Text(post.user.fullName)
-                        .font(.roboto(type: .medium, size: 14))
-                        .foregroundStyle(.buttonBlue)
+                    HStack {
+                        Text(post.user.fullName)
+                            .font(.roboto(type: .medium, size: 14))
+                            .foregroundStyle(.buttonBlue)
+                        
+                        Image(.blueCheckmark)
+                    }
                 }
                 
+                // posted ago
                 Text(post.postedTime.getTimeAgo())
             }
-            
-            Image(.blueCheckmark)
-            Image(systemName: "checkmark.circle.fill")
-                .resizable()
-                .frame(width: 12, height: 12)
             
             Spacer()
         }
@@ -133,10 +134,13 @@ struct PostView: View {
                 .frame(width: 57, height: 14)
                 .shadow(color: .black.opacity(0.25), radius: 10)
             
-            
-            Text("See More")
-                .font(.roboto(type: .semiBold, size: 9))
-                .foregroundStyle(.buttonBlue)
+            Button {
+                self.isSeeMorePressed.toggle()
+            } label: {
+                Text("See More")
+                    .font(.roboto(type: .semiBold, size: 9))
+                    .foregroundStyle(.buttonBlue)
+            }
         }
     }
     

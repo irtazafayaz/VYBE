@@ -18,6 +18,9 @@ class ProfileViewModel: BaseViewModel {
         ProfileCollection(img: .sampleProduct, title: "Road Trips")
     ]
     
+    @Published var isPresentLogout = false
+    @Published var isPresentSettings = false
+    
     private var cancellables = Set<AnyCancellable>()
     
     @Published var collectionTitle = ""

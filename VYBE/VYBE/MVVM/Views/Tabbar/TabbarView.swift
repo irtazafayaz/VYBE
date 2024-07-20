@@ -41,10 +41,15 @@ struct TabbarView: View {
             }
             .frame(maxHeight: .infinity)
             
-            HStack {
-                ForEach(0 ..< items.count, id: \.self) { index in
-                    TabbarItem(image: items[index], tabIndex: index)
+            VStack(spacing: 0) {
+                Divider()
+                HStack {
+                    ForEach(0 ..< items.count, id: \.self) { index in
+                        TabbarItem(image: items[index], tabIndex: index)
+                    }
                 }
+                .padding(.top, 10)
+                .background(.white)
             }
         }
     }

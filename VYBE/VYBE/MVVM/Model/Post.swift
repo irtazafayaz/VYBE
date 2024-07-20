@@ -26,10 +26,5 @@ struct Post: Identifiable {
         "Coffee"
     ]
     
-    let images: [ImageResource] = [
-        .samplePostImage2,
-        .sampleProduct,
-        .sampleVertical,
-        .samplePost
-    ].shuffled()
+    let images: [ImageResource] = Array(repeating: .samplePostImage2, count: 3) + Array(repeating: .samplePost, count: 3)
 }

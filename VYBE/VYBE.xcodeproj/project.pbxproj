@@ -28,6 +28,7 @@
 		AB3185882C3CA6850020B9DC /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = AB3185872C3CA6850020B9DC /* FirebaseFirestoreCombine-Community */; };
 		AB31858A2C3CA6850020B9DC /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AB3185892C3CA6850020B9DC /* FirebaseFirestoreSwift */; };
 		AB31858C2C3CA6850020B9DC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = AB31858B2C3CA6850020B9DC /* FirebaseStorage */; };
+		AB45B82D2C4C113000BAD9E2 /* SettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB45B82C2C4C113000BAD9E2 /* SettingsSheet.swift */; };
 		AB4867E52C3DB0DC00F6DB97 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4867E42C3DB0DC00F6DB97 /* LandingView.swift */; };
 		AB4867E72C3DC2D200F6DB97 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB4867E62C3DC2D200F6DB97 /* GoogleService-Info.plist */; };
 		AB4867E92C3DC31A00F6DB97 /* Extension+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4867E82C3DC31A00F6DB97 /* Extension+Color.swift */; };
@@ -108,6 +109,7 @@
 		AB3185752C3CA3170020B9DC /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		AB3185782C3CA3DD0020B9DC /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		AB3185802C3CA4BF0020B9DC /* Extension+Numbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Numbers.swift"; sourceTree = "<group>"; };
+		AB45B82C2C4C113000BAD9E2 /* SettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSheet.swift; sourceTree = "<group>"; };
 		AB4867E42C3DB0DC00F6DB97 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		AB4867E62C3DC2D200F6DB97 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AB4867E82C3DC31A00F6DB97 /* Extension+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Color.swift"; sourceTree = "<group>"; };
@@ -535,6 +537,7 @@
 				ABD4F6CC2C49BD8E00C18EAD /* FollowAndFavs */,
 				ABD4F6CB2C49BD8400C18EAD /* Edit Profile */,
 				ABD4F6BA2C497ADD00C18EAD /* ProfileView.swift */,
+				AB45B82C2C4C113000BAD9E2 /* SettingsSheet.swift */,
 				ABD4F6BC2C497B3100C18EAD /* ProfileViewModel.swift */,
 				ABD4F6C42C49B97E00C18EAD /* OtherProfileView.swift */,
 				18C326C02C4AF58F0014E948 /* ManageCollectionView.swift */,
@@ -690,6 +693,7 @@
 				AB4867E92C3DC31A00F6DB97 /* Extension+Color.swift in Sources */,
 				AB48680F2C3DCC4300F6DB97 /* AppButton.swift in Sources */,
 				AB48683A2C3DD93E00F6DB97 /* ValidatorTextFieldView.swift in Sources */,
+				AB45B82D2C4C113000BAD9E2 /* SettingsSheet.swift in Sources */,
 				ABD05BBF2C4732730091BD53 /* PostManager.swift in Sources */,
 				18671E8D2C48499F0099A624 /* PostSuccessView.swift in Sources */,
 				ABD4F6C02C49999A00C18EAD /* CircleDashedBorder.swift in Sources */,

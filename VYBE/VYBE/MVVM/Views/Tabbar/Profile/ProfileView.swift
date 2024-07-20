@@ -13,72 +13,77 @@ struct ProfileView: View {
     @StateObject private var viewModel = ProfileViewModel()
     
     var body: some View {
+        
         NavigationStack {
             
-            ProfileToolBar(fullName: viewModel.userProfile?.fullName)
-            
-            ScrollView {
-                
-                VStack(spacing: 0) {
+            ZStack {
+                                
+                ScrollView {
                     
-                    // Cover + Profile
-                    if let user = viewModel.userProfile {
-                        ProfileTopHeader(
-                            user: user,
-                            followersCount: 253,
-                            favoritesCount: 255
-                        )
-                    }
-                                        
-                    HStack(spacing: 20) {
+                    VStack(spacing: 0) {
                         
+                        // Cover + Profile
                         if let user = viewModel.userProfile {
+                            ProfileTopHeader(
+                                user: user,
+                                followersCount: 253,
+                                favoritesCount: 255
+                            )
+                        }
+                        
+                        HStack(spacing: 20) {
+                            
+                            if let user = viewModel.userProfile {
+                                NavigationLink {
+                                    EditProfileView(user: user)
+                                } label: {
+                                    EditButton(title: "Edit Profile", icon: .editProfile)
+                                }
+                            }
+                            
                             NavigationLink {
-                                EditProfileView(user: user)
+                                ManageCollectionView()
+                                    .environmentObject(viewModel)
                             } label: {
-                                EditButton(title: "Edit Profile", icon: .editProfile)
+                                EditButton(title: "Manage Collection", icon: .manageCollection)
                             }
                         }
-
-                        NavigationLink {
-                            ManageCollectionView()
-                                .environmentObject(viewModel)
-                        } label: {
-                            EditButton(title: "Manage Collection", icon: .manageCollection)
+                        .padding(.top, 20)
+                        .padding(.horizontal, 12)
+                        
+                        BlueRobotoText(title: "Collection", fontWeight: .medium, fontSize: 14)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading, 12)
+                            .padding(.top, 22)
+                        
+                        HStack(spacing: 6) {
+                            ForEach(viewModel.collections) { collection in
+                                CollectionCell(collection: collection)
+                            }
                         }
-                    }
-                    .padding(.top, 20)
-                    .padding(.horizontal, 12)
-                    
-                    BlueRobotoText(title: "Collection", fontWeight: .medium, fontSize: 14)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading, 12)
-                        .padding(.top, 22)
-                    
-                    HStack(spacing: 6) {
-                        ForEach(viewModel.collections) { collection in
-                            CollectionCell(collection: collection)
+                        .padding(.horizontal, 12)
+                        .padding(.top, 3)
+                        
+                        BlueRobotoText(title: "Latest Post", fontWeight: .medium, fontSize: 14)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding([.leading, .top], 12)
+                        
+                        HStack(spacing: 6) {
+                            ForEach(viewModel.collections) { collection in
+                                CollectionCell(collection: collection)
+                            }
                         }
+                        .padding(.horizontal, 12)
+                        .padding(.top, 3)
+                        
                     }
-                    .padding(.horizontal, 12)
-                    .padding(.top, 3)
-                    
-                    BlueRobotoText(title: "Latest Post", fontWeight: .medium, fontSize: 14)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding([.leading, .top], 12)
-
-                    HStack(spacing: 6) {
-                        ForEach(viewModel.collections) { collection in
-                            CollectionCell(collection: collection)
-                        }
-                    }
-                    .padding(.horizontal, 12)
-                    .padding(.top, 3)
-
+                    .padding(.top, 10)
                 }
-                .padding(.top, 10)
+                
+                ProfileToolBar(fullName: viewModel.userProfile?.fullName)
             }
         }
+        .environmentObject(viewModel)
     }
     
     
@@ -122,41 +127,57 @@ struct ProfileToolBar: View {
     
     @Environment(\.dismiss) private var dismiss
     
+    @EnvironmentObject private var viewModel: ProfileViewModel
+    
     let fullName: String?
     
     var body: some View {
         
-        ZStack {}
-            .navigationBarBackButtonHidden(true)
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    ChevronBackButton(dismiss: dismiss, title: fullName)
-                }
-                
-                ToolbarItem(placement: .topBarTrailing) {
-                    HStack {
-                        Button(action: {
-                            
-                        }, label: {
-                            Image(.notification)
-                        })
+        ZStack {
+            if viewModel.isPresentSettings {
+                Color.black
+                    .opacity(0.3)
+                    .ignoresSafeArea()
+            }
+        }
+        .sheet(isPresented: $viewModel.isPresentSettings, content: {
+            SettingsSheet()
+        })
+        .alert("Confirm Logout", isPresented: $viewModel.isPresentLogout) {
+            Button("Logout", role: .destructive) {
+                AuthManager.shared.signOut()
+            }
+        }
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                ChevronBackButton(dismiss: dismiss, title: fullName)
+            }
+            
+            ToolbarItem(placement: .topBarTrailing) {
+                HStack {
+                    Button(action: {
                         
-                        MenuButton()
-                    }
+                    }, label: {
+                        Image(.notification)
+                    })
+                    
+                    MenuButton()
                 }
             }
+        }
     }
     
     func MenuButton() -> some View {
         Menu {
             Button(action: {
-                
+                viewModel.isPresentSettings.toggle()
             }, label: {
                 Label("Settings", image: "setting")
             })
             
             Button {
-                
+                viewModel.isPresentLogout.toggle()
             } label: {
                 Label("Logout", image: "logout")
             }
