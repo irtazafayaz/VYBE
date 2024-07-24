@@ -13,81 +13,68 @@ class UserManager {
     
     static let shared = UserManager()
     
-    let usersRef = Firestore.firestore().collection("users")
+    private let usersRef = Firestore.firestore().collection("users")
     
     @Published var users: [UserProfile] = []
-    
     @Published var userProfile: UserProfile? = nil
-    
     @Published var isLoading = false
     
     private init() {
-        self.fetchUsers()
-        self.fetchProfile()
+        fetchUsers()
+        fetchProfile()
     }
     
     func fetchProfile() {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
         
-        guard let uid = Auth.auth().currentUser?.uid else {
-            return
-        }
+        isLoading = true
         
         Task {
-            self.isLoading = true
             do {
-                let user = try await self.usersRef.document(uid).getDocument(as: UserProfile.self)
-                
-                self.userProfile = user
+                let user = try await usersRef.document(uid).getDocument(as: UserProfile.self)
+                DispatchQueue.main.async {
+                    self.userProfile = user
+                    self.isLoading = false
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self.isLoading = false
+                    print(#function, error)
+                }
             }
-            catch {
-                print(#function, error)
-            }
-            self.isLoading = false
         }
     }
     
     func createUser(userProfile: UserProfile) async throws {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
         
-        guard let uid = Auth.auth().currentUser?.uid else {
-            return
+        try await setUserProfile(uid: uid, userProfile: userProfile)
+    }
+    
+    func updateUser(userProfile: UserProfile) async throws {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        try await setUserProfile(uid: uid, userProfile: userProfile)
+        DispatchQueue.main.async {
+            self.userProfile = userProfile
         }
-        
-        return try await withUnsafeThrowingContinuation { continuation in
-            do {
-                try self.usersRef.document(uid).setData(from: userProfile) { error in
-                    if let error {
-                        continuation.resume(throwing: error)
-                    }
-                    else {
-                        continuation.resume()
-                    }
-                }
-            }
-            catch {
-                continuation.resume(throwing: error)
-            }
+    }
+    
+    private func setUserProfile(uid: String, userProfile: UserProfile) async throws {
+        do {
+            try usersRef.document(uid).setData(from: userProfile)
+        } catch {
+            throw error
         }
     }
     
     func fetchUsers() {
-        
         let fullnames = [
-            "Arthur Morgan",
-            "Billie Eilish",
-            "Carl Johnson",
-            "Faheem Commando",
-            "Imran Khan",
-            "Johar Khan",
-            "Momina Mustehsan",
-            "Leon Kennedy",
-            "Lara Croft",
-            "Queen Elizabeth",
-            "Rehana Singer",
+            "Arthur Morgan", "Billie Eilish", "Carl Johnson", "Faheem Commando",
+            "Imran Khan", "Johar Khan", "Momina Mustehsan", "Leon Kennedy",
+            "Lara Croft", "Queen Elizabeth", "Rehana Singer"
         ]
         
-        for fullname in fullnames {
-            let user = UserProfile(id: UUID().uuidString, fullName: fullname)
-            self.users.append(user)
-        }
+        users = fullnames.map { UserProfile(id: UUID().uuidString, fullName: $0) }
     }
 }

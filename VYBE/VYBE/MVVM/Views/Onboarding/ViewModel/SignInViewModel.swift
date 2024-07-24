@@ -10,8 +10,8 @@ import Combine
 
 class SignInViewModel: BaseViewModel {
     
-    @Published var email = UserDefaults.standard.email ?? ""
-    @Published var password = UserDefaults.standard.password ?? ""
+    @Published var email = UserDefaults.standard.email ?? "johndoe@gmail.com"
+    @Published var password = UserDefaults.standard.password ?? "Temp@123"
     @Published var emailError: String? = nil
     @Published var passwordError: String? = nil
     

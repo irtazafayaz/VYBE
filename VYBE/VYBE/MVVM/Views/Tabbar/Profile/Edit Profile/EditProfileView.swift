@@ -5,14 +5,14 @@
 //  Created by Irtaza Fiaz on 19/07/2024.
 //
 
-import Foundation
 import SwiftUI
 
 struct EditProfileView: View {
     
     @Environment(\.dismiss) private var dismiss
-    
     @State var user: UserProfile
+    @State private var isSaving = false
+    @State private var errorMessage: String? = nil
     
     var body: some View {
         ScrollView {
@@ -21,22 +21,14 @@ struct EditProfileView: View {
                 ImageView()
                 
                 EditTextField(title: "Username", text: $user.userName)
-                
                 EditTextField(title: "Full Name", text: $user.fullName)
-                
                 EditTextField(title: "Bio", text: $user.bio)
-                
                 EditTextField(title: "Email", text: $user.email)
-                
                 EditTextField(title: "Phone Number", text: $user.phone)
-
                 EditTextField(title: "Date of Birth", text: $user.dob)
-
                 EditTextField(title: "Country", text: $user.cityAndCountry)
-
                 EditTextField(title: "City", text: $user.cityAndCountry)
-
-                EditTextField(title: "City", text: $user.address)
+                EditTextField(title: "Address", text: $user.address)
             }
             .padding(.vertical, 25)
         }
@@ -51,11 +43,13 @@ struct EditProfileView: View {
                     RoundedRectangle(cornerRadius: 4)
                         .foregroundStyle(.buttonBlue)
                     
-                    Text("Save")
-                        .font(.roboto(type: .medium, size: 11))
-                        .foregroundStyle(.offWhite)
+                    Button(action: saveProfile) {
+                        Text(isSaving ? "Saving..." : "Save")
+                            .font(.roboto(type: .medium, size: 11))
+                            .foregroundStyle(.offWhite)
+                    }
                 }
-                .frame(width: 53, height: 30)
+                .frame(width: 53, height: 30, alignment: .center)
             }
         }
     }
@@ -98,5 +92,20 @@ struct EditProfileView: View {
             .frame(height: 50)
         }
         .padding(.horizontal, 15)
+    }
+    
+    private func saveProfile() {
+        isSaving = true
+        
+        Task { @MainActor in
+            do {
+                try await UserManager.shared.updateUser(userProfile: user)
+                isSaving = false
+                dismiss()
+            } catch {
+                isSaving = false
+                errorMessage = "Error updating profile: \(error.localizedDescription)"
+            }
+        }
     }
 }

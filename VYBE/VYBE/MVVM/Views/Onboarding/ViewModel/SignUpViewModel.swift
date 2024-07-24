@@ -12,21 +12,21 @@ class SignUpViewModel: BaseViewModel {
     
     // Fields:
     
-    @Published var userName = String()
+    @Published var userName = "johndoe"
     
-    @Published var fullName = String()
+    @Published var fullName = "John Doe"
     
-    @Published var phone = String()
+    @Published var phone = "090078601"
     
-    @Published var email = String()
+    @Published var email = "johndoe@gmail.com"
     
-    @Published var password = String()
+    @Published var password = "Temp@123"
     
-    @Published var confirmPassword = String()
+    @Published var confirmPassword = "Temp@123"
     
-    @Published var dob = String()
+    @Published var dob = "09/12/1989"
     
-    @Published var cityAndCountry = String()
+    @Published var cityAndCountry = "Heaven"
     
     // Errors:
     
