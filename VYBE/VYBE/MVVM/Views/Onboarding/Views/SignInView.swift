@@ -10,125 +10,112 @@ import SwiftUI
 
 struct SignInView: View {
     
-    @EnvironmentObject private var router: OnboardingRouter
-    
     @Environment(\.dismiss) private var dismiss
     
+    @StateObject private var router = OnboardingRouter()
     @StateObject private var viewModel = SignInViewModel()
     
     @State private var rememberMe = false
+    @State private var openRegisterView: Bool = false
     
-    let socialIcons: [ImageResource] = [.apple, .fb, .google]
+    let socialIcons: [ImageResource] = [.google]
     
     var body: some View {
-        
-        ZStack {
+        NavigationStack {
             
-            VStack(spacing: 0) {
+            ZStack {
                 
-                Text("Sign In")
-                    .foregroundStyle(.textDark)
-                    .font(.rubik(type: .medium, size: 28))
-                    .padding(.top, 18)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                
-                VStack(spacing: 12) {
+                VStack(spacing: 0) {
                     
-                    ValidatorTextFieldView(textField: $viewModel.email, title: "Email", errorMessage: viewModel.emailError, keyboardType: .emailAddress)
+                    Text("Sign In")
+                        .foregroundStyle(.textDark)
+                        .font(.rubik(type: .medium, size: 28))
+                        .padding(.top, 18)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     
-                    ValidatorTextFieldView(textField: $viewModel.password, title: "Password", errorMessage: viewModel.passwordError, keyboardType: .default, isSecureText: true)
-                }
-                .padding(.top, 19)
-                
-                HStack {
-                    Button(action: {
-                        rememberMe.toggle()
-                    }, label: {
-                        Label("Remember Me", systemImage: rememberMe ? "checkmark.square" : "square")
-                            .font(.roboto(type: .regular, size: 13))
-                            .foregroundColor(rememberMe ? .textDark : .textLightGray)
-                    })
+                    VStack(spacing: 12) {
+                        
+                        ValidatorTextFieldView(textField: $viewModel.email, title: "Email", errorMessage: viewModel.emailError, keyboardType: .emailAddress)
+                        
+                        ValidatorTextFieldView(textField: $viewModel.password, title: "Password", errorMessage: viewModel.passwordError, keyboardType: .default, isSecureText: true)
+                    }
+                    .padding(.top, 19)
+                    
+                    HStack {
+                        Button(action: {
+                            rememberMe.toggle()
+                        }, label: {
+                            Label("Remember Me", systemImage: rememberMe ? "checkmark.square" : "square")
+                                .font(.roboto(type: .regular, size: 13))
+                                .foregroundColor(rememberMe ? .textDark : .textLightGray)
+                        })
+                        
+                        Spacer()
+                    }
+                    .padding(.top, 12)
+                    
+                    AppButton(title: "Sign In") {
+                        viewModel.signIn(rememberMe: rememberMe)
+                    }
+                    .frame(height: 52)
+                    .padding(.top, 60)
+                    
+                    VStack(spacing: 26) {
+                        
+                        HStack(spacing: 15) {
+                            ForEach(socialIcons, id: \.self) { icon in
+                                SocialIcon(image: icon)
+                            }
+                        }
+                        
+                        HStack(spacing: 9) {
+                            Rectangle()
+                                .frame(width: 23, height: 0.5)
+                            
+                            Text("OR")
+                                .font(.roboto(type: .regular, size: 13))
+                            
+                            Rectangle()
+                                .frame(width: 23, height: 0.5)
+                        }
+                        .foregroundStyle(Color.textLightGray)
+
+                    }
+                    .padding(.top, 45)
                     
                     Spacer()
                     
-                    Button(action: {
-                        router.push(path: .forgotPassword)
-                    }, label: {
-                        Text("Forgot Password?")
-                            .font(.roboto(type: .regular, size: 13))
-                            .foregroundColor(.textLight)
-                    })
-                }
-                .padding(.top, 12)
-                
-                AppButton(title: "Sign In") {
-                    viewModel.signIn(rememberMe: rememberMe)
-                }
-                .frame(height: 52)
-                .padding(.top, 60)
-                
-                VStack(spacing: 26) {
-                    
-                    HStack(spacing: 15) {
-                        ForEach(socialIcons, id: \.self) { icon in
-                            SocialIcon(image: icon)
+                    HStack {
+                        
+                        Text("Don’t have an account?")
+                            .font(.rubik(type: .regular, size: 13))
+                        
+                        Button {
+                            openRegisterView.toggle()
+                        } label: {
+                            Text("Register Here")
                         }
-                    }
-                    
-                    HStack(spacing: 9) {
-                        Rectangle()
-                            .frame(width: 23, height: 0.5)
+                        .font(.rubik(type: .medium, size: 13))
                         
-                        Text("OR")
-                            .font(.roboto(type: .regular, size: 13))
-                        
-                        Rectangle()
-                            .frame(width: 23, height: 0.5)
                     }
-                    .foregroundStyle(Color.textLightGray)
-                    
-                    Button {
-                        viewModel.signInAnonymous()
-                    } label: {
-                        Text("Continue As Guest User")
-                            .padding(.horizontal)
-                            .foregroundStyle(.offWhite)
-                            .background {
-                                RoundedRectangle(cornerRadius: 5)
-                                    .foregroundStyle(.buttonBlueLight)
-                            }
-                    }
+                    .foregroundStyle(.textDark)
+                    .padding(.bottom, 40)
                 }
-                .padding(.top, 45)
+                .padding(.horizontal, 22)
+                .toolbar(.hidden, for: .navigationBar)
                 
-                Spacer()
-                
-                HStack {
-                    
-                    Text("Don’t have an account?")
-                        .font(.rubik(type: .regular, size: 13))
-                    
-                    Button {
-                        router.push(path: .signUp)
-                    } label: {
-                        Text("Register Here")
-                    }
-                    .font(.rubik(type: .medium, size: 13))
-                    
+                if viewModel.isLoading {
+                    ProgressView("Signing In ...")
+                        .shadow(radius: 20)
                 }
-                .foregroundStyle(.textDark)
-                .padding(.bottom, 40)
             }
-            .padding(.horizontal, 22)
-            .toolbar(.hidden, for: .navigationBar)
-            
-            if viewModel.isLoading {
-                ProgressView("Signing In ...")
-                    .shadow(radius: 20)
+            .alert(viewModel.alertTitle, isPresented: $viewModel.isPresentAlert) {
+                
             }
-        }
-        .alert(viewModel.alertTitle, isPresented: $viewModel.isPresentAlert) {
-            
+            .navigationDestination(isPresented: $openRegisterView, destination: {
+                SignUpView()
+                    .toolbar(.hidden)
+            })
         }
     }
     

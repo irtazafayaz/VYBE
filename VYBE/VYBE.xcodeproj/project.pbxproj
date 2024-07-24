@@ -29,7 +29,6 @@
 		AB31858A2C3CA6850020B9DC /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AB3185892C3CA6850020B9DC /* FirebaseFirestoreSwift */; };
 		AB31858C2C3CA6850020B9DC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = AB31858B2C3CA6850020B9DC /* FirebaseStorage */; };
 		AB45B82D2C4C113000BAD9E2 /* SettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB45B82C2C4C113000BAD9E2 /* SettingsSheet.swift */; };
-		AB4867E52C3DB0DC00F6DB97 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4867E42C3DB0DC00F6DB97 /* LandingView.swift */; };
 		AB4867E72C3DC2D200F6DB97 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB4867E62C3DC2D200F6DB97 /* GoogleService-Info.plist */; };
 		AB4867E92C3DC31A00F6DB97 /* Extension+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4867E82C3DC31A00F6DB97 /* Extension+Color.swift */; };
 		AB4867EB2C3DC43C00F6DB97 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB4867EA2C3DC43C00F6DB97 /* Colors.xcassets */; };
@@ -111,7 +110,6 @@
 		AB3185782C3CA3DD0020B9DC /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		AB3185802C3CA4BF0020B9DC /* Extension+Numbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Numbers.swift"; sourceTree = "<group>"; };
 		AB45B82C2C4C113000BAD9E2 /* SettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSheet.swift; sourceTree = "<group>"; };
-		AB4867E42C3DB0DC00F6DB97 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		AB4867E62C3DC2D200F6DB97 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AB4867E82C3DC31A00F6DB97 /* Extension+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Color.swift"; sourceTree = "<group>"; };
 		AB4867EA2C3DC43C00F6DB97 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -405,7 +403,6 @@
 		AB4868332C3DD86C00F6DB97 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AB4867E42C3DB0DC00F6DB97 /* LandingView.swift */,
 				AB4868352C3DD91D00F6DB97 /* SignInView.swift */,
 				AB4868422C3DE17C00F6DB97 /* SignUpView.swift */,
 				AB57A72A2C40911A00A17C4E /* ForgotPasswordView.swift */,
@@ -652,7 +649,6 @@
 				ABD05BBD2C4721FB0091BD53 /* Extension+Date.swift in Sources */,
 				AB57A7272C407C7200A17C4E /* UserProfile.swift in Sources */,
 				ABC172DD2C47FA92001948C6 /* CategorySelectedView.swift in Sources */,
-				AB4867E52C3DB0DC00F6DB97 /* LandingView.swift in Sources */,
 				ABC172DF2C47FAD8001948C6 /* Category.swift in Sources */,
 				AB8225BD2C46906100927B69 /* TextViews.swift in Sources */,
 				AB4868402C3DDEC500F6DB97 /* Extension+String.swift in Sources */,
@@ -853,7 +849,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vybe;
+				PRODUCT_BUNDLE_IDENTIFIER = io.puzzles.vybe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -887,7 +883,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vybe;
+				PRODUCT_BUNDLE_IDENTIFIER = io.puzzles.vybe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

@@ -10,5 +10,4 @@ import Foundation
 enum OnboardingPath {
     case signIn
     case signUp
-    case forgotPassword
 }

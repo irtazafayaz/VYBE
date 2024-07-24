@@ -15,11 +15,9 @@ struct ContentView: View {
         ZStack {
             if contentVM.showSplash {
                 SplashView()
-            }
-            else if contentVM.showOnboarding {
-                LandingView()
-            }
-            else {
+            } else if contentVM.showOnboarding {
+                SignInView()
+            } else {
                 TabbarView()
             }
         }

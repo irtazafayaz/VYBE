@@ -2,18 +2,22 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CLIENT_ID</key>
+	<string>199840662224-tdephjncdjacfsun83eib5ujvbtelbvg.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.199840662224-tdephjncdjacfsun83eib5ujvbtelbvg</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBQ9suUeGtwux1l3lcKp83n7t0AtbLlSNc</string>
+	<string>AIzaSyCOFznMt8gjT4UpOLnzJfC0wYSBf2pKfVE</string>
 	<key>GCM_SENDER_ID</key>
-	<string>707649143145</string>
+	<string>199840662224</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.vybe</string>
+	<string>io.puzzles.vybe</string>
 	<key>PROJECT_ID</key>
-	<string>vybe-54a7f</string>
+	<string>vybe-131bc</string>
 	<key>STORAGE_BUCKET</key>
-	<string>vybe-54a7f.appspot.com</string>
+	<string>vybe-131bc.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:707649143145:ios:ddd2deccface305509fdf8</string>
+	<string>1:199840662224:ios:e5c4ad87369b676860d4d5</string>
 </dict>
 </plist>
