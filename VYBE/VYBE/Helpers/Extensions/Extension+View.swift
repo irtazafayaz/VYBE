@@ -2,7 +2,7 @@
 //  Extension+View.swift
 //  VYBE
 //
-//  Created by Hamza Hashmi on 14/07/2024.
+//  Created by Irtaza Fiaz on 14/07/2024.
 //
 
 import Foundation

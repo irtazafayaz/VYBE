@@ -2,7 +2,7 @@
 //  VYBEApp.swift
 //  VYBE
 //
-//  Created by Hamza Hashmi on 09/07/2024.
+//  Created by Irtaza Fiaz on 09/07/2024.
 //
 
 import SwiftUI

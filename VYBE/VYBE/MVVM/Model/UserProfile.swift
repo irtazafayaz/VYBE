@@ -2,7 +2,7 @@
 //  UserProfile.swift
 //  VYBE
 //
-//  Created by Hamza Hashmi on 12/07/2024.
+//  Created by Irtaza Fiaz on 12/07/2024.
 //
 
 import Foundation

@@ -2,7 +2,7 @@
 //  CircleUserView.swift
 //  VYBE
 //
-//  Created by Hamza Hashmi on 16/07/2024.
+//  Created by Irtaza Fiaz on 16/07/2024.
 //
 
 import Foundation

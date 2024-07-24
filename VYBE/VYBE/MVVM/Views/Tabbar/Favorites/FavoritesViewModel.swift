@@ -2,7 +2,7 @@
 //  FavoritesViewModel.swift
 //  VYBE
 //
-//  Created by Hamza Hashmi on 18/07/2024.
+//  Created by Irtaza Fiaz on 18/07/2024.
 //
 
 import Foundation

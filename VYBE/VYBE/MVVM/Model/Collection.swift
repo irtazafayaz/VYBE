@@ -2,7 +2,7 @@
 //  Collection.swift
 //  VYBE
 //
-//  Created by Hamza Hashmi on 19/07/2024.
+//  Created by Irtaza Fiaz on 19/07/2024.
 //
 
 import Foundation

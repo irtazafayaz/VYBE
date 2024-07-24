@@ -2,7 +2,7 @@
 //  SignInView.swift
 //  VYBE
 //
-//  Created by Hamza Hashmi on 10/07/2024.
+//  Created by Irtaza Fiaz on 10/07/2024.
 //
 
 import Foundation
@@ -17,9 +17,7 @@ struct SignInView: View {
     
     @State private var rememberMe = false
     @State private var openRegisterView: Bool = false
-    
-    let socialIcons: [ImageResource] = [.google]
-    
+        
     var body: some View {
         NavigationStack {
             
@@ -61,12 +59,7 @@ struct SignInView: View {
                     .padding(.top, 60)
                     
                     VStack(spacing: 26) {
-                        
-                        HStack(spacing: 15) {
-                            ForEach(socialIcons, id: \.self) { icon in
-                                SocialIcon(image: icon)
-                            }
-                        }
+                    
                         
                         HStack(spacing: 9) {
                             Rectangle()
