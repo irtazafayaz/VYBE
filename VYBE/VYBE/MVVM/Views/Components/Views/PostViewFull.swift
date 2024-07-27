@@ -21,8 +21,10 @@ struct PostViewFull: View {
                 
                 Divider()
                     .padding(.top, 7)
+  
+                // TODO: Irtaza
                 
-                PostView(post: post, showSeeMore: false, showUserView: false)
+//                PostView(post: post, showSeeMore: false, showUserView: false)
                 
                 SeeMorePosts()
                     .padding(.horizontal, 15)

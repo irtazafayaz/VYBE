@@ -44,17 +44,17 @@ struct FavoritesView: View {
                         if viewModel.index == 0 {
                             ForEach(0 ..< viewModel.favoritePosts.count, id: \.self) { index in
                                 let post = viewModel.favoriteItems[index]
-                                NavigationLink {
-                                    PostViewFull(post: post)
-                                } label: {
-                                    if let postImage = post.images.first {
-                                        Image(postImage)
-                                            .resizable()
-                                            .frame(width: width, height: width)
-                                            .aspectRatio(contentMode: .fill)
-                                            .clipShape(.rect(cornerRadius: 5))
-                                    }
-                                }
+//                                NavigationLink {
+//                                    PostViewFull(post: post)
+//                                } label: {
+//                                    if let postImage = post.images.first {
+//                                        Image(postImage)
+//                                            .resizable()
+//                                            .frame(width: width, height: width)
+//                                            .aspectRatio(contentMode: .fill)
+//                                            .clipShape(.rect(cornerRadius: 5))
+//                                    }
+//                                }
                             }
                         }
                         else {

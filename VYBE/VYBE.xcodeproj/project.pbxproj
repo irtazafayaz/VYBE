@@ -89,6 +89,7 @@
 		ABD4F6C82C49B9D900C18EAD /* ProfileTopHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4F6C72C49B9D900C18EAD /* ProfileTopHeader.swift */; };
 		ABD4F6CA2C49BD8000C18EAD /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4F6C92C49BD8000C18EAD /* EditProfileView.swift */; };
 		ABD940E12C45E0F200824C07 /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD940E02C45E0F200824C07 /* TabbarView.swift */; };
+		D555CFF82C54448900FAFE0F /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D555CFF72C54448900FAFE0F /* ImageCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -171,6 +172,7 @@
 		ABD4F6C72C49B9D900C18EAD /* ProfileTopHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTopHeader.swift; sourceTree = "<group>"; };
 		ABD4F6C92C49BD8000C18EAD /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		ABD940E02C45E0F200824C07 /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
+		D555CFF72C54448900FAFE0F /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				18671E8A2C4836C40099A624 /* DottedRoundedRectangle.swift */,
+				D555CFF72C54448900FAFE0F /* ImageCache.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -672,6 +675,7 @@
 				18E964B32C48329D00A1DF3E /* AddViewModel.swift in Sources */,
 				AB4868302C3DD4A000F6DB97 /* Paths.swift in Sources */,
 				ABC172DB2C47ECDE001948C6 /* Constants.swift in Sources */,
+				D555CFF82C54448900FAFE0F /* ImageCache.swift in Sources */,
 				AB48680C2C3DC5E000F6DB97 /* Extension+Font.swift in Sources */,
 				AB4868362C3DD91D00F6DB97 /* SignInView.swift in Sources */,
 				ABD4F6BD2C497B3100C18EAD /* ProfileViewModel.swift in Sources */,

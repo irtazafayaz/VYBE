@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @StateObject private var homeVM = HomeViewModel()
+    @ObservedObject private var postManager = PostManager.shared
     
     var body: some View {
         
@@ -36,7 +37,7 @@ struct HomeView: View {
                             .padding(.top, 13)
                         
                         VStack(spacing: 0) {
-                            ForEach(homeVM.posts) { post in
+                            ForEach(postManager.allPosts) { post in
                                 PostView(post: post, showSeeMore: true)
                             }
                         }

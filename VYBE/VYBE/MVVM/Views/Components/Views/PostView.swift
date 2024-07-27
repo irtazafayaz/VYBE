@@ -10,7 +10,7 @@ import SwiftUI
 
 struct PostView: View {
     
-    let post: Post
+    let post: FirebasePost
     
     let showSeeMore: Bool
     
@@ -21,7 +21,7 @@ struct PostView: View {
     private let columns = Array(repeating: GridItem(), count: 3)
     
     var numberOfSmallImages: Range<Int> {
-        let fullRange = 1 ..< post.images.count
+        let fullRange = 1 ..< (post.images?.count ?? 0)
         let halfRange = 1 ..< 3
         return isSeeMorePressed ? fullRange : halfRange
     }
@@ -57,11 +57,10 @@ struct PostView: View {
             NavigationLink {
                 OtherProfileView(user: post.user)
             } label: {
-                Image(post.userImage)
+                Image("sample-user-1")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 43, height: 43)
-//                    .aspectRatio(contentMode: .fill)
                     .clipShape(.circle)
             }
             
@@ -121,24 +120,28 @@ struct PostView: View {
     func ImagesView() -> some View {
         VStack(spacing: 13) {
             
-            if let firstImage = post.images.first {
-                ImageView(firstImage, width: .width, height: .width * 0.61, showEditIcon: true)
-            }
-            
-            if post.images.count > 3 {
-                LazyVGrid(columns: columns) {
-                    ForEach(numberOfSmallImages, id: \.self) { index in
-                        if let image = post.images[safe: index] {
-                            
-                            let width = getColumnWidth(horizontalPadding: 15, spacing: 15, numberOfColumns: 3)
-                            
-                            ImageView(image, width: width, height: width * 1.1)
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
+            if let postImages = post.images {
+                if let firstImage = postImages.first {
+                    ImageView(firstImage, width: .width, height: .width * 0.61, showEditIcon: true)
+                }
+                
+                if postImages.count > 3 {
+                    LazyVGrid(columns: columns) {
+                        ForEach(numberOfSmallImages, id: \.self) { index in
+                            if let image = postImages[safe: index] {
+                                
+                                let width = getColumnWidth(horizontalPadding: 15, spacing: 15, numberOfColumns: 3)
+                                
+                                ImageView(image, width: width, height: width * 1.1)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                            }
                         }
                     }
+                    .padding(.horizontal, 15)
                 }
-                .padding(.horizontal, 15)
             }
+            
+
         }
     }
     
@@ -166,13 +169,10 @@ struct PostView: View {
     }
     
     @ViewBuilder
-    func ImageView(_ image: ImageResource, width: CGFloat, height: CGFloat, showEditIcon: Bool = false) -> some View {
+    func ImageView(_ image: String, width: CGFloat, height: CGFloat, showEditIcon: Bool = false) -> some View {
         ZStack(alignment: .topTrailing) {
-            Image(image)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
+            CachedAsyncImageView(url: URL(string: image)!)
                 .frame(width: width, height: height)
-//                .clipShape(.rect)
             
             Image(.heartGrayCircle)
                 .padding([.top, .trailing], 18)

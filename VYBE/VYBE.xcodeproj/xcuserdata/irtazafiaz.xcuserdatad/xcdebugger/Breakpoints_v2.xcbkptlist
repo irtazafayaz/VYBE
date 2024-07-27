@@ -7,17 +7,127 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D00C43A5-B627-44A5-AC19-C12F3E90C4C8"
+            uuid = "4DDDA14B-EBD6-4B68-A944-D4ED9DB4FD30"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VYBE/MVVM/Views/Tabbar/Profile/ProfileViewModel.swift"
+            filePath = "VYBE/MVVM/Views/Tabbar/Add/AddViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "fetchProfile()"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "addNewPost()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C80088F5-D168-4598-9526-FF3AD34667F3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VYBE/MVVM/Views/Tabbar/Add/AddViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "addNewPost()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BEA36EE3-78FF-4244-B5B7-F8AF922A37C9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VYBE/MVVM/Views/Tabbar/Add/AddViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "addNewPost()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1D344940-26AC-45AB-8292-D61501425B8F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VYBE/MVVM/Views/Tabbar/Add/AddViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "addNewPost()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1D344940-26AC-45AB-8292-D61501425B8F - 2c078e5bb1ac97be"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for VYBE.AddViewModel.addNewPost() async -&gt; ()"
+                  moduleName = "VYBE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/irtazafiaz/Documents/Freelance/Fahad/VYBE/VYBE/VYBE/MVVM/Views/Tabbar/Add/AddViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "240">
+               </Location>
+               <Location
+                  uuid = "1D344940-26AC-45AB-8292-D61501425B8F - a1e7b35cd7a8a551"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) await resume partial function for VYBE.AddViewModel.addNewPost() async -&gt; ()"
+                  moduleName = "VYBE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/irtazafiaz/Documents/Freelance/Fahad/VYBE/VYBE/VYBE/MVVM/Views/Tabbar/Add/AddViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "1D344940-26AC-45AB-8292-D61501425B8F - 5aa40d254a6437a0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for VYBE.AddViewModel.addNewPost() async -&gt; ()"
+                  moduleName = "VYBE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/irtazafiaz/Documents/Freelance/Fahad/VYBE/VYBE/VYBE/MVVM/Views/Tabbar/Add/AddViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "116">
+               </Location>
+               <Location
+                  uuid = "1D344940-26AC-45AB-8292-D61501425B8F - 438bcd8a0ebb87a1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) suspend resume partial function for VYBE.AddViewModel.addNewPost() async -&gt; ()"
+                  moduleName = "VYBE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/irtazafiaz/Documents/Freelance/Fahad/VYBE/VYBE/VYBE/MVVM/Views/Tabbar/Add/AddViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "76">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

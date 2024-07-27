@@ -17,9 +17,12 @@ struct SelectedCategoryView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 0, content: {
-                ForEach(category.posts) { post in
-                    PostView(post: post, showSeeMore: true)
-                }
+                
+                // TODO: Irtaza
+                
+//                ForEach(category.posts) { post in
+//                    PostView(post: post, showSeeMore: true)
+//                }
             })
         }
         .navigationBarBackButtonHidden(true)

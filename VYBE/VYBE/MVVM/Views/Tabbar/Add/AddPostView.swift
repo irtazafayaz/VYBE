@@ -8,17 +8,12 @@
 import SwiftUI
 import PhotosUI
 
-struct AddPostView:View {
-    
+struct AddPostView: View {
     @StateObject var vm = AddViewModel()
     @Environment(\.dismiss) private var dismiss
-    @Binding var selectedTab:Int
-   
-    @FocusState var isInputActive: Bool
+    @Binding var selectedTab: Int
     
-    @State private var selectedItems = [PhotosPickerItem]()
-    @State private var selectedImages = [Image]()
-    
+    @FocusState private var isInputActive: Bool
     
     var body: some View {
         NavigationStack {
@@ -56,16 +51,9 @@ struct AddPostView:View {
                     }, title: "Back to Home")
                 }
             }
-            
-            .onChange(of: selectedItems) { items in
+            .onChange(of: vm.selectedItems) { items in
                 Task {
-                    selectedImages.removeAll()
-                    
-                    for item in selectedItems {
-                        if let image = try? await item.loadTransferable(type: Image.self) {
-                            selectedImages.append(image)
-                        }
-                    }
+                    vm.selectedUiImages = await loadImages(from: items)
                 }
             }
         }
@@ -74,15 +62,59 @@ struct AddPostView:View {
                 PostSuccessView(isPresented: $vm.showSuccess, selectedTab: $selectedTab)
             }
         }
-        
     }
     
-    var AddImageView:some View {
-        return ZStack {
+    private func loadImages(from items: [PhotosPickerItem]) async -> [UIImage] {
+        await withTaskGroup(of: UIImage?.self) { group in
+            for item in items {
+                group.addTask {
+                    do {
+                        if let imageData = try await item.loadTransferable(type: Data.self), let image = UIImage(data: imageData) {
+                            return image
+                        } else {
+                            return nil
+                        }
+                    } catch {
+                        print("Failed to load image: \(error)")
+                        return nil
+                    }
+                }
+            }
+            
+            var images: [UIImage] = []
+            for await image in group {
+                if let image = image {
+                    images.append(image)
+                }
+            }
+            return images
+        }
+    }
+    
+    private var PostButton: some View {
+        Button {
+            Task {
+                await vm.addNewPost()
+            }
+        } label: {
+            ZStack {
+                RoundedRectangle(cornerRadius: 7)
+                    .fill(.buttonBlue)
+                Text("Post It")
+                    .foregroundStyle(.white)
+                    .font(.roboto(type: .bold, size: 15))
+            }
+            .frame(width: 163, height: 53)
+        }
+        .padding(.vertical)
+    }
+
+    private var AddImageView: some View {
+        ZStack {
             HStack {
-                PhotosPicker(selection: $selectedItems) {
-                    if let image = selectedImages.first {
-                        image
+                PhotosPicker(selection: $vm.selectedItems) {
+                    if let image = vm.selectedUiImages.first {
+                        Image(uiImage: image)
                             .resizable()
                             .scaledToFit()
                     } else {
@@ -91,73 +123,58 @@ struct AddPostView:View {
                             Text("Click to Add Image")
                                 .foregroundStyle(.buttonBlue)
                                 .font(.roboto(type: .medium, size: 13))
-                            
                         }
-                        .frame(height:258)
+                        .frame(height: 258)
                     }
                 }
             }
         }
-        
-        .frame(maxWidth: .infinity,maxHeight: 258)
+        .frame(maxWidth: .infinity, maxHeight: 258)
         .background {
             GeometryReader { geo in
-                let strokeWidth: CGFloat = 1
-                let radius: CGFloat = 30
-                let insettedDiameter = radius * 2 - strokeWidth
-                let desiredDash: CGFloat = 10
-                let perimeter = (geo.size.width - strokeWidth / 2 - insettedDiameter) * 2 + // horizontal straight edges
-                (geo.size.height - strokeWidth / 2 - insettedDiameter) * 2 + // vertical straight edges
-                (insettedDiameter * .pi)
-                let floored = floor(perimeter / desiredDash)
-                let adjustedDash = (perimeter - desiredDash * floored) / floored + desiredDash
-                
-                RoundedRectangle(cornerRadius: radius)
-                    .strokeBorder(style: StrokeStyle(lineWidth: strokeWidth, dash: [adjustedDash]))
+                RoundedRectangle(cornerRadius: 30)
+                    .strokeBorder(style: StrokeStyle(lineWidth: 1, dash: [10]))
                     .foregroundColor(Color.bgLight)
             }
         }
     }
     
-    var ProductImageView:some View {
-        ZStack {
-            VStack(alignment: .leading) {
-                Text("Select Product Images")
-                    .foregroundStyle(.black)
-                    .font(.roboto(type: .medium, size: 13))
-                ScrollView(.horizontal) {
-                    LazyHStack {
-                        ForEach(0..<selectedImages.count,id:\.self) { i in
-                            ProductRowView(image: selectedImages[i])
-                        }
-                        PlusButton()
+    private var ProductImageView: some View {
+        VStack(alignment: .leading) {
+            Text("Select Product Images")
+                .foregroundStyle(.black)
+                .font(.roboto(type: .medium, size: 13))
+            ScrollView(.horizontal) {
+                LazyHStack {
+                    ForEach(vm.selectedUiImages, id: \.self) { image in
+                        ProductRowView(image: image)
                     }
+                    PlusButton()
                 }
             }
         }
         .frame(height: 151)
     }
     
-    
-    func ProductRowView(image:Image) -> some View {
+    private func ProductRowView(image: UIImage) -> some View {
         VStack {
             ZStack {
                 RoundedRectangle(cornerRadius: 7.15)
                     .strokeBorder(.buttonBlue, lineWidth: 1.0)
-                    .frame(width: 81.36,height: 77.78)
-                image
+                    .frame(width: 81.36, height: 77.78)
+                Image(uiImage: image)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 65,height: 63)
+                    .frame(width: 65, height: 63)
                     .cornerRadius(7.15)
             }
             Button {
-                
+                // Add action
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 7.15)
                         .strokeBorder(.buttonBlueLight.opacity(0.5), lineWidth: 0.98)
-                        .frame(width: 81.36,height: 29)
+                        .frame(width: 81.36, height: 29)
                     Text("Affiliate Link")
                         .foregroundStyle(.textDark.opacity(0.5))
                         .font(.roboto(type: .medium, size: 10.74))
@@ -167,24 +184,23 @@ struct AddPostView:View {
         .frame(height: 116)
     }
     
-    func PlusButton() -> some View {
+    private func PlusButton() -> some View {
         VStack {
             ZStack {
                 RoundedRectangle(cornerRadius: 7.15)
                     .strokeBorder(.buttonBlue, lineWidth: 1.0)
-                    .frame(width: 81.36,height: 77.78)
-                
-                PhotosPicker(selection: $selectedItems) {
+                    .frame(width: 81.36, height: 77.78)
+                PhotosPicker(selection: $vm.selectedItems) {
                     Image("plus-icon")
                 }
             }
             Button {
-                
+                // Add action
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 7.15)
                         .strokeBorder(.buttonBlueLight.opacity(0.5), lineWidth: 0.98)
-                        .frame(width: 81.36,height: 29)
+                        .frame(width: 81.36, height: 29)
                 }
             }
             .opacity(0)
@@ -192,82 +208,73 @@ struct AddPostView:View {
         .frame(height: 116)
     }
     
-    
-    var PostDescView:some View {
-        ZStack {
-            VStack(alignment: .leading) {
-                Text("Post Description")
-                    .foregroundStyle(.buttonBlue)
-                    .font(.roboto(type: .medium, size: 13))
+    private var PostDescView: some View {
+        VStack(alignment: .leading) {
+            Text("Post Description")
+                .foregroundStyle(.buttonBlue)
+                .font(.roboto(type: .medium, size: 13))
+            
+            ZStack {
+                RoundedRectangle(cornerRadius: 8)
+                    .strokeBorder(.textDark, lineWidth: 1.0)
                 
-                ZStack {
-                    RoundedRectangle(cornerRadius: 8)
-                        .strokeBorder(.textDark, lineWidth: 1.0)
-                    
-                    TextEditor(text: $vm.desc)
-                        .foregroundStyle(.black)
-                        .font(.roboto(type: .regular, size: 13))
-                        .padding()
-                        .disabled(vm.desc.count >= 500)
-                        
-                }
-                .frame(height: 111)
-                
-                HStack {
-                    Spacer()
-                    Text("\(vm.desc.count)/500")
-                        .foregroundStyle(.black.opacity(0.2))
-                        .font(.roboto(type: .regular, size: 10))
-                }
-                
+                TextEditor(text: $vm.desc)
+                    .foregroundStyle(.black)
+                    .font(.roboto(type: .regular, size: 13))
+                    .padding()
+                    .disabled(vm.desc.count >= 500)
+            }
+            .frame(height: 111)
+            
+            HStack {
+                Spacer()
+                Text("\(vm.desc.count)/500")
+                    .foregroundStyle(.black.opacity(0.2))
+                    .font(.roboto(type: .regular, size: 10))
             }
         }
         .frame(height: 164)
     }
     
-    var ProductTagView:some View {
-        ZStack {
-            VStack(alignment: .leading) {
-                HStack {
-                    Text("Product Tags")
-                        .foregroundStyle(.buttonBlue)
-                        .font(.roboto(type: .medium, size: 13))
-                    Text("*")
-                        .foregroundStyle(.red)
-                        .font(.roboto(type: .medium, size: 13))
-                    Spacer()
-                }
+    private var ProductTagView: some View {
+        VStack(alignment: .leading) {
+            HStack {
+                Text("Product Tags")
+                    .foregroundStyle(.buttonBlue)
+                    .font(.roboto(type: .medium, size: 13))
+                Text("*")
+                    .foregroundStyle(.red)
+                    .font(.roboto(type: .medium, size: 13))
+                Spacer()
+            }
+            
+            ZStack {
+                RoundedRectangle(cornerRadius: 8)
+                    .strokeBorder(.textDark, lineWidth: 1.0)
                 
-                
-                ZStack {
-                    RoundedRectangle(cornerRadius: 8)
-                        .strokeBorder(.textDark, lineWidth: 1.0)
-                    
-                    ScrollView(.horizontal) {
-                        HStack {
-                            ForEach(vm.tags,id:\.self) { tag in
-                                TagView(tag: tag) {
-                                    if let index = vm.tags.firstIndex(of: tag) {
-                                        vm.tags.remove(at: index)
-                                    }
+                ScrollView(.horizontal) {
+                    HStack {
+                        ForEach(vm.tags, id: \.self) { tag in
+                            TagView(tag: tag) {
+                                if let index = vm.tags.firstIndex(of: tag) {
+                                    vm.tags.remove(at: index)
                                 }
                             }
-                            
-                            TextField("Latest", text: $vm.newTag)
-                                .font(.roboto(type: .regular, size: 12))
-                                .focused($isInputActive)
                         }
-                        .padding(.horizontal)
+                        
+                        TextField("Latest", text: $vm.newTag)
+                            .font(.roboto(type: .regular, size: 12))
+                            .focused($isInputActive)
                     }
+                    .padding(.horizontal)
                 }
-                .frame(height: 50)
             }
+            .frame(height: 50)
         }
         .frame(height: 78)
     }
     
-    
-    func TagView(tag:String,onTapCross: @escaping (() -> ())) -> some View {
+    private func TagView(tag: String, onTapCross: @escaping () -> Void) -> some View {
         ZStack {
             RoundedRectangle(cornerRadius: 5)
                 .foregroundStyle(Color.bgLight.opacity(0.2))
@@ -275,35 +282,15 @@ struct AddPostView:View {
                 Text(tag)
                     .foregroundStyle(.black)
                     .font(.roboto(type: .regular, size: 12))
-                    .padding(.leading,11)
+                    .padding(.leading, 11)
                 Spacer()
-                Button(action:onTapCross, label: {
+                Button(action: onTapCross) {
                     Image("cross-icon")
-                })
-                .padding(.trailing,9)
+                }
+                .padding(.trailing, 9)
             }
-            
         }
-        .frame(width: 47 + tag.widthOfString(usingFont: UIFont.roboto(type: .regular, size: 12)),height: 26)
+        .frame(width: 47 + tag.widthOfString(usingFont: UIFont.roboto(type: .regular, size: 12)), height: 26)
     }
     
-    
-    var PostButton:some View {
-        Button {
-            vm.showSuccess.toggle()
-        } label: {
-            ZStack {
-                RoundedRectangle(cornerRadius: 7)
-                    .fill(.buttonBlue)
-                Text("Post It")
-                    .foregroundStyle(.white)
-                    .font(.roboto(type: .bold, size: 15))
-            }
-            .frame(width: 163,height: 53)
-           
-        }
-        .padding(.vertical)
-    }
 }
-
-

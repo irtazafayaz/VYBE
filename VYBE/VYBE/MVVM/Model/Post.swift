@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseFirestoreSwift
 
 struct Post: Identifiable {
     
@@ -27,4 +29,18 @@ struct Post: Identifiable {
     ]
     
     let images = Constants.postImages
+}
+
+struct FirebasePost: Identifiable, Codable {
+    @DocumentID var id: String?
+    
+    let user: UserProfile
+    let description: String
+    var postedTime = Date()
+    var updatedTime = Date()
+    var tags: [String] = [
+        "Joggers",
+        "Coffee"
+    ]
+    let images: [String]?
 }
