@@ -57,11 +57,19 @@ struct PostView: View {
             NavigationLink {
                 OtherProfileView(user: post.user)
             } label: {
-                Image("sample-user-1")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 43, height: 43)
-                    .clipShape(.circle)
+                if let imageUrl = post.user.profileImageUrl, let url = URL(string: imageUrl) {
+                    CachedAsyncImageView(url: url)
+                        .frame(width: 43, height: 43)
+                        .aspectRatio(contentMode: .fill)
+                        .clipShape(.circle)
+                        .padding(2)
+                } else {
+                    Image(systemName: "person.circle.fill")
+                        .resizable()
+                        .frame(width: 43, height: 43)
+                        .clipShape(.circle)
+                        .padding(2)
+                }
             }
             
             VStack(alignment: .leading, spacing: 0) {
@@ -93,7 +101,7 @@ struct PostView: View {
                     .rotationEffect(.degrees(90))
                     .foregroundColor(.textDark)
             }
-
+            
         }
     }
     
@@ -141,7 +149,7 @@ struct PostView: View {
                 }
             }
             
-
+            
         }
     }
     
@@ -177,12 +185,6 @@ struct PostView: View {
             Image(.heartGrayCircle)
                 .padding([.top, .trailing], 18)
             
-            if showEditIcon {
-                Image(.editIcon)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                    .padding(.leading, 15)
-                    .padding(.top, 18)
-            }
         }
     }
 }

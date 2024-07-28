@@ -17,4 +17,5 @@ struct UserProfile: Identifiable, Codable {
     var email: String    = ""
     var dob: String      = ""
     var cityAndCountry: String = ""
+    var profileImageUrl: String?
 }

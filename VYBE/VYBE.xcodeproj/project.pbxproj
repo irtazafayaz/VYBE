@@ -90,6 +90,7 @@
 		ABD4F6CA2C49BD8000C18EAD /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4F6C92C49BD8000C18EAD /* EditProfileView.swift */; };
 		ABD940E12C45E0F200824C07 /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD940E02C45E0F200824C07 /* TabbarView.swift */; };
 		D555CFF82C54448900FAFE0F /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D555CFF72C54448900FAFE0F /* ImageCache.swift */; };
+		D555CFFA2C564BA400FAFE0F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D555CFF92C564BA400FAFE0F /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -173,6 +174,7 @@
 		ABD4F6C92C49BD8000C18EAD /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		ABD940E02C45E0F200824C07 /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 		D555CFF72C54448900FAFE0F /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		D555CFF92C564BA400FAFE0F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 			children = (
 				18671E8A2C4836C40099A624 /* DottedRoundedRectangle.swift */,
 				D555CFF72C54448900FAFE0F /* ImageCache.swift */,
+				D555CFF92C564BA400FAFE0F /* ImagePicker.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -693,6 +696,7 @@
 				AB57A72B2C40911A00A17C4E /* ForgotPasswordView.swift in Sources */,
 				AB48682D2C3DD45C00F6DB97 /* SignInViewModel.swift in Sources */,
 				ABC172D52C47CFA3001948C6 /* CategoryView.swift in Sources */,
+				D555CFFA2C564BA400FAFE0F /* ImagePicker.swift in Sources */,
 				18C326C32C4AF58F0014E948 /* ManageCollectionView.swift in Sources */,
 				AB4867E92C3DC31A00F6DB97 /* Extension+Color.swift in Sources */,
 				AB48680F2C3DCC4300F6DB97 /* AppButton.swift in Sources */,

@@ -53,16 +53,22 @@ struct ProfileTopHeader: View {
     func ProfilePhoto() -> some View {
         ZStack {
             
-            CircleDashedBorder(numberOfArcs: 4)
+            Circle()
+                .fill(.black)
             
-            Image(.sampleProduct)
-                .resizable()
-                .clipShape(.circle)
-                .padding(5)
-            
-            CircleDashedBorder(numberOfArcs: 8)
-                .padding(5)
-
+            if let image = user.profileImageUrl, let url = URL(string: image) {
+                CachedAsyncImageView(url: url)
+                    .clipShape(.circle)
+                    .padding(2)
+                    .foregroundStyle(.white)
+            } else {
+                Image(systemName: "person.circle.fill")
+                    .resizable()
+                    .clipShape(.circle)
+                    .foregroundStyle(.white)
+                    .padding(2)
+            }
+           
         }
         .frame(width: 88, height: 88)
     }
@@ -111,4 +117,8 @@ struct ProfileTopHeader: View {
         }
         .multilineTextAlignment(.center)
     }
+}
+
+#Preview {
+    ProfileTopHeader(user: UserProfile(id: "aa", profileImageUrl: ""), followersCount: 1, favoritesCount: 1)
 }

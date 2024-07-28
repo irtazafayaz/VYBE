@@ -12,7 +12,9 @@ struct EditProfileView: View {
     @Environment(\.dismiss) private var dismiss
     @State var user: UserProfile
     @State private var isSaving = false
+    @State private var openImagePicker = false
     @State private var errorMessage: String? = nil
+    @State private var selectedImage: UIImage? = nil
     
     var body: some View {
         ScrollView {
@@ -33,6 +35,9 @@ struct EditProfileView: View {
             .padding(.vertical, 25)
         }
         .navigationBarBackButtonHidden(true)
+        .sheet(isPresented: $openImagePicker) {
+            ImagePicker(image: $selectedImage, isShown: $openImagePicker) {}
+        }
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 ChevronBackButton(dismiss: dismiss, title: user.fullName)
@@ -54,6 +59,8 @@ struct EditProfileView: View {
         }
     }
     
+    // MARK: - Edit Image View -
+
     @ViewBuilder
     func ImageView() -> some View {
         ZStack(alignment: .bottomTrailing) {
@@ -61,18 +68,35 @@ struct EditProfileView: View {
             Circle()
                 .fill(.white)
             
-            Image(.samplePost1)
-                .resizable()
-                .clipShape(.circle)
-                .padding(2)
+            if let image = selectedImage {
+                Image(uiImage: image)
+                    .resizable()
+                    .clipShape(.circle)
+                    .padding(2)
+            } else if let imageUrl = user.profileImageUrl, let url = URL(string: imageUrl) {
+                CachedAsyncImageView(url: url)
+            } else {
+                Image(systemName: "person.circle.fill")
+                    .resizable()
+                    .clipShape(.circle)
+                    .padding(2)
+            }
             
-            Image(.cameraCircle)
-                .resizable()
-                .frame(width: 36, height: 36)
-                .offset(x: 2, y: 2)
+            Button {
+                openImagePicker.toggle()
+                
+            } label: {
+                Image(.cameraCircle)
+                    .resizable()
+                    .frame(width: 36, height: 36)
+                    .offset(x: 2, y: 2)
+            }
+            
         }
         .frame(width: 114, height: 114)
     }
+    
+    // MARK: - Edit Text Fields -
     
     @ViewBuilder
     func EditTextField(title: String, text: Binding<String>) -> some View {
@@ -94,11 +118,16 @@ struct EditProfileView: View {
         .padding(.horizontal, 15)
     }
     
+    // MARK: - Save Action
+
     private func saveProfile() {
         isSaving = true
-        
         Task { @MainActor in
             do {
+                if let image = selectedImage {
+                    let url = try await PostManager.shared.uploadImage(image, path: "/profileImage/\(user.userName)")
+                    user.profileImageUrl = url.absoluteString
+                }
                 try await UserManager.shared.updateUser(userProfile: user)
                 isSaving = false
                 dismiss()
@@ -108,4 +137,8 @@ struct EditProfileView: View {
             }
         }
     }
+}
+
+#Preview {
+    EditProfileView(user: UserProfile(id: "32"))
 }

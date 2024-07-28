@@ -74,7 +74,7 @@ class PostManager: ObservableObject {
         }
     }
     
-    func uploadImage(_ image: UIImage, path: String = "", completion: @escaping (Result<URL, Error>) -> Void) {
+    private func uploadImage(_ image: UIImage, path: String = "", completion: @escaping (Result<URL, Error>) -> Void) {
         guard let imageData = image.jpegData(compressionQuality: 0.8) else {
             completion(.failure(NSError(domain: "ImageConversion", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to convert image to data"])))
             return
@@ -104,6 +104,19 @@ class PostManager: ObservableObject {
                 }
                 
                 completion(.success(downloadURL))
+            }
+        }
+    }
+    
+    func uploadImage(_ image: UIImage, path: String) async throws -> URL {
+        return try await withCheckedThrowingContinuation { continuation in
+            PostManager.shared.uploadImage(image, path: path) { result in
+                switch result {
+                case .success(let url):
+                    continuation.resume(returning: url)
+                case .failure(let error):
+                    continuation.resume(throwing: error)
+                }
             }
         }
     }

@@ -16,7 +16,7 @@ class AddViewModel: ObservableObject {
     @Published var showSuccess = false
     @Published var tags = ["Women","Trending","Wathces"]
     @Published var newTag = ""
-    @Published var desc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu nunc fermentum diam sed scelerisque id. Montes, massa facilisi pharetra nam."
+    @Published var desc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     @Published var selectedItems = [PhotosPickerItem]()
     @Published var selectedUiImages = [UIImage]()
     
@@ -29,11 +29,8 @@ class AddViewModel: ObservableObject {
     
     func addNewPost() async {
         guard let user = UserManager.shared.userProfile else { return }
-        
-        let imageUrls = await collectImageUrls(for: user.userName)
-        
+        let imageUrls = await collectImageUrls(for: "/posts/\(user.userName)")
         let post = FirebasePost(user: user, description: desc, images: imageUrls)
-        
         do {
             try await PostManager.shared.addPost(post: post)
             DispatchQueue.main.async {
@@ -49,7 +46,7 @@ class AddViewModel: ObservableObject {
             for image in selectedUiImages {
                 group.addTask {
                     do {
-                        return try await self.uploadImage(image, path: path)
+                        return try await PostManager.shared.uploadImage(image, path: path)
                     } catch {
                         print("Failed to upload image: \(error)")
                         return nil
@@ -67,18 +64,6 @@ class AddViewModel: ObservableObject {
         }
     }
     
-    private func uploadImage(_ image: UIImage, path: String) async throws -> URL {
-        return try await withCheckedThrowingContinuation { continuation in
-            PostManager.shared.uploadImage(image, path: path) { result in
-                switch result {
-                case .success(let url):
-                    continuation.resume(returning: url)
-                case .failure(let error):
-                    continuation.resume(throwing: error)
-                }
-            }
-        }
-    }
 }
 
 
