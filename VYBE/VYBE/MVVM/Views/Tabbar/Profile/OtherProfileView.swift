@@ -29,7 +29,7 @@ struct OtherProfileView: View {
                 Divider()
             }
             
-            ProfileToolBar(fullName: user.fullName)
+//            ProfileToolBar(fullName: user.fullName)
         }
     }
     

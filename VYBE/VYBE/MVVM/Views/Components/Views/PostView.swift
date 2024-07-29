@@ -9,17 +9,13 @@ import Foundation
 import SwiftUI
 
 struct PostView: View {
-    
-    let post: FirebasePost
-    
-    let showSeeMore: Bool
-    
-    var showUserView: Bool = true
-    
     @State private var isSeeMorePressed = false
-    
+
+    let post: FirebasePost
+    let showSeeMore: Bool
+    var showUserView: Bool = true
     private let columns = Array(repeating: GridItem(), count: 3)
-    
+
     var numberOfSmallImages: Range<Int> {
         let fullRange = 1 ..< (post.images?.count ?? 0)
         let halfRange = 1 ..< 3
