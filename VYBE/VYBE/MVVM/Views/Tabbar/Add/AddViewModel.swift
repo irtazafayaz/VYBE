@@ -9,6 +9,9 @@ import Foundation
 import Combine
 import PhotosUI
 import SwiftUI
+import Firebase
+import FirebaseFirestoreSwift
+import FirebaseStorage
 
 class AddViewModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
@@ -30,7 +33,8 @@ class AddViewModel: ObservableObject {
     func addNewPost() async {
         guard let user = UserManager.shared.userProfile else { return }
         let imageUrls = await collectImageUrls(for: "/posts/\(user.userName)")
-        let post = FirebasePost(user: user, description: desc, images: imageUrls)
+        let userRef = Firestore.firestore().collection("users").document(user.id)
+        let post = FirebasePost(userRef: userRef, user: user, description: desc, images: imageUrls)
         do {
             try await PostManager.shared.addPost(post: post)
             DispatchQueue.main.async {

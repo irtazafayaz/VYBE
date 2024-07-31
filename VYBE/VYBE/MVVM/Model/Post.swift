@@ -34,6 +34,7 @@ struct Post: Identifiable {
 struct FirebasePost: Identifiable, Codable {
     @DocumentID var id: String?
     
+    let userRef: DocumentReference
     let user: UserProfile
     let description: String
     var postedTime = Date()

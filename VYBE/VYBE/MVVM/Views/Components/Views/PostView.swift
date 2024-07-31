@@ -10,12 +10,13 @@ import SwiftUI
 
 struct PostView: View {
     @State private var isSeeMorePressed = false
-
+    @State private var userProfile: UserProfile? = nil
+    
     let post: FirebasePost
     let showSeeMore: Bool
     var showUserView: Bool = true
     private let columns = Array(repeating: GridItem(), count: 3)
-
+    
     var numberOfSmallImages: Range<Int> {
         let fullRange = 1 ..< (post.images?.count ?? 0)
         let halfRange = 1 ..< 3
@@ -44,6 +45,20 @@ struct PostView: View {
                 .padding(.horizontal, 15)
                 .padding(.bottom, 13)
         }
+        .onAppear {
+            fetchUserProfile()
+        }
+        
+    }
+    
+    func fetchUserProfile() {
+        post.userRef.getDocument { document, error in
+            if let document = document, document.exists {
+                self.userProfile = try? document.data(as: UserProfile.self)
+            } else {
+                print("User not found")
+            }
+        }
     }
     
     @ViewBuilder
@@ -53,7 +68,7 @@ struct PostView: View {
             NavigationLink {
                 OtherProfileView(user: post.user)
             } label: {
-                if let imageUrl = post.user.profileImageUrl, let url = URL(string: imageUrl) {
+                if let imageUrl = userProfile?.profileImageUrl, let url = URL(string: imageUrl) {
                     CachedAsyncImageView(url: url)
                         .frame(width: 43, height: 43)
                         .aspectRatio(contentMode: .fill)

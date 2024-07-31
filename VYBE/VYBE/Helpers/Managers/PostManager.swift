@@ -74,6 +74,17 @@ class PostManager: ObservableObject {
         }
     }
     
+    func fetchUserDetails(userRef: DocumentReference, completion: @escaping (UserProfile?) -> Void) {
+        userRef.getDocument { document, error in
+            if let document = document, document.exists {
+                let user = try? document.data(as: UserProfile.self)
+                completion(user)
+            } else {
+                completion(nil)
+            }
+        }
+    }
+    
     private func uploadImage(_ image: UIImage, path: String = "", completion: @escaping (Result<URL, Error>) -> Void) {
         guard let imageData = image.jpegData(compressionQuality: 0.8) else {
             completion(.failure(NSError(domain: "ImageConversion", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to convert image to data"])))
