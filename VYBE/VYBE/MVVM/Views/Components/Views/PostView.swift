@@ -70,6 +70,7 @@ struct PostView: View {
             } label: {
                 if let imageUrl = userProfile?.profileImageUrl, let url = URL(string: imageUrl) {
                     CachedAsyncImageView(url: url)
+                        .scaledToFill()
                         .frame(width: 43, height: 43)
                         .aspectRatio(contentMode: .fill)
                         .clipShape(.circle)
@@ -144,14 +145,14 @@ struct PostView: View {
                     ImageView(firstImage, width: .width, height: .width * 0.61, showEditIcon: true)
                 }
                 
-                if postImages.count > 3 {
+                if postImages.count > 1 {
                     LazyVGrid(columns: columns) {
                         ForEach(numberOfSmallImages, id: \.self) { index in
                             if let image = postImages[safe: index] {
                                 
                                 let width = getColumnWidth(horizontalPadding: 15, spacing: 15, numberOfColumns: 3)
                                 
-                                ImageView(image, width: width, height: width * 1.1)
+                                ImageView(image, width: width, height: width * 1.1, heartPadding: 10)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                             }
                         }
@@ -180,7 +181,7 @@ struct PostView: View {
             Button {
                 self.isSeeMorePressed.toggle()
             } label: {
-                Text("See More")
+                Text(isSeeMorePressed ? "See Less" : "See More")
                     .font(.roboto(type: .bold, size: 9))
                     .foregroundStyle(.buttonBlue)
             }
@@ -188,14 +189,20 @@ struct PostView: View {
     }
     
     @ViewBuilder
-    func ImageView(_ image: String, width: CGFloat, height: CGFloat, showEditIcon: Bool = false) -> some View {
+    func ImageView(_ image: String, width: CGFloat, height: CGFloat, showEditIcon: Bool = false, heartPadding: CGFloat = 18) -> some View {
         ZStack(alignment: .topTrailing) {
             CachedAsyncImageView(url: URL(string: image)!)
+                .scaledToFill()
                 .frame(width: width, height: height)
+                .clipped()
             
             Image(.heartGrayCircle)
-                .padding([.top, .trailing], 18)
+                .padding([.top, .trailing], heartPadding)
             
         }
     }
+}
+
+#Preview {
+    PostView(post: mockPosts[0], showSeeMore: true)
 }

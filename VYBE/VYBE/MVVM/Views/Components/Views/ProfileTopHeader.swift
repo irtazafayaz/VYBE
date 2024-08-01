@@ -58,14 +58,17 @@ struct ProfileTopHeader: View {
             
             if let image = user.profileImageUrl, let url = URL(string: image) {
                 CachedAsyncImageView(url: url)
+                    .scaledToFill()
+                    .frame(width: 100, height: 100)
                     .clipShape(.circle)
                     .padding(2)
                     .foregroundStyle(.white)
             } else {
                 Image(systemName: "person.circle.fill")
                     .resizable()
+                    .scaledToFill()
+                    .frame(width: 100, height: 100)
                     .clipShape(.circle)
-                    .foregroundStyle(.white)
                     .padding(2)
             }
            
