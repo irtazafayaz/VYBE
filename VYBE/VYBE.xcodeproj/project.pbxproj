@@ -91,6 +91,7 @@
 		ABD940E12C45E0F200824C07 /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD940E02C45E0F200824C07 /* TabbarView.swift */; };
 		D555CFF82C54448900FAFE0F /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D555CFF72C54448900FAFE0F /* ImageCache.swift */; };
 		D555CFFA2C564BA400FAFE0F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D555CFF92C564BA400FAFE0F /* ImagePicker.swift */; };
+		D55868D92C5C31CE000C5FF7 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55868D82C5C31CE000C5FF7 /* MockData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -175,6 +176,7 @@
 		ABD940E02C45E0F200824C07 /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 		D555CFF72C54448900FAFE0F /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		D555CFF92C564BA400FAFE0F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		D55868D82C5C31CE000C5FF7 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +283,7 @@
 				AB8225B92C4684DC00927B69 /* NavItem.swift */,
 				ABD4F6C12C49AC2700C18EAD /* Collection.swift */,
 				18C326BD2C4AF5700014E948 /* NotificationModel.swift */,
+				D55868D82C5C31CE000C5FF7 /* MockData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -675,6 +678,7 @@
 				ABD05BB52C46FF3F0091BD53 /* HomeViewModel.swift in Sources */,
 				ABC173812C486FFE001948C6 /* PostViewFull.swift in Sources */,
 				AB31855C2C3C8E4B0020B9DC /* VYBEApp.swift in Sources */,
+				D55868D92C5C31CE000C5FF7 /* MockData.swift in Sources */,
 				18E964B32C48329D00A1DF3E /* AddViewModel.swift in Sources */,
 				AB4868302C3DD4A000F6DB97 /* Paths.swift in Sources */,
 				ABC172DB2C47ECDE001948C6 /* Constants.swift in Sources */,
