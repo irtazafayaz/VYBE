@@ -22,6 +22,7 @@ class AddViewModel: ObservableObject {
     @Published var desc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     @Published var selectedItems = [PhotosPickerItem]()
     @Published var selectedUiImages = [UIImage]()
+    @Published var affiliateLinks: [Int: String] = [:]
     
     func addTag() {
         if !newTag.isEmpty {
@@ -32,9 +33,9 @@ class AddViewModel: ObservableObject {
     
     func addNewPost() async {
         guard let user = UserManager.shared.userProfile else { return }
-        let imageUrls = await collectImageUrls(for: "/posts/\(user.userName)")
+        let imageLinks = await collectImageLinks(for: "/posts/\(user.userName)")
         let userRef = Firestore.firestore().collection("users").document(user.id)
-        let post = FirebasePost(userRef: userRef, user: user, description: desc, images: imageUrls)
+        let post = FirebasePost(userRef: userRef, user: user, description: desc, images: imageLinks)
         do {
             try await PostManager.shared.addPost(post: post)
             DispatchQueue.main.async {
@@ -45,12 +46,14 @@ class AddViewModel: ObservableObject {
         }
     }
     
-    private func collectImageUrls(for path: String) async -> [String] {
-        await withTaskGroup(of: URL?.self) { group in
-            for image in selectedUiImages {
+    private func collectImageLinks(for path: String) async -> [ImageLink] {
+        await withTaskGroup(of: ImageLink?.self) { group in
+            for (index, image) in selectedUiImages.enumerated() {
                 group.addTask {
                     do {
-                        return try await PostManager.shared.uploadImage(image, path: path)
+                        let url = try await PostManager.shared.uploadImage(image, path: "\(path)/\(UUID().uuidString)")
+                        let affiliateLink = self.affiliateLinks[index]
+                        return ImageLink(url: url.absoluteString, affiliateLink: affiliateLink)
                     } catch {
                         print("Failed to upload image: \(error)")
                         return nil
@@ -58,16 +61,13 @@ class AddViewModel: ObservableObject {
                 }
             }
             
-            var urls: [String] = []
-            for await url in group {
-                if let url = url {
-                    urls.append(url.absoluteString)
+            var imageLinks: [ImageLink] = []
+            for await imageLink in group {
+                if let imageLink = imageLink {
+                    imageLinks.append(imageLink)
                 }
             }
-            return urls
+            return imageLinks
         }
     }
-    
 }
-
-

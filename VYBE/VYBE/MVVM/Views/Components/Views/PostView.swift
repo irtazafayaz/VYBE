@@ -142,7 +142,12 @@ struct PostView: View {
             
             if let postImages = post.images {
                 if let firstImage = postImages.first {
-                    ImageView(firstImage, width: .width, height: .width * 0.61, showEditIcon: true)
+                    ImageView(firstImage.url ?? "", width: .width, height: .width * 0.61, showEditIcon: true)
+                        .onTapGesture {
+                            if let link = firstImage.affiliateLink, let url = URL(string: link) {
+                                UIApplication.shared.open(url)
+                            }
+                        }
                 }
                 
                 if postImages.count > 1 {
@@ -152,8 +157,13 @@ struct PostView: View {
                                 
                                 let width = getColumnWidth(horizontalPadding: 15, spacing: 15, numberOfColumns: 3)
                                 
-                                ImageView(image, width: width, height: width * 1.1, heartPadding: 10)
+                                ImageView(image.url ?? "", width: width, height: width * 1.1, heartPadding: 10)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    .onTapGesture {
+                                        if let link = image.affiliateLink, let url = URL(string: link) {
+                                            UIApplication.shared.open(url)
+                                        }
+                                    }
                             }
                         }
                     }

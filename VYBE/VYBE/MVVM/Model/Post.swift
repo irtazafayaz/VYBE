@@ -31,6 +31,7 @@ struct Post: Identifiable {
     let images = Constants.postImages
 }
 
+// MARK: - Firebase Post
 struct FirebasePost: Identifiable, Codable {
     @DocumentID var id: String?
     
@@ -43,5 +44,11 @@ struct FirebasePost: Identifiable, Codable {
         "Joggers",
         "Coffee"
     ]
-    let images: [String]?
+    let images: [ImageLink]?
+}
+
+struct ImageLink: Identifiable, Codable {
+    var id = UUID()
+    let url: String?
+    let affiliateLink: String?
 }

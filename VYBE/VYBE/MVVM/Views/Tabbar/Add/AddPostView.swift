@@ -108,7 +108,7 @@ struct AddPostView: View {
         }
         .padding(.vertical)
     }
-
+    
     private var AddImageView: some View {
         ZStack {
             HStack {
@@ -157,7 +157,10 @@ struct AddPostView: View {
     }
     
     private func ProductRowView(image: UIImage) -> some View {
+        
         VStack {
+            let imageIndex = vm.selectedUiImages.firstIndex(of: image) ?? -1
+            
             ZStack {
                 RoundedRectangle(cornerRadius: 7.15)
                     .strokeBorder(.buttonBlue, lineWidth: 1.0)
@@ -175,9 +178,16 @@ struct AddPostView: View {
                     RoundedRectangle(cornerRadius: 7.15)
                         .strokeBorder(.buttonBlueLight.opacity(0.5), lineWidth: 0.98)
                         .frame(width: 81.36, height: 29)
-                    Text("Affiliate Link")
-                        .foregroundStyle(.textDark.opacity(0.5))
-                        .font(.roboto(type: .medium, size: 10.74))
+                    TextField("Affiliate Link", text: Binding(
+                        get: {
+                            vm.affiliateLinks[imageIndex] ?? ""
+                        },
+                        set: { newValue in
+                            vm.affiliateLinks[imageIndex] = newValue
+                        }
+                    ))
+                    .foregroundStyle(.textDark.opacity(0.5))
+                    .font(.roboto(type: .medium, size: 10.74))
                 }
             }
         }

@@ -60,8 +60,8 @@ let mockPosts: [FirebasePost] = [
         updatedTime: Date(timeIntervalSinceNow: -1800),
         tags: ["Joggers", "Coffee"],
         images: [
-            "https://img.freepik.com/premium-photo/brazilian-woman-wearing-vacation-outfit_52683-130994.jpg?ga=GA1.1.943601403.1690795971",
-            "https://img.freepik.com/premium-photo/waterfall-canyon-with-green-tree-foreground_899894-18811.jpg?w=2000",
+            ImageLink(url: "https://img.freepik.com/premium-photo/brazilian-woman-wearing-vacation-outfit_52683-130994.jpg?ga=GA1.1.943601403.1690795971", affiliateLink: nil),
+            ImageLink(url: "https://img.freepik.com/premium-photo/waterfall-canyon-with-green-tree-foreground_899894-18811.jpg?w=2000", affiliateLink: "https://example.com/affiliate-link-1")
         ]
     ),
     FirebasePost(
@@ -73,8 +73,8 @@ let mockPosts: [FirebasePost] = [
         updatedTime: Date(timeIntervalSinceNow: -3600),
         tags: ["Coffee"],
         images: [
-            "https://img.freepik.com/premium-photo/brazilian-woman-wearing-vacation-outfit_52683-130994.jpg?ga=GA1.1.943601403.1690795971",
-            "https://img.freepik.com/premium-photo/waterfall-canyon-with-green-tree-foreground_899894-18811.jpg?w=2000"
+            ImageLink(url: "https://img.freepik.com/premium-photo/brazilian-woman-wearing-vacation-outfit_52683-130994.jpg?ga=GA1.1.943601403.1690795971", affiliateLink: "https://example.com/affiliate-link-2"),
+            ImageLink(url: "https://img.freepik.com/premium-photo/waterfall-canyon-with-green-tree-foreground_899894-18811.jpg?w=2000", affiliateLink: nil)
         ]
     ),
     FirebasePost(
@@ -86,8 +86,8 @@ let mockPosts: [FirebasePost] = [
         updatedTime: Date(timeIntervalSinceNow: -5400),
         tags: ["Joggers"],
         images: [
-            "https://img.freepik.com/premium-photo/brazilian-woman-wearing-vacation-outfit_52683-130994.jpg?ga=GA1.1.943601403.1690795971",
-            "https://img.freepik.com/premium-photo/waterfall-canyon-with-green-tree-foreground_899894-18811.jpg?w=2000"
+            ImageLink(url: "https://img.freepik.com/premium-photo/brazilian-woman-wearing-vacation-outfit_52683-130994.jpg?ga=GA1.1.943601403.1690795971", affiliateLink: nil),
+            ImageLink(url: "https://img.freepik.com/premium-photo/waterfall-canyon-with-green-tree-foreground_899894-18811.jpg?w=2000", affiliateLink: "https://example.com/affiliate-link-3")
         ]
     )
 ]
