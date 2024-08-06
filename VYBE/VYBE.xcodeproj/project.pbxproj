@@ -92,6 +92,7 @@
 		D555CFF82C54448900FAFE0F /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D555CFF72C54448900FAFE0F /* ImageCache.swift */; };
 		D555CFFA2C564BA400FAFE0F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D555CFF92C564BA400FAFE0F /* ImagePicker.swift */; };
 		D55868D92C5C31CE000C5FF7 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55868D82C5C31CE000C5FF7 /* MockData.swift */; };
+		D596030E2C5E76B60013FADD /* PostManager+Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = D596030D2C5E76B60013FADD /* PostManager+Favourites.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -177,6 +178,7 @@
 		D555CFF72C54448900FAFE0F /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		D555CFF92C564BA400FAFE0F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		D55868D82C5C31CE000C5FF7 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		D596030D2C5E76B60013FADD /* PostManager+Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostManager+Favourites.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,6 +306,7 @@
 				AB48683D2C3DDCD000F6DB97 /* AuthManager.swift */,
 				AB57A7242C407C3400A17C4E /* UserManager.swift */,
 				ABD05BBE2C4732730091BD53 /* PostManager.swift */,
+				D596030D2C5E76B60013FADD /* PostManager+Favourites.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -681,6 +684,7 @@
 				D55868D92C5C31CE000C5FF7 /* MockData.swift in Sources */,
 				18E964B32C48329D00A1DF3E /* AddViewModel.swift in Sources */,
 				AB4868302C3DD4A000F6DB97 /* Paths.swift in Sources */,
+				D596030E2C5E76B60013FADD /* PostManager+Favourites.swift in Sources */,
 				ABC172DB2C47ECDE001948C6 /* Constants.swift in Sources */,
 				D555CFF82C54448900FAFE0F /* ImageCache.swift in Sources */,
 				AB48680C2C3DC5E000F6DB97 /* Extension+Font.swift in Sources */,

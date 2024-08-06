@@ -52,3 +52,7 @@ struct ImageLink: Identifiable, Codable {
     let url: String?
     let affiliateLink: String?
 }
+
+struct FavouritePosts: Codable {
+    var posts: [DocumentReference]
+}

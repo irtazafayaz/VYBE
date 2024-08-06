@@ -12,7 +12,7 @@ struct PostViewFull: View {
     
     @Environment(\.dismiss) private var dismiss
     
-    let post: Post
+    let post: FirebasePost
     
     var body: some View {
         ScrollView {
@@ -21,30 +21,9 @@ struct PostViewFull: View {
                 
                 Divider()
                     .padding(.top, 7)
-  
-                // TODO: Irtaza
-                
-//                PostView(post: post, showSeeMore: false, showUserView: false)
-                
-                SeeMorePosts()
-                    .padding(.horizontal, 15)
-                    .padding(.bottom, 10)
-                
-                LazyVGrid(columns: Array(repeating: GridItem(), count: 2), content: {
-                    ForEach(PostManager.shared.posts) { post in
-                        
-                        let width = getColumnWidth(horizontalPadding: 30, spacing: 15, numberOfColumns: 2)
-                        
-                        if let postImage = post.images.randomElement() {
-                            Image(postImage)
-                                .resizable()
-                                .frame(width: width, height: width * 1.5)
-                                .aspectRatio(contentMode: .fill)
-                                .clipShape(.rect(cornerRadius: 7))
-                        }
-                    }
-                })
-                .padding(.horizontal, 15)
+                  
+                PostView(post: post, showSeeMore: false, showUserView: false)
+
             }
             .navigationBarBackButtonHidden(true)
             .toolbar(content: {
@@ -53,12 +32,7 @@ struct PostViewFull: View {
                         HStack(spacing: 12) {
                             
                             ChevronBackButton(dismiss: dismiss)
-                            
-                            Image(post.userImage)
-                                .resizable()
-                                .frame(width: 34, height: 34)
-                                .clipShape(.circle)
-                            
+
                             BlueRobotoText(title: post.user.fullName, fontWeight: .medium, fontSize: 14)
                             
                             Spacer()
@@ -68,11 +42,6 @@ struct PostViewFull: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Menu {
-                        
-                        Button(action: {}, label: {
-                            MenuButton(title: "Edit Post", systemImage: "square.and.pencil")
-                        })
-                        
                         Button(action: {}, label: {
                             MenuButton(title: "Delete Post", systemImage: "trash")
                         })

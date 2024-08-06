@@ -11,7 +11,7 @@ import SwiftUI
 struct FavoritesView: View {
     
     @Environment(\.dismiss) private var dismiss
-    
+    @ObservedObject private var postManager = PostManager.shared
     @StateObject private var viewModel = FavoritesViewModel()
     
     let imgWidth: CGFloat = .width
@@ -28,41 +28,16 @@ struct FavoritesView: View {
                         .underline()
                         .padding(.top, 18)
                     
-                    HStack {
-                        TabItem(title: "Post", tabIndex: 0)
-                        
-                        TabItem(title: "Item", tabIndex: 1)
-                    }
-                    .padding(.top, 22)
-                    
-                    TabIndicator()
-                    
                     LazyVGrid(columns: Array(repeating: GridItem(spacing: 18), count: 3), spacing: 23, content: {
                         
                         let width = getColumnWidth(horizontalPadding: 37, spacing: 18, numberOfColumns: 3)
                         
-                        if viewModel.index == 0 {
-                            ForEach(0 ..< viewModel.favoritePosts.count, id: \.self) { index in
-                                let post = viewModel.favoriteItems[index]
-//                                NavigationLink {
-//                                    PostViewFull(post: post)
-//                                } label: {
-//                                    if let postImage = post.images.first {
-//                                        Image(postImage)
-//                                            .resizable()
-//                                            .frame(width: width, height: width)
-//                                            .aspectRatio(contentMode: .fill)
-//                                            .clipShape(.rect(cornerRadius: 5))
-//                                    }
-//                                }
-                            }
-                        }
-                        else {
-                            ForEach(0 ..< viewModel.favoriteItems.count, id: \.self) { index in
-                                let item = viewModel.favoriteItems[index]
-                                if let itemImage = item.images.randomElement() {
-                                    Image(itemImage)
-                                        .resizable()
+                        ForEach(postManager.favouritePosts, id: \.id) { post in
+                            NavigationLink {
+                                                                    PostViewFull(post: post)
+                            } label: {
+                                if let images = post.images, let urlString = images.first?.url, let url = URL(string: urlString) {
+                                    CachedAsyncImageView(url: url)
                                         .frame(width: width, height: width)
                                         .aspectRatio(contentMode: .fill)
                                         .clipShape(.rect(cornerRadius: 5))
@@ -84,6 +59,12 @@ struct FavoritesView: View {
                     Button(action: {}, label: {
                         Image(.search)
                     })
+                }
+            }
+            .task {
+                do {
+                    try? await postManager.fetchFavouritePosts()
+
                 }
             }
         }

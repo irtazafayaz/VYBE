@@ -12,11 +12,14 @@ import FirebaseStorage
 
 class PostManager: ObservableObject {
     let postsRef = Firestore.firestore().collection("posts")
+    let favouritesRef = Firestore.firestore().collection("favourite-posts")
+    
     static let shared = PostManager()
     private let storageRef = Storage.storage().reference()
     
     @Published var posts: [Post] = []
     @Published var allPosts: [FirebasePost] = []
+    @Published var favouritePosts: [FirebasePost] = []
     @Published var isLoading = false
     
     private var listenerRegistration: ListenerRegistration?
@@ -24,6 +27,7 @@ class PostManager: ObservableObject {
     private init() {
         self.fetchPosts()
         self.listenForPosts()
+        
     }
     
     deinit {

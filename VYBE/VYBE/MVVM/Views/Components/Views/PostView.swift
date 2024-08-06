@@ -205,9 +205,15 @@ struct PostView: View {
                 .scaledToFill()
                 .frame(width: width, height: height)
                 .clipped()
+            Button {
+                Task {
+                    try? await PostManager.shared.markPostAsFavourites(post: post)
+                }
+            } label: {
+                Image(.heartGrayCircle)
+                    .padding([.top, .trailing], heartPadding)
+            }
             
-            Image(.heartGrayCircle)
-                .padding([.top, .trailing], heartPadding)
             
         }
     }
